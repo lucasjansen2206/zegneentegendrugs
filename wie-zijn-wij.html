@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Zeg Neen Tegen Drugs is een Belgische vzw voor drugspreventie. Sinds meer dan 30 jaar werken wij samen met Foundation for a Drug-Free World om jongeren te beschermen via educatie.">
+  <link rel="canonical" href="wie-zijn-wij.html">
+  <meta name="theme-color" content="#1B2A3D">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Zeg Neen Tegen Drugs">
+  <meta property="og:title" content="Wie zijn wij — Drugspreventie vzw in België | Zeg Neen Tegen Drugs">
+  <meta property="og:description" content="Zeg Neen Tegen Drugs is een Belgische vzw voor drugspreventie. Sinds meer dan 30 jaar werken wij samen met Foundation for a Drug-Free World om jongeren te beschermen via educatie.">
+  <meta property="og:url" content="https://zegneentegendrugsv2.vercel.app/wie-zijn-wij.html">
+  <meta property="og:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wie zijn wij — Drugspreventie vzw in België | Zeg Neen Tegen Drugs">
+  <meta name="twitter:description" content="Zeg Neen Tegen Drugs is een Belgische vzw voor drugspreventie. Sinds meer dan 30 jaar werken wij samen met Foundation for a Drug-Free World om jongeren te beschermen via educatie.">
+  <meta name="twitter:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <!-- /SEO meta -->
+  <link rel="icon" type="image/png" href="img/logo-sntd-white.png">
+  <link rel="apple-touch-icon" href="img/logo-sntd-white.png">
+  <title data-i18n="wie._title">Wie zijn wij — Zeg Neen Tegen Drugs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --color-navy:       #1B2A3D;
+      --color-teal:       #65BDD3;
+      --color-teal-dark:  #4A9BB5;
+      --color-teal-light: #F0F8FA;
+      --color-yellow:     #EFFF8D;
+      --color-bg:         #FFFFFF;
+      --color-surface:    #F5F5F5;
+      --color-text:       #1A1A1A;
+      --color-muted:      #888888;
+      --color-border:     rgba(0,0,0,0.10);
+      --font-heading:     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:        'Open Sans', sans-serif;
+      --nav-height:       80px;
+      --space-xs:  8px;
+      --space-sm:  16px;
+      --space-md:  32px;
+      --space-lg:  64px;
+      --space-xl:  100px;
+      --space-xxl: 140px;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .animate { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animate.visible { opacity: 1; transform: none; }
+    .animate:nth-child(2) { transition-delay: 0.1s; }
+    .animate:nth-child(3) { transition-delay: 0.2s; }
+    .animate:nth-child(4) { transition-delay: 0.3s; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000; background: #fff; border-bottom: 1px solid var(--color-border); }
+    .nav__inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-md); }
+    .nav__logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-navy); }
+    .nav__logo-img { width: 40px; height: 40px; object-fit: contain; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-md); flex: 1; justify-content: center;}
+    .nav__links a { font-family: var(--font-body); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text); position: relative; transition: opacity var(--transition); }
+    .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-teal); transition: width var(--transition); }
+    .nav__links a:hover::after { width: 100%; } .nav__links a.active::after { width: 100%; transition: none; }
+    .nav__cta { background: var(--color-teal) !important; color: #fff !important; padding: 10px 20px; }
+    .nav__cta::after { display: none !important; }
+    .nav__cta:hover { background: var(--color-teal-dark) !important; }
+    .nav__burger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--color-navy); }
+    .nav__right { display: flex; align-items: center; gap: 12px; }
+    @media (max-width: 900px) {
+      .nav__burger { display: block; }
+      .nav__right .nav__cta { padding: 8px 14px; font-size: 11px; }
+      .nav__links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; flex-direction: column; padding: var(--space-md); gap: var(--space-sm); border-bottom: 1px solid var(--color-border); }
+      .nav__links.open { display: flex; }
+    }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border: none; transition: all var(--transition); }
+    .btn--primary { background: var(--color-teal); color: #fff; }
+    .btn--primary:hover { background: var(--color-teal-dark); }
+    .btn--navy { background: var(--color-navy); color: #fff; }
+    .btn--navy:hover { background: #253549; }
+    .btn--outline { background: transparent; color: var(--color-navy); border: 1.5px solid var(--color-navy); }
+    .btn--outline:hover { background: var(--color-navy); color: #fff; }
+    .btn--ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.6); }
+    .btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* PAGE HERO */
+    .page-hero { position: relative; background: var(--color-navy); padding: calc(var(--nav-height) + var(--space-xxl)) var(--space-md) var(--space-xl); overflow: hidden; }
+    .page-hero__bg { position: absolute; inset: 0; background: url('img/actie-07.jpg') center/cover no-repeat; opacity: 0.85; z-index: 0; }
+    .page-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,61,0.20) 0%, rgba(27,42,61,0.55) 100%); }
+    .page-hero__inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
+    .page-hero__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 10px; }
+    .page-hero__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(40px, 5vw, 72px); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.05; letter-spacing: 0.02em; margin-bottom: var(--space-sm); }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 640px; }
+
+    /* SECTION */
+    .section { padding: var(--space-xl) var(--space-md); }
+    .section--surface { background: var(--color-surface); }
+    .section--navy { background: var(--color-navy); }
+    .section--navy .section__overline { color: rgba(255,255,255,0.5); }
+    .section--navy .section__overline::before { background: rgba(255,255,255,0.3); }
+    .section--navy .section__title { color: #fff; }
+    .section--navy p { color: rgba(255,255,255,0.7); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-xs); display: flex; align-items: center; gap: 10px; }
+    .section__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .section__num { font-family: var(--font-heading); font-size: 10px; color: var(--color-teal); letter-spacing: 0.1em; vertical-align: super; margin-right: 4px; }
+    .section__title { font-family: var(--font-heading); font-size: clamp(26px, 3vw, 40px); font-weight: 700; text-transform: uppercase; color: var(--color-navy); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: var(--space-sm); }
+
+    /* TWO-COL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
+    .two-col--reverse .two-col__image { order: 2; }
+    .two-col__image { aspect-ratio: 4/3; overflow: hidden; background: var(--color-navy); }
+    .two-col__image img { width: 100%; height: 100%; object-fit: cover; }
+    .two-col__content p { font-size: 16px; color: var(--color-muted); line-height: 1.8; margin-bottom: var(--space-md); }
+    .two-col__content p:last-of-type { margin-bottom: var(--space-lg); }
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; gap: var(--space-md); }
+      .two-col__image { order: -1; aspect-ratio: 16/10; }
+      .two-col--reverse .two-col__image { order: -1; }
+      .two-col__content { text-align: center; }
+      .two-col__content .btn { display: inline-flex; }
+    }
+
+    /* VALUES */
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); }
+    .value-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-lg) var(--space-md); transition: border-color var(--transition), box-shadow var(--transition); }
+    .value-card:hover { border-color: var(--color-teal); box-shadow: 0 8px 40px rgba(0,0,0,0.07); }
+    .value-card__num { font-family: var(--font-heading); font-size: 11px; font-weight: 600; color: var(--color-teal); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-sm); }
+    .value-card__title { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: var(--space-sm); }
+    .value-card__body { font-size: 15px; color: var(--color-muted); line-height: 1.75; }
+
+    /* TEAM GRID */
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); }
+    .team-grid__item { overflow: hidden; aspect-ratio: 4/3; }
+    .team-grid__item--wide { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    .team-grid__item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition); }
+    .team-grid__item:hover img { transform: scale(1.03); }
+    .team-masonry { column-count: 4; column-gap: 10px; margin-top: var(--space-lg); }
+    .team-masonry img { width: 100%; display: block; margin: 0 0 10px; break-inside: avoid; -webkit-column-break-inside: avoid; filter: saturate(0.95); transition: transform var(--transition), filter var(--transition); }
+    .team-masonry img:hover { transform: scale(1.02); filter: saturate(1.12); }
+    @media (max-width: 1024px) { .team-masonry { column-count: 3; } }
+    @media (max-width: 640px) { .team-masonry { column-count: 2; column-gap: 8px; } .team-masonry img { margin-bottom: 8px; } }
+
+    /* PARTNERS */
+    .partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); margin-top: var(--space-lg); }
+    .partner-box { aspect-ratio: 3/2; background: var(--color-surface); display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); overflow: hidden; transition: border-color var(--transition); }
+    .partner-box:hover { border-color: var(--color-teal); }
+    .partner-box img { max-width: 70%; max-height: 70%; object-fit: contain; }
+
+    /* CTA BLOCK */
+    .cta-block { background: var(--color-navy); padding: var(--space-xl) var(--space-md); text-align: center; }
+    .cta-block__inner { max-width: 720px; margin: 0 auto; }
+    .cta-block h2 { font-family: var(--font-heading); font-size: clamp(28px, 3vw, 42px); font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: var(--space-sm); line-height: 1.1; letter-spacing: 0.02em; }
+    .cta-block p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: var(--space-md); }
+    .cta-block__btns { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER -- Zypsy-style */
+    .footer { background: var(--color-navy); padding: 80px var(--space-md) 32px; color: #fff; position: relative; }
+    .footer__top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-xl); padding-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .footer__newsletter p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 24px; }
+    .footer__newsletter-form { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 8px; transition: border-color var(--transition); }
+    .footer__newsletter-form:focus-within { border-bottom-color: var(--color-teal); }
+    .footer__newsletter-form input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-family: var(--font-body); font-size: 14px; padding: 8px 0; }
+    .footer__newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer__newsletter-form button { background: transparent; border: 0; color: #fff; cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 6px; transition: color var(--transition); padding: 0; }
+    .footer__newsletter-form button:hover { color: var(--color-teal); }
+    .footer__col-heading { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+    .footer__nav { display: flex; flex-direction: column; gap: 12px; }
+    .footer__nav a, .footer__contact a { font-family: var(--font-body); font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.85); transition: color var(--transition); line-height: 1.4; }
+    .footer__nav a:hover, .footer__contact a:hover { color: var(--color-teal); }
+    .footer__contact { display: flex; flex-direction: column; gap: 12px; }
+    .footer__contact span { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .footer__brand { max-width: 1280px; margin: 40px auto 20px; }
+    .footer__brand-logo { font-family: var(--font-heading); font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; line-height: 1; letter-spacing: 0.02em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .footer__bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,0.4); transition: color var(--transition); }
+    .footer__bottom a:hover { color: rgba(255,255,255,0.85); }
+    .footer__legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer__lang { display: flex; gap: 12px; font-family: var(--font-body); font-weight: 500; }
+    .footer__lang a.active { color: rgba(255,255,255,0.85); }
+    @media (max-width: 1024px) {
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__newsletter { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .footer { padding: 60px var(--space-sm) 24px; }
+      .footer__top { grid-template-columns: 1fr; gap: var(--space-md); padding-bottom: 48px; }
+      .footer__brand { margin: 48px auto 24px; }
+      .footer__bottom { font-size: 12px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="img/logo-sntd.png" data-i18n-alt="nav.logo" alt="Zeg Neen Tegen Drugs"><span data-i18n="nav.logo">Zeg Neen Tegen Drugs</span></a>
+      <ul class="nav__links">
+        <li><a href="feiten.html" data-i18n="nav.facts">Ken de Feiten</a></li>
+        <li><a href="resources.html" data-i18n="nav.downloads">Downloads &amp; Tools</a></li>
+        <li><a href="betrokken.html" data-i18n="nav.join">Doe Mee</a></li>
+        <li><a href="wie-zijn-wij.html" class="active" data-i18n="nav.about">Over Ons</a></li>
+      </ul>
+      <div class="nav__right">
+        <a class="nav__cta" href="doneer.html" data-i18n="nav.donate">Doneer</a>
+        <button class="nav__burger" data-i18n-aria="nav.burger" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__inner">
+      <p class="page-hero__overline" data-i18n="wie.hero.overline">Onze organisatie</p>
+      <h1 data-i18n="wie.hero.title">Wie zijn wij</h1>
+      <p data-i18n="wie.hero.sub">Zeg Neen Tegen Drugs is een vzw in Belgi&#235; die inzet op drugspreventie door educatie. Wij geloven dat mensen, gewapend met de feiten, betere en bewuste keuzes kunnen maken.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-lg);" data-i18n-html="wie.mission.overline"><span class="section__num">01</span> Onze missie</p>
+      <div class="two-col">
+        <div class="two-col__content animate">
+          <h2 class="section__title" data-i18n="wie.mission.title">FEITEN DELEN. LEVENS VERANDEREN.</h2>
+          <p data-i18n="wie.mission.p1">Zeg Neen Tegen Drugs VZW is een vzw voor drugspreventie. We geven feitelijke informatie aan jongeren en volwassenen, want niemand wordt graag de les gelezen -- zeker tieners niet. Met de feiten in handen kunnen ze zelf bewust kiezen om geen drugs te gebruiken.</p>
+          <p data-i18n="wie.mission.p2">Al meer dan 25 jaar organiseren we infostands met onze boekjes 'De Feiten over Drugs', laten we jongeren de simulatiebril testen, en geven we lezingen aan scholen en ouders. Daarnaast rijden we fietstochten voor een drugsvrije, sportieve levensstijl -- eenvoudig en doeltreffend, voor iedereen.</p>
+          <p data-i18n="wie.mission.p3">Als lid van de internationale Foundation for a Drug-Free World maken we deel uit van een netwerk in meer dan 180 landen, dat al 100 miljoen informatieboekjes verspreidde en campagne voerde via 500+ televisiezenders. Samen helpen we jongeren de feiten kennen voor ze hun keuze maken.</p>
+          <a href="betrokken.html#vrijwilliger" class="btn btn--navy" data-i18n="wie.mission.cta">Doe mee</a>
+        </div>
+        <div class="two-col__image animate" style="aspect-ratio: 3/4; max-height: 640px;">
+          <img src="img/mission-portrait.jpg" data-i18n-alt="wie.team.alt1" alt="Zeg Neen Tegen Drugs in actie">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAT ANDEREN ZEGGEN -->
+  <section class="section section--surface">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-md);" data-i18n-html="wie.values.overline"><span class="section__num">02</span> Wat anderen zeggen</p>
+      <h2 class="section__title animate" data-i18n="wie.values.title">Wat anderen zeggen</h2>
+      <div class="testimonials-grid" style="margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-md);">
+        <div class="testimonial-card animate" style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+          <p class="testimonial-card__quote" style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Dankzij de inzet en expertise van de vrijwilligers werd het een sterke en boeiende preventie-actie die meer dan 50 leerlingen wist te engageren. Ook de informatieve pakketten waren een waardevolle aanvulling. We kijken ernaar uit om dit binnen twee jaar opnieuw te organiseren."</p>
+          <div class="testimonial-card__author" style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Leerkracht</div>
+        </div>
+        <div class="testimonial-card animate" style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+          <p class="testimonial-card__quote" style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Ik heb dankzij de infosessie en de boekjes echt mijn ogen geopend voor de gevolgen van drugs en het leven van iemand met een verslaving. Die kennis heeft mij geholpen om nee te zeggen toen ik ermee in contact kwam. Dankjewel aan het hele team!"</p>
+          <div class="testimonial-card__author" style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Vrouw, 30 jaar</div>
+        </div>
+        <div class="testimonial-card animate" style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+          <p class="testimonial-card__quote" style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Door de informatie die ik kreeg tijdens de sensibiliseringsactie heb ik beslist om geen drugs te gebruiken en mijn vrienden te helpen om ervan af te raken."</p>
+          <div class="testimonial-card__author" style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Studente, 17 jaar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM IN ACTION -->
+  <section class="section">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-md);" data-i18n-html="wie.team.overline"><span class="section__num">03</span> Ons team</p>
+      <h2 class="section__title animate" data-i18n="wie.team.title">In actie</h2>
+      <div class="team-masonry animate">
+        <img src="img/actie-01.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-09.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-03.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-05.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-07.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-02.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-11.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-13.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-04.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-10.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-06.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-14.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-08.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+        <img src="img/actie-12.jpg" alt="Zeg Neen Tegen Drugs in actie" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BLOCK -->
+  <section class="cta-block">
+    <div class="cta-block__inner">
+      <h2 data-i18n="wie.cta.title">Wil je ons werk steunen?</h2>
+      <p data-i18n="wie.cta.sub">Vrijwilligers, scholen, ouders, bedrijven — iedereen kan een verschil maken. Kies hoe jij bijdraagt.</p>
+      <div class="cta-block__btns">
+        <a href="doneer.html" class="btn btn--primary" data-i18n="wie.cta.donate">Doneer</a>
+        <a href="betrokken.html#vrijwilliger" class="btn btn--ghost" data-i18n="wie.cta.volunteer">Word vrijwilliger</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__newsletter">
+        <h3>Schrijf je in voor onze nieuwsbrief</h3>
+        <p>Updates over onze acties, activiteiten en het laatste nieuws rond drugspreventie.</p>
+        <form class="footer__newsletter-form" onsubmit="handleFooterSignup(event)">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
+          <button type="submit">Inschrijven <span aria-hidden="true">&rarr;</span></button>
+        </form>
+      </div>
+      <div>
+        <p class="footer__col-heading">Site</p>
+        <nav class="footer__nav">
+          <a href="index.html">Home</a>
+          <a href="feiten.html">Ken de Feiten</a>
+          <a href="resources.html">Downloads &amp; Tools</a>
+          <a href="betrokken.html">Doe Mee</a>
+          <a href="wie-zijn-wij.html">Over Ons</a>
+          <a href="doneer.html">Doneer</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Volg ons</p>
+        <nav class="footer__nav">
+          <a href="https://www.instagram.com/ditesnonaladrogue.be/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/drugfreeworldbelgium/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC2AlsxMEs65IKBbh7viOM4Q" target="_blank" rel="noopener">YouTube</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Contact</p>
+        <div class="footer__contact">
+          <a href="mailto:info@zegneentegendrugs.be">info@zegneentegendrugs.be</a>
+          <span>België</span>
+          <span style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;margin-top:8px;">Drugspreventie door educatie.<br>In samenwerking met Foundation for a Drug-Free World.</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__brand"><div class="footer__brand-logo">Zeg Neen Tegen Drugs</div></div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Zeg Neen Tegen Drugs VZW. Alle rechten voorbehouden. Het logo van de Stichting voor een Drugsvrije Wereld is eigendom van deze stichting en wordt met toestemming gebruikt.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacybeleid</a>
+        <a href="cookies.html">Cookiebeleid</a>
+      </div>
+      </div>
+  </footer>
+  <script>
+    async function handleFooterSignup(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const btn = form.querySelector('button');
+      if (!email) return;
+      btn.disabled = true;
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Versturen...';
+      try {
+        const r = await fetch('/api/notion-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'newsletter', fields: { email, source: 'footer' } }) });
+        if (!r.ok) throw new Error();
+        form.innerHTML = '<span style="color:var(--color-teal);font-size:14px;">Bedankt — je staat op de lijst.</span>';
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+        alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+    }
+  </script>
+
+
+  <script>
+    (function(){
+      const burger = document.querySelector('.nav__burger');
+      const links = document.querySelector('.nav__links');
+      if (!burger || !links) return;
+      burger.addEventListener('click', (e) => { e.stopPropagation(); links.classList.toggle('open'); });
+      document.addEventListener('click', (e) => {
+        if (links.classList.contains('open') && !links.contains(e.target) && !burger.contains(e.target)) links.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') links.classList.remove('open'); });
+      links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    })();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
+  <script src="js/capture.js"></script>
+  <script src="motion.js"></script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

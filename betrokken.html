@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Vraag een workshop aan, word vrijwilliger, organiseer een infostand of bestel het onderwijspakket. Help mee aan een drugvrij België — gratis en in jouw regio.">
+  <link rel="canonical" href="betrokken.html">
+  <meta name="theme-color" content="#1B2A3D">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Zeg Neen Tegen Drugs">
+  <meta property="og:title" content="Doe Mee — Workshop, vrijwilliger of infostand | Zeg Neen Tegen Drugs">
+  <meta property="og:description" content="Vraag een workshop aan, word vrijwilliger, organiseer een infostand of bestel het onderwijspakket. Help mee aan een drugvrij België — gratis en in jouw regio.">
+  <meta property="og:url" content="https://zegneentegendrugsv2.vercel.app/betrokken.html">
+  <meta property="og:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Doe Mee — Workshop, vrijwilliger of infostand | Zeg Neen Tegen Drugs">
+  <meta name="twitter:description" content="Vraag een workshop aan, word vrijwilliger, organiseer een infostand of bestel het onderwijspakket. Help mee aan een drugvrij België — gratis en in jouw regio.">
+  <meta name="twitter:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <!-- /SEO meta -->
+  <link rel="icon" type="image/png" href="img/logo-sntd-white.png">
+  <link rel="apple-touch-icon" href="img/logo-sntd-white.png">
+  <title data-i18n="betrokken._title">Doe Mee — Zeg Neen Tegen Drugs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>  <style>
+    :root {
+      --color-navy:       #1B2A3D;
+      --color-teal:       #65BDD3;
+      --color-teal-dark:  #4A9BB5;
+      --color-teal-light: #F0F8FA;
+      --color-yellow:     #EFFF8D;
+      --color-bg:         #FFFFFF;
+      --color-surface:    #F5F5F5;
+      --color-text:       #1A1A1A;
+      --color-muted:      #888888;
+      --color-border:     rgba(0,0,0,0.10);
+      --font-heading:     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:        'Open Sans', sans-serif;
+      --nav-height:       80px;
+      --space-xs:  8px;
+      --space-sm:  16px;
+      --space-md:  32px;
+      --space-lg:  64px;
+      --space-xl:  100px;
+      --space-xxl: 140px;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .nav__links, .nav__links li, .footer__nav, .footer__nav li { list-style: none; }
+    .action-card[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
+    .animate { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animate.visible { opacity: 1; transform: none; }
+    .animate:nth-child(2) { transition-delay: 0.1s; }
+    .animate:nth-child(3) { transition-delay: 0.2s; }
+    .animate:nth-child(4) { transition-delay: 0.3s; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000; background: #fff; border-bottom: 1px solid var(--color-border); }
+    .nav__inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-md); }
+    .nav__logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-navy); }
+    .nav__logo-img { width: 40px; height: 40px; object-fit: contain; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-md); flex: 1; justify-content: center; list-style: none; padding: 0; margin: 0; }
+    .nav__links li { list-style: none; }
+    .nav__links a { font-family: var(--font-body); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text); position: relative; transition: opacity var(--transition); }
+    .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-teal); transition: width var(--transition); }
+    .nav__links a:hover::after { width: 100%; } .nav__links a.active::after { width: 100%; transition: none; }
+    .nav__cta { background: var(--color-teal) !important; color: #fff !important; padding: 10px 20px; }
+    .nav__cta::after { display: none !important; }
+    .nav__cta:hover { background: var(--color-teal-dark) !important; }
+    .nav__burger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--color-navy); }
+    .nav__right { display: flex; align-items: center; gap: 12px; }
+    @media (max-width: 900px) {
+      .nav__burger { display: block; }
+      .nav__right .nav__cta { padding: 8px 14px; font-size: 11px; }
+      .nav__links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; flex-direction: column; padding: var(--space-md); gap: var(--space-sm); border-bottom: 1px solid var(--color-border); }
+      .nav__links.open { display: flex; }
+    }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border: none; transition: all var(--transition); }
+    .btn--primary { background: var(--color-teal); color: #fff; }
+    .btn--primary:hover { background: var(--color-teal-dark); }
+    .btn--navy { background: var(--color-navy); color: #fff; }
+    .btn--navy:hover { background: #253549; }
+    .btn--outline { background: transparent; color: var(--color-navy); border: 1.5px solid var(--color-navy); }
+    .btn--outline:hover { background: var(--color-navy); color: #fff; }
+    .btn--full { width: 100%; }
+
+    /* PAGE HERO */
+    .page-hero { position: relative; background: var(--color-navy); padding: calc(var(--nav-height) + var(--space-xxl)) var(--space-md) var(--space-xl); overflow: hidden; }
+    .page-hero__bg { position: absolute; inset: 0; background: url('img/actie-12.jpg') center/cover no-repeat; opacity: 0.85; z-index: 0; }
+    .page-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,61,0.20) 0%, rgba(27,42,61,0.55) 100%); }
+    .page-hero__inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
+    .page-hero__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 10px; }
+    .page-hero__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(40px, 5vw, 72px); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.05; letter-spacing: 0.02em; margin-bottom: var(--space-sm); }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 560px; }
+
+    /* SECTION */
+    .section { padding: var(--space-xl) var(--space-md); }
+    .section--surface { background: var(--color-surface); }
+    .section--yellow { background: var(--color-navy); }
+    .section--yellow .section__overline { color: rgba(255,255,255,0.5); }
+    .section--yellow .section__overline::before { background: rgba(255,255,255,0.3); }
+    .section--yellow .section__title { color: #fff; }
+    .section--yellow p { color: rgba(255,255,255,0.7); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-xs); display: flex; align-items: center; gap: 10px; }
+    .section__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .section__title { font-family: var(--font-heading); font-size: clamp(26px, 3vw, 40px); font-weight: 700; text-transform: uppercase; color: var(--color-navy); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: var(--space-sm); }
+    .section__num { font-family: var(--font-heading); font-size: 10px; color: var(--color-teal); letter-spacing: 0.1em; vertical-align: super; margin-right: 4px; }
+
+    /* PROGRESSIVE DISCLOSURE */
+    .action-form__more { margin: 12px 0; }
+    .action-form__more summary { font-size: 12px; color: var(--color-muted); cursor: pointer; padding: 8px 0; user-select: none; transition: color var(--transition); }
+    .action-form__more summary:hover { color: var(--color-teal-dark); }
+    .action-form__more[open] summary { color: var(--color-text); margin-bottom: 4px; }
+
+    /* ACTION CARDS GRID */
+    .action-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm); }
+    .action-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-md); display: flex; flex-direction: column; transition: border-color var(--transition), box-shadow var(--transition); }
+    .action-card:hover { border-color: var(--color-teal); box-shadow: 0 8px 40px rgba(0,0,0,0.07); }
+    .action-card__num { font-family: var(--font-heading); font-size: 11px; font-weight: 600; color: var(--color-teal); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-sm); }
+    .action-card__icon { width: 42px; height: 42px; background: var(--color-teal-light); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-sm); }
+    .action-card__icon svg { width: 21px; height: 21px; stroke: var(--color-teal); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .action-card__title { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: var(--space-sm); }
+    .action-card__body { font-size: 14px; color: var(--color-muted); line-height: 1.6; flex: 1; margin-bottom: var(--space-sm); }
+    .action-card__includes { margin-bottom: var(--space-md); }
+    .action-card__includes-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-muted); margin-bottom: 8px; }
+    .action-card__includes ul { display: flex; flex-direction: column; gap: 6px; }
+    .action-card__includes li { font-size: 13px; color: var(--color-text); display: flex; align-items: center; gap: 8px; }
+    .action-card__includes li::before { content: ''; width: 6px; height: 6px; background: var(--color-teal); border-radius: 50%; flex-shrink: 0; }
+
+    /* INLINE FORMS in cards */
+    .action-form { margin-top: auto; }
+    .action-form .field { margin-bottom: 10px; }
+    .action-form .field input,
+    .action-form .field textarea,
+    .action-form .field select { width: 100%; padding: 11px 13px; border: 1.5px solid var(--color-border); font-family: var(--font-body); font-size: 13px; color: var(--color-text); background: #fff; outline: none; transition: border-color var(--transition); }
+    .action-form .field input:focus,
+    .action-form .field textarea:focus,
+    .action-form .field select:focus { border-color: var(--color-teal); }
+    .action-form .field textarea { min-height: 80px; resize: vertical; }
+    .action-form .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .action-form__check { display: flex; align-items: flex-start; gap: 8px; margin: 8px 0; }
+    .action-form__check input { width: 15px; height: 15px; margin-top: 2px; accent-color: var(--color-teal); flex-shrink: 0; }
+    .action-form__check label { font-size: 12px; color: var(--color-muted); line-height: 1.5; }
+    .action-success { display: none; text-align: center; padding: var(--space-md) 0; }
+    .action-success p { font-size: 15px; color: var(--color-text); line-height: 1.7; }
+    .action-success strong { color: var(--color-teal); }
+
+    /* PLEDGE COUNTER */
+    .pledge-counter { background: var(--color-teal); padding: var(--space-md) var(--space-md); text-align: center; }
+    .pledge-counter__inner { max-width: 480px; margin: 0 auto; }
+    .pledge-counter__num { font-family: var(--font-heading); font-size: 52px; font-weight: 700; color: #fff; line-height: 1; }
+    .pledge-counter__label { font-size: 14px; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+
+    /* PLEDGE SECTION */
+    .pledge-section { padding: var(--space-xl) var(--space-md); background: var(--color-bg); }
+    .pledge-section__inner { max-width: 860px; margin: 0 auto; }
+    .pledge-section__head { text-align: center; margin-bottom: var(--space-lg); }
+    .pledge-section__head .section__overline { justify-content: center; }
+    .pledge-text-box { background: var(--color-teal-light); border-left: 4px solid var(--color-teal); padding: var(--space-lg) var(--space-md); margin-bottom: var(--space-lg); }
+    .pledge-text-box__label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); }
+    .pledge-text-box blockquote { font-family: var(--font-heading); font-size: clamp(16px, 2vw, 22px); font-weight: 600; color: var(--color-navy); line-height: 1.6; letter-spacing: 0.02em; }
+    .pledge-form { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-lg); }
+    .pledge-form__title { font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: var(--space-md); }
+    .pledge-form .field { margin-bottom: 14px; }
+    .pledge-form .field label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-muted); margin-bottom: 6px; }
+    .pledge-form .field input { width: 100%; padding: 13px 14px; border: 1.5px solid var(--color-border); font-family: var(--font-body); font-size: 14px; color: var(--color-text); outline: none; transition: border-color var(--transition); background: #fff; }
+    .pledge-form .field input:focus { border-color: var(--color-teal); }
+    .pledge-form .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .signature-section { margin: var(--space-md) 0; }
+    .signature-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-muted); margin-bottom: 8px; }
+    .signature-canvas-wrap { position: relative; border: 1.5px solid var(--color-border); background: #fff; transition: border-color var(--transition); }
+    .signature-canvas-wrap:hover { border-color: var(--color-teal); }
+    #signature-canvas { display: block; width: 100%; height: 160px; cursor: crosshair; touch-action: none; }
+    .signature-actions { display: flex; justify-content: flex-end; margin-top: 6px; }
+    .sig-clear { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted); background: none; border: none; cursor: pointer; transition: color var(--transition); }
+    .sig-clear:hover { color: var(--color-navy); }
+    .signature-hint { font-size: 12px; color: var(--color-muted); margin-top: 4px; }
+    .pledge-check { display: flex; align-items: flex-start; gap: 10px; margin: var(--space-sm) 0; }
+    .pledge-check input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--color-teal); flex-shrink: 0; }
+    .pledge-check label { font-size: 13px; color: var(--color-muted); line-height: 1.6; }
+    .pledge-privacy { font-size: 11px; color: var(--color-muted); text-align: center; margin-top: var(--space-sm); }
+
+    /* PLEDGE SUCCESS */
+    .success-screen { display: none; text-align: center; padding: var(--space-xl) var(--space-md); }
+    .success-screen.show { display: block; }
+    .success-icon { width: 80px; height: 80px; background: var(--color-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); }
+    .success-icon svg { width: 36px; height: 36px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .success-screen h2 { font-family: var(--font-heading); font-size: 36px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; margin-bottom: var(--space-sm); }
+    .success-screen p { font-size: 16px; color: var(--color-muted); max-width: 440px; margin: 0 auto var(--space-lg); line-height: 1.7; }
+    .share-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border: 1.5px solid var(--color-border); background: #fff; color: var(--color-text); transition: all var(--transition); }
+    .share-btn:hover { border-color: var(--color-navy); background: var(--color-navy); color: #fff; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+    .testimonial-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-md); border-top: 3px solid var(--color-teal); }
+    .testimonial-card__quote { font-size: 15px; color: var(--color-text); line-height: 1.75; margin-bottom: var(--space-sm); font-style: italic; }
+    .testimonial-card__author { font-family: var(--font-heading); font-size: 13px; font-weight: 600; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.06em; }
+    .testimonial-card__role { font-size: 12px; color: var(--color-muted); margin-top: 3px; }
+
+    /* FOOTER -- Zypsy-style */
+    .footer { background: var(--color-navy); padding: 80px var(--space-md) 32px; color: #fff; position: relative; }
+    .footer__top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-xl); padding-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .footer__newsletter p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 24px; }
+    .footer__newsletter-form { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 8px; transition: border-color var(--transition); }
+    .footer__newsletter-form:focus-within { border-bottom-color: var(--color-teal); }
+    .footer__newsletter-form input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-family: var(--font-body); font-size: 14px; padding: 8px 0; }
+    .footer__newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer__newsletter-form button { background: transparent; border: 0; color: #fff; cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 6px; transition: color var(--transition); padding: 0; }
+    .footer__newsletter-form button:hover { color: var(--color-teal); }
+    .footer__col-heading { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+    .footer__nav { display: flex; flex-direction: column; gap: 12px; }
+    .footer__nav a, .footer__contact a { font-family: var(--font-body); font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.85); transition: color var(--transition); line-height: 1.4; }
+    .footer__nav a:hover, .footer__contact a:hover { color: var(--color-teal); }
+    .footer__contact { display: flex; flex-direction: column; gap: 12px; }
+    .footer__contact span { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .footer__brand { max-width: 1280px; margin: 40px auto 20px; }
+    .footer__brand-logo { font-family: var(--font-heading); font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; line-height: 1; letter-spacing: 0.02em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .footer__bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,0.4); transition: color var(--transition); }
+    .footer__bottom a:hover { color: rgba(255,255,255,0.85); }
+    .footer__legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer__lang { display: flex; gap: 12px; font-family: var(--font-body); font-weight: 500; }
+    .footer__lang a.active { color: rgba(255,255,255,0.85); }
+    @media (max-width: 1024px) {
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__newsletter { grid-column: 1 / -1; }
+      .action-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer { padding: 60px var(--space-sm) 24px; }
+      .footer__top { grid-template-columns: 1fr; gap: var(--space-md); padding-bottom: 48px; }
+      .footer__brand { margin: 48px auto 24px; }
+      .footer__bottom { font-size: 12px; }
+      .action-card { padding: var(--space-md); }
+      .field-row { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: clamp(32px, 9vw, 48px); }
+      .section { padding: 60px var(--space-sm); }
+      .action-card__title { font-size: 20px; }
+    }
+
+    /* Google Places Autocomplete dropdown — render above sticky nav, match form aesthetic */
+    .pac-container { z-index: 9999; font-family: var(--font-body); border: 1px solid var(--color-border); box-shadow: 0 8px 32px rgba(0,0,0,0.12); border-radius: 4px; margin-top: 4px; }
+    .pac-item { padding: 8px 12px; font-size: 14px; cursor: pointer; }
+    .pac-item:hover { background: var(--color-teal-light); }
+    .pac-item-query { font-weight: 600; color: var(--color-navy); }
+  </style>
+  <script>
+    /* Google Maps Places Autocomplete callback (runs once script loads) */
+    function initStadAutocomplete() {
+      if (!window.google || !google.maps || !google.maps.places) return;
+      document.querySelectorAll('input[name="stad"]').forEach(input => {
+        const ac = new google.maps.places.Autocomplete(input, {
+          types: ['(cities)'],
+          componentRestrictions: { country: ['be','nl','fr','lu'] },
+          fields: ['formatted_address','geometry','name']
+        });
+        ac.addListener('place_changed', () => {
+          const p = ac.getPlace();
+          input.value = p.formatted_address || p.name || input.value;
+        });
+      });
+    }
+    window.initStadAutocomplete = initStadAutocomplete;
+  </script>
+  <!-- TODO: replace YOUR_GOOGLE_MAPS_API_KEY with a real key (cloud.google.com -> Maps JS API + Places API enabled, restricted by HTTP referrer) -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initStadAutocomplete"></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="img/logo-sntd.png" data-i18n-alt="nav.logo" alt="Zeg Neen Tegen Drugs"><span data-i18n="nav.logo">Zeg Neen Tegen Drugs</span></a>
+      <ul class="nav__links">
+        <li><a href="feiten.html" data-i18n="nav.facts">Ken de Feiten</a></li>
+        <li><a href="resources.html" data-i18n="nav.downloads">Downloads &amp; Tools</a></li>
+        <li><a href="betrokken.html" class="active" data-i18n="nav.join">Doe Mee</a></li>
+        <li><a href="wie-zijn-wij.html" data-i18n="nav.about">Over Ons</a></li>
+      </ul>
+      <div class="nav__right">
+        <a class="nav__cta" href="doneer.html" data-i18n="nav.donate">Doneer</a>
+        <button class="nav__burger" data-i18n-aria="nav.burger" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__inner">
+      <p class="page-hero__overline" data-i18n="betrokken.hero.overline">Samen sterk</p>
+      <h1 data-i18n="betrokken.hero.title">Doe Mee</h1>
+      <p data-i18n="betrokken.hero.sub">Drugspreventie werkt alleen samen. Of je nu leerkracht, ouder, student of gewoon ge&#239;nteresseerd bent — er is een manier voor jou om bij te dragen.</p>
+    </div>
+  </section>
+
+  <!-- 4 ACTION CARDS -->
+  <section class="section">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-lg);" data-i18n-html="betrokken.actions.overline"><span class="section__num">01</span> Kies jouw bijdrage</p>
+      <div class="action-grid">
+
+        <!-- 01 ONDERWIJSPAKKET -->
+        <div class="action-card animate" id="onderwijspakket">
+          <div style="width:100%;aspect-ratio:16/9;max-height:170px;overflow:hidden;margin-bottom:var(--space-sm);">
+            <img src="img/onderwijspakket.png" data-i18n-alt="betrokken.edu.img_alt" alt="Het onderwijspakket" style="width:100%;height:100%;object-fit:contain;display:block;background:var(--color-surface);padding:var(--space-md);">
+          </div>
+          <div class="action-card__num" data-i18n="betrokken.edu.num">01 — Onderwijs</div>
+          <div class="action-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="action-card__title" data-i18n="betrokken.edu.title">Onderwijspakket</h3>
+          <p class="action-card__body" data-i18n="betrokken.edu.body">Het pakket is gratis beschikbaar voor leerkrachten, opvoeders, begeleiders en iedereen die een groep jongeren (vanaf 11 jaar) wil informeren over drugs.</p>
+          <div class="action-card__includes">
+            <div class="action-card__includes-label" data-i18n="betrokken.edu.includes_label">Het pakket bevat</div>
+            <ul>
+              <li data-i18n="betrokken.edu.inc1">Informatieboekjes over de meest gebruikte drugs voor 24 leerlingen</li>
+              <li data-i18n="betrokken.edu.inc2">Handleiding met instructies en lesplannen</li>
+              <li data-i18n="betrokken.edu.inc3">DVD met documentaire &amp; preventiespotjes</li>
+              <li data-i18n="betrokken.edu.inc4">Posters</li>
+              <li data-i18n="betrokken.edu.inc5">Beschikbaar in het Nederlands, Frans &amp; Engels</li>
+            </ul>
+          </div>
+          <div class="action-form">
+            <form onsubmit="submitForm(event, 'onderwijs')">
+              <div class="field-row">
+                <div class="field"><input type="text" name="voornaam" data-i18n-placeholder="betrokken.edu.ph_first" placeholder="Voornaam" required></div>
+                <div class="field"><input type="text" name="achternaam" data-i18n-placeholder="betrokken.edu.ph_last" placeholder="Naam" required></div>
+              </div>
+              <div class="field"><input type="email" name="email" data-i18n-placeholder="betrokken.edu.ph_email" placeholder="E-mailadres" required></div>
+              <div class="field"><input type="tel" name="gsm" data-i18n-placeholder="betrokken.edu.ph_phone" placeholder="GSM-nummer" required></div>
+              <div class="field"><input type="text" name="organisatie" data-i18n-placeholder="betrokken.edu.ph_org" placeholder="Organisatie" required></div>
+              <details class="action-form__more">
+                <summary data-i18n="betrokken.edu.address_label">Leveradres (optioneel — invullen indien je het pakket fysiek wilt ontvangen)</summary>
+                <div class="field" style="margin-top:12px;"><input type="text" name="straat" data-i18n-placeholder="betrokken.edu.ph_street" placeholder="Straatnaam"></div>
+                <div class="field-row">
+                  <div class="field"><input type="text" name="huisnummer" data-i18n-placeholder="betrokken.edu.ph_housenum" placeholder="Huis- en busnummer"></div>
+                  <div class="field"><input type="text" name="postcode" data-i18n-placeholder="betrokken.edu.ph_postcode" placeholder="Postcode"></div>
+                </div>
+                <div class="field"><input type="text" name="stad" data-i18n-placeholder="betrokken.edu.ph_city" placeholder="Stad"></div>
+              </details>
+              <div class="field"><textarea name="bericht" data-i18n-placeholder="betrokken.edu.ph_message" placeholder="Extra informatie / bericht"></textarea></div>
+              <div class="action-form__check">
+                <input type="checkbox" id="nl-check" name="newsletter" checked>
+                <label for="nl-check" data-i18n="betrokken.edu.checkbox">Ja, ik wil me inschrijven op de nieuwsbrief !</label>
+              </div>
+              <div class="action-form__check">
+                <input type="checkbox" id="edu-privacy" name="privacy_consent" required>
+                <label for="edu-privacy" data-i18n-html="form.privacy_consent">Ik geef de toestemming om mijn gegevens te bewaren en verwerken zoals aangegeven in onze <a href="privacy.html" style="color:var(--color-teal);">privacy statement</a>.</label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" data-i18n="betrokken.edu.submit">Onderwijspakket aanvragen</button>
+            </form>
+            <div class="action-success" id="success-onderwijs">
+              <p data-i18n-html="betrokken.edu.success">Bedankt! Je ontvangt het onderwijspakket binnenkort in je mailbox.<br><strong>Controleer ook je spamfolder.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 LEZING -->
+        <div class="action-card animate" id="lezing">
+          <div style="width:100%;aspect-ratio:16/9;max-height:170px;overflow:hidden;margin-bottom:var(--space-sm);">
+            <img src="img/foto-lezing.jpeg" data-i18n-alt="betrokken.lecture.img_alt" alt="Workshop / lezing in een organisatie" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div class="action-card__num" data-i18n="betrokken.lecture.num">02 — Workshop</div>
+          <div class="action-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="action-card__title" data-i18n="betrokken.lecture.title">Gratis workshop aanvragen</h3>
+          <p class="action-card__body" data-i18n="betrokken.lecture.body">Wij komen met plezier langs! Elke workshop stemmen we af op het doelpubliek (jongeren, ouders, begeleiders, …). Tijdens de sessie legt een spreker op een interactieve, heldere en feitelijke manier uit hoe drugs het lichaam en de geest beïnvloeden en welke gevolgen dat kan hebben — zonder te moraliseren. Daarna deelt een ervaringsdeskundige een aangrijpende getuigenis uit het echte leven. De workshop duurt ongeveer 1u30.</p>
+          <div class="action-card__includes">
+            <div class="action-card__includes-label" data-i18n="betrokken.lecture.includes_label">De workshop omvat</div>
+            <ul>
+              <li data-i18n="betrokken.lecture.inc1">Workshop van ongeveer 60 tot 90 minuten</li>
+              <li data-i18n="betrokken.lecture.inc2">Deel 1: interactieve sessie over wat drugs zijn en hoe ze inwerken op lichaam en geest</li>
+              <li data-i18n="betrokken.lecture.inc3">Deel 2: getuigenis van een ervaringsdeskundige</li>
+              <li data-i18n="betrokken.lecture.inc4">Q&amp;A-sessie met ruimte voor vragen</li>
+              <li data-i18n="betrokken.lecture.inc5">Gratis informatieboekjes voor alle aanwezigen</li>
+              <li data-i18n="betrokken.lecture.inc6">Beschikbaar in het Nederlands, Frans of Engels</li>
+              <li data-i18n="betrokken.lecture.inc7">Kan aangepast worden aan de wensen en noden van de aanvrager</li>
+            </ul>
+          </div>
+          <div class="action-form">
+            <form onsubmit="submitForm(event, 'lezing')">
+              <div class="field-row">
+                <div class="field"><input type="text" name="voornaam" data-i18n-placeholder="betrokken.edu.ph_first" placeholder="Voornaam" required></div>
+                <div class="field"><input type="text" name="achternaam" data-i18n-placeholder="betrokken.edu.ph_last" placeholder="Naam" required></div>
+              </div>
+              <div class="field"><input type="email" name="email" data-i18n-placeholder="betrokken.edu.ph_email" placeholder="E-mailadres" required></div>
+              <div class="field"><input type="tel" name="gsm" data-i18n-placeholder="betrokken.edu.ph_phone" placeholder="GSM-nummer" required></div>
+              <div class="field"><input type="text" name="stad" data-i18n-placeholder="betrokken.lecture.ph_city" placeholder="Stad / locatie" autocomplete="off" required></div>
+              <div class="field"><input type="text" name="organisatie" data-i18n-placeholder="betrokken.lecture.ph_org" placeholder="Organisatie" required></div>
+              <div class="field-row">
+                <div class="field"><input type="text" name="datum" data-i18n-placeholder="betrokken.lecture.ph_date" placeholder="Datum evenement"></div>
+                <div class="field"><input type="text" name="aanwezigen" data-i18n-placeholder="betrokken.lecture.ph_attendees" placeholder="Geschat aantal aanwezigen"></div>
+              </div>
+              <div class="field"><textarea name="bericht" data-i18n-placeholder="betrokken.lecture.ph_message" placeholder="Extra informatie"></textarea></div>
+              <div class="action-form__check">
+                <input type="checkbox" id="lezing-newsletter" name="newsletter" checked>
+                <label for="lezing-newsletter" data-i18n="form.newsletter_optin">Ja, ik wil me inschrijven op de nieuwsbrief !</label>
+              </div>
+              <div class="action-form__check">
+                <input type="checkbox" id="lezing-privacy" name="privacy_consent" required>
+                <label for="lezing-privacy" data-i18n-html="form.privacy_consent">Ik geef de toestemming om mijn gegevens te bewaren en verwerken zoals aangegeven in onze <a href="privacy.html" style="color:var(--color-teal);">privacy statement</a>.</label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" data-i18n="betrokken.lecture.submit">Workshop aanvragen</button>
+            </form>
+            <div class="action-success" id="success-lezing">
+              <p data-i18n-html="betrokken.lecture.success">Bedankt voor je aanvraag! We bevestigen <strong>binnen 5 werkdagen</strong> of en wanneer we beschikbaar zijn.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 VRIJWILLIGER -->
+        <div class="action-card animate" id="vrijwilliger">
+          <div style="width:100%;aspect-ratio:16/9;max-height:170px;overflow:hidden;margin-bottom:var(--space-sm);">
+            <img src="img/IMG_0418.JPG" data-i18n-alt="betrokken.volunteer.img_alt" alt="Vrijwilligers in actie" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div class="action-card__num" data-i18n="betrokken.volunteer.num">03 — Vrijwilligers</div>
+          <div class="action-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="action-card__title" data-i18n="betrokken.volunteer.title">Vrijwilliger worden</h3>
+          <p class="action-card__body" data-i18n="betrokken.volunteer.body">Wil je je omgeving helpen en je steentje bijdragen? Word vrijwilliger en zet je mee in voor drugspreventie. Samen kunnen we een positief verschil maken.</p>
+          <div class="action-card__includes">
+            <div class="action-card__includes-label" data-i18n="betrokken.volunteer.includes_label">Wat je doet als vrijwilliger</div>
+            <ul>
+              <li data-i18n="betrokken.volunteer.inc1">Infostanden bemannen op evenementen</li>
+              <li data-i18n="betrokken.volunteer.inc2">Boekjes verspreiden in je omgeving</li>
+              <li data-i18n="betrokken.volunteer.inc3">Workshops bijwonen of meegeven</li>
+              <li data-i18n="betrokken.volunteer.inc4">Hulp bij het geven van een workshop</li>
+            </ul>
+          </div>
+          <div class="action-form">
+            <form onsubmit="submitForm(event, 'vrijwilliger')">
+              <div class="field-row">
+                <div class="field"><input type="text" name="voornaam" data-i18n-placeholder="betrokken.edu.ph_first" placeholder="Voornaam" required></div>
+                <div class="field"><input type="text" name="achternaam" data-i18n-placeholder="betrokken.edu.ph_last" placeholder="Naam" required></div>
+              </div>
+              <div class="field"><input type="email" name="email" data-i18n-placeholder="betrokken.edu.ph_email" placeholder="E-mailadres" required></div>
+              <div class="field"><input type="tel" name="gsm" data-i18n-placeholder="betrokken.edu.ph_phone" placeholder="GSM-nummer" required></div>
+              <div class="field"><input type="text" name="stad" data-i18n-placeholder="betrokken.volunteer.ph_city" placeholder="Stad / locatie" autocomplete="off" required></div>
+              <div class="field"><input type="text" name="beschikbaarheid" data-i18n-placeholder="betrokken.volunteer.ph_avail" placeholder="Beschikbaarheden"></div>
+              <div class="field"><textarea name="motivatie" data-i18n-placeholder="betrokken.volunteer.ph_motivation" placeholder="Extra informatie"></textarea></div>
+              <div class="action-form__check">
+                <input type="checkbox" id="vrijwilliger-newsletter" name="newsletter" checked>
+                <label for="vrijwilliger-newsletter" data-i18n="form.newsletter_optin">Ja, ik wil me inschrijven op de nieuwsbrief !</label>
+              </div>
+              <div class="action-form__check">
+                <input type="checkbox" id="vrijwilliger-privacy" name="privacy_consent" required>
+                <label for="vrijwilliger-privacy" data-i18n-html="form.privacy_consent">Ik geef de toestemming om mijn gegevens te bewaren en verwerken zoals aangegeven in onze <a href="privacy.html" style="color:var(--color-teal);">privacy statement</a>.</label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" data-i18n="betrokken.volunteer.submit">Ik meld me aan als vrijwilliger</button>
+            </form>
+            <div class="action-success" id="success-vrijwilliger">
+              <p data-i18n-html="betrokken.volunteer.success">Bedankt voor je aanmelding! We nemen <strong>binnen 3 werkdagen</strong> contact met je op.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 INFOSTAND -->
+        <div class="action-card animate" id="infostand">
+          <div style="width:100%;aspect-ratio:16/9;max-height:170px;overflow:hidden;margin-bottom:var(--space-sm);">
+            <img src="img/infostand-park-bezoekers.jpg" data-i18n-alt="betrokken.infostand.img_alt" alt="Infostand met campagnetent en bezoekers" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div class="action-card__num" data-i18n="betrokken.infostand.num">04 — Infostand</div>
+          <div class="action-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="action-card__title" data-i18n="betrokken.infostand.title">Infostand aanvragen</h3>
+          <p class="action-card__body" data-i18n="betrokken.infostand.body">Drugspreventie op jouw evenement (festival, braderie, jaarmarkt, beurs…)? Vraag gratis een infostand aan en onze vrijwilligers komen graag langs!</p>
+          <div class="action-card__includes">
+            <div class="action-card__includes-label" data-i18n="betrokken.infostand.includes_label">De infostand bevat</div>
+            <ul>
+              <li data-i18n="betrokken.infostand.inc1">Gratis boekjes en preventietools beschikbaar</li>
+              <li data-i18n="betrokken.infostand.inc2">Een parcours met simulatiebrillen dat bezoekers kunnen uittesten</li>
+              <li data-i18n="betrokken.infostand.inc3">Onze vrijwilligers beantwoorden graag al jullie vragen over drugs</li>
+            </ul>
+          </div>
+          <div class="action-form">
+            <form onsubmit="submitForm(event, 'infostand')">
+              <div class="field-row">
+                <div class="field"><input type="text" name="voornaam" data-i18n-placeholder="betrokken.edu.ph_first" placeholder="Voornaam" required></div>
+                <div class="field"><input type="text" name="achternaam" data-i18n-placeholder="betrokken.edu.ph_last" placeholder="Naam" required></div>
+              </div>
+              <div class="field"><input type="email" name="email" data-i18n-placeholder="betrokken.edu.ph_email" placeholder="E-mailadres" required></div>
+              <div class="field"><input type="tel" name="gsm" data-i18n-placeholder="betrokken.edu.ph_phone" placeholder="GSM-nummer" required></div>
+              <div class="field"><input type="text" name="stad" data-i18n-placeholder="betrokken.infostand.ph_city" placeholder="Stad / locatie" autocomplete="off" required></div>
+              <div class="field"><input type="text" name="organisatie" data-i18n-placeholder="betrokken.infostand.ph_event" placeholder="Organisatie"></div>
+              <div class="field-row">
+                <div class="field"><input type="text" name="datum" data-i18n-placeholder="betrokken.infostand.ph_date" placeholder="Datum evenement"></div>
+                <div class="field"><input type="text" name="bezoekers" data-i18n-placeholder="betrokken.infostand.ph_visitors" placeholder="Geschat aantal aanwezigen"></div>
+              </div>
+              <div class="field"><textarea name="bericht" data-i18n-placeholder="betrokken.infostand.ph_message" placeholder="Extra informatie"></textarea></div>
+              <div class="action-form__check">
+                <input type="checkbox" id="infostand-newsletter" name="newsletter" checked>
+                <label for="infostand-newsletter" data-i18n="form.newsletter_optin">Ja, ik wil me inschrijven op de nieuwsbrief !</label>
+              </div>
+              <div class="action-form__check">
+                <input type="checkbox" id="infostand-privacy" name="privacy_consent" required>
+                <label for="infostand-privacy" data-i18n-html="form.privacy_consent">Ik geef de toestemming om mijn gegevens te bewaren en verwerken zoals aangegeven in onze <a href="privacy.html" style="color:var(--color-teal);">privacy statement</a>.</label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" data-i18n="betrokken.infostand.submit">Infostand aanvragen</button>
+            </form>
+            <div class="action-success" id="success-infostand">
+              <p data-i18n-html="betrokken.infostand.success">Bedankt voor je aanvraag! We contacteren je <strong>binnen 3 werkdagen</strong> om de details te bevestigen.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--surface">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-md);" data-i18n-html="betrokken.testimonials.overline"><span class="section__num">02</span> Ervaringen</p>
+      <h2 class="section__title animate" data-i18n="betrokken.testimonials.title">Wat anderen zeggen</h2>
+      <div class="testimonials-grid" style="margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-md);">
+        <div class="testimonial-card animate">
+          <p class="testimonial-card__quote">"Dankzij de inzet en expertise van de vrijwilligers werd het een sterke en boeiende preventie-actie die meer dan 50 leerlingen wist te engageren. Ook de informatieve pakketten waren een waardevolle aanvulling. We kijken ernaar uit om dit binnen twee jaar opnieuw te organiseren."</p>
+          <div class="testimonial-card__author">Leerkracht</div>
+        </div>
+        <div class="testimonial-card animate">
+          <p class="testimonial-card__quote">"Ik heb dankzij de infosessie en de boekjes echt mijn ogen geopend voor de gevolgen van drugs en het leven van iemand met een verslaving. Die kennis heeft mij geholpen om nee te zeggen toen ik ermee in contact kwam. Dankjewel aan het hele team!"</p>
+          <div class="testimonial-card__author">Vrouw, 30 jaar</div>
+        </div>
+        <div class="testimonial-card animate">
+          <p class="testimonial-card__quote">"Door de informatie die ik kreeg tijdens de sensibiliseringsactie heb ik beslist om geen drugs te gebruiken en mijn vrienden te helpen om ervan af te raken."</p>
+          <div class="testimonial-card__author">Studente, 17 jaar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLEDGE COUNTER -->
+  <div class="pledge-counter" id="belofte">
+    <div class="pledge-counter__inner">
+      <div class="pledge-counter__num" data-target="2333" data-suffix="">0</div>
+      <div class="pledge-counter__label" data-i18n="betrokken.pledge.counter_label">mensen tekenden al de belofte</div>
+    </div>
+  </div>
+
+  <!-- PLEDGE SECTION -->
+  <section class="pledge-section">
+    <div class="pledge-section__inner">
+
+      <div class="pledge-section__head animate">
+        <p class="section__overline" data-i18n-html="betrokken.pledge.overline"><span class="section__num">03</span> Jouw belofte</p>
+        <h2 class="section__title" data-i18n="betrokken.pledge.title">Teken de Belofte</h2>
+        <p style="font-size:16px;line-height:1.7;color:var(--color-muted);max-width:560px;margin:var(--space-sm) auto 0;" data-i18n="betrokken.pledge.sub">Sluit je aan bij duizenden Belgen die beloven drugvrij te leven. Jouw handtekening kost je 2 minuten en telt voor altijd.</p>
+      </div>
+
+      <div class="pledge-text-box animate">
+        <div class="pledge-text-box__label" data-i18n="betrokken.pledge.box_label">Ik beloof:</div>
+        <ul class="pledge-bullets" data-i18n-html="betrokken.pledge.text" style="list-style:disc;padding-left:1.5em;font-size:16px;color:var(--color-text);line-height:1.8;">
+          <li>Een drugvrij leven leiden.</li>
+          <li>Mijn vrienden laten zien dat een drugvrij leven leuker is.</li>
+          <li>Meer leren over hoe drugs schade toebrengen.</li>
+          <li>Anderen vertellen over de schadelijke effecten van drugs.</li>
+          <li>Samen met anderen werken om de feiten over drugs te verspreiden, zodat we samen een drugvrije gemeenschap creëren.</li>
+        </ul>
+      </div>
+
+      <div class="pledge-form animate" id="pledge-form-wrap">
+        <h3 class="pledge-form__title" data-i18n="betrokken.pledge.form_title">Teken hier !</h3>
+        <form id="pledge-form" onsubmit="submitPledge(event)">
+          <div class="field-row">
+            <div class="field">
+              <label data-i18n="betrokken.pledge.label_first">Voornaam *</label>
+              <input type="text" name="voornaam" data-i18n-placeholder="betrokken.edu.ph_first" placeholder="Voornaam" required>
+            </div>
+            <div class="field">
+              <label data-i18n="betrokken.pledge.label_last">Achternaam *</label>
+              <input type="text" name="achternaam" data-i18n-placeholder="betrokken.edu.ph_last" placeholder="Achternaam" required>
+            </div>
+          </div>
+          <div class="field">
+            <label data-i18n="betrokken.pledge.label_email">E-mailadres *</label>
+            <input type="email" name="email" data-i18n-placeholder="betrokken.edu.ph_email" placeholder="E-mailadres" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label data-i18n="betrokken.pledge.label_age">Leeftijd (optioneel)</label>
+              <input type="number" name="leeftijd" data-i18n-placeholder="betrokken.pledge.ph_age" placeholder="Bijv. 17" min="5" max="99">
+            </div>
+            <div class="field">
+              <label data-i18n="betrokken.pledge.label_city">Stad / regio (optioneel)</label>
+              <input type="text" name="stad" data-i18n-placeholder="betrokken.pledge.ph_city" placeholder="Bijv. Gent, Antwerpen...">
+            </div>
+          </div>
+
+          <div class="signature-section">
+            <div class="signature-label" data-i18n="betrokken.pledge.sig_label">Jouw handtekening *</div>
+            <div class="signature-canvas-wrap">
+              <canvas id="signature-canvas" role="img" data-i18n-aria="betrokken.pledge.sig_aria" aria-label="Handtekeningveld"></canvas>
+            </div>
+            <div class="signature-actions">
+              <button type="button" class="sig-clear" onclick="clearSignature()" data-i18n="betrokken.pledge.sig_clear">Wissen</button>
+            </div>
+            <p class="signature-hint" data-i18n="betrokken.pledge.sig_hint">Teken met je muis, vinger of stylus.</p>
+          </div>
+
+          <div class="pledge-check">
+            <input type="checkbox" id="pledge-newsletter" name="pledge-newsletter" checked>
+            <label for="pledge-newsletter" data-i18n="betrokken.pledge.newsletter">Ja, ik wil me inschrijven op de nieuwsbrief !</label>
+          </div>
+
+          <div class="pledge-check">
+            <input type="checkbox" id="pledge-privacy-consent" name="pledge-privacy-consent" required>
+            <label for="pledge-privacy-consent" data-i18n-html="form.privacy_consent">Ik geef de toestemming om mijn gegevens te bewaren en verwerken zoals aangegeven in onze <a href="privacy.html" style="color:var(--color-teal);">privacy statement</a>.</label>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full" style="margin-top:var(--space-sm);" data-i18n="betrokken.pledge.submit">Onderteken de belofte</button>
+        </form>
+      </div>
+
+      <div class="success-screen" id="success-screen">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h2 data-i18n-html="betrokken.pledge_success.title">Bedankt, <span id="signer-name">jij</span>!</h2>
+        <p data-i18n-html="betrokken.pledge_success.body">Jouw belofte is ondertekend en toegevoegd aan de lijst van <strong id="new-count">2.334</strong> mensen die kiezen voor een drugvrij leven. Deel dit met anderen en inspireer hen ook.</p>
+        <div class="share-buttons">
+          <button class="share-btn" onclick="shareInstagram()" data-i18n="betrokken.pledge_success.share_ig">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+            Deel op Instagram
+          </button>
+          <button class="share-btn" onclick="shareFacebook()" data-i18n="betrokken.pledge_success.share_fb">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Deel op Facebook
+          </button>
+          <button class="share-btn" onclick="shareWhatsApp()" data-i18n="betrokken.pledge_success.share_wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Deel via WhatsApp
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__newsletter">
+        <h3>Schrijf je in voor onze nieuwsbrief</h3>
+        <p>Updates over onze acties, activiteiten en het laatste nieuws rond drugspreventie.</p>
+        <form class="footer__newsletter-form" onsubmit="handleFooterSignup(event)">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
+          <button type="submit">Inschrijven <span aria-hidden="true">&rarr;</span></button>
+        </form>
+      </div>
+      <div>
+        <p class="footer__col-heading">Site</p>
+        <nav class="footer__nav">
+          <a href="index.html">Home</a>
+          <a href="feiten.html">Ken de Feiten</a>
+          <a href="resources.html">Downloads &amp; Tools</a>
+          <a href="betrokken.html">Doe Mee</a>
+          <a href="wie-zijn-wij.html">Over Ons</a>
+          <a href="doneer.html">Doneer</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Volg ons</p>
+        <nav class="footer__nav">
+          <a href="https://www.instagram.com/ditesnonaladrogue.be/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/drugfreeworldbelgium/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC2AlsxMEs65IKBbh7viOM4Q" target="_blank" rel="noopener">YouTube</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Contact</p>
+        <div class="footer__contact">
+          <a href="mailto:info@zegneentegendrugs.be">info@zegneentegendrugs.be</a>
+          <span>België</span>
+          <span style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;margin-top:8px;">Drugspreventie door educatie.<br>In samenwerking met Foundation for a Drug-Free World.</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__brand"><div class="footer__brand-logo">Zeg Neen Tegen Drugs</div></div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Zeg Neen Tegen Drugs VZW. Alle rechten voorbehouden. Het logo van de Stichting voor een Drugsvrije Wereld is eigendom van deze stichting en wordt met toestemming gebruikt.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacybeleid</a>
+        <a href="cookies.html">Cookiebeleid</a>
+      </div>
+      </div>
+  </footer>
+  <script>
+    async function handleFooterSignup(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const btn = form.querySelector('button');
+      if (!email) return;
+      btn.disabled = true;
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Versturen...';
+      try {
+        const r = await fetch('/api/notion-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'newsletter', fields: { email, source: 'footer' } }) });
+        if (!r.ok) throw new Error();
+        form.innerHTML = '<span style="color:var(--color-teal);font-size:14px;">Bedankt — je staat op de lijst.</span>';
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+        alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+    }
+  </script>
+
+
+  <script>
+    // NAV
+    (function(){
+      const burger = document.querySelector('.nav__burger');
+      const links = document.querySelector('.nav__links');
+      if (!burger || !links) return;
+      burger.addEventListener('click', (e) => { e.stopPropagation(); links.classList.toggle('open'); });
+      document.addEventListener('click', (e) => {
+        if (links.classList.contains('open') && !links.contains(e.target) && !burger.contains(e.target)) links.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') links.classList.remove('open'); });
+      links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    })();
+
+    // ANIMATIONS
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+    // COUNTER
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const steps = 80;
+      const step = target / steps;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current).toLocaleString('nl-BE') + suffix;
+      }, 1600 / steps);
+    }
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { animateCounter(entry.target); countObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => countObserver.observe(el));
+
+    // FORM -> NOTION
+    async function submitForm(e, type) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = window.t('betrokken.form.sending');
+
+      const fd = new FormData(form);
+      const fields = Object.fromEntries(fd.entries());
+      fields.newsletter = form.querySelector('input[name="newsletter"]')?.checked || false;
+
+      try {
+        const res = await fetch('/api/notion-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type, fields }),
+        });
+        if (!res.ok) throw new Error('Request failed');
+        form.style.display = 'none';
+        document.getElementById('success-' + type).style.display = 'block';
+      } catch (err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        alert(window.t('betrokken.form.error'));
+      }
+    }
+
+    // SIGNATURE CANVAS
+    const canvas = document.getElementById('signature-canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let hasSignature = false;
+
+    function resizeCanvas() {
+      const ratio = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * ratio;
+      canvas.height = rect.height * ratio;
+      ctx.scale(ratio, ratio);
+      ctx.strokeStyle = '#1B2A3D';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches ? e.touches[0] : e;
+      return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+    }
+
+    canvas.addEventListener('mousedown', e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+    canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSignature = true; });
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseleave', () => drawing = false);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }, { passive: false });
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSignature = true; }, { passive: false });
+    canvas.addEventListener('touchend', () => drawing = false);
+
+    function clearSignature() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hasSignature = false;
+    }
+
+    // PLEDGE SUBMIT
+    let pledgeCount = 2333;
+    async function submitPledge(e) {
+      e.preventDefault();
+      if (!hasSignature) {
+        alert(window.t('betrokken.pledge.alert_no_sig'));
+        return;
+      }
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = window.t('betrokken.form.sending');
+
+      const fd = new FormData(form);
+      const fields = Object.fromEntries(fd.entries());
+      fields.newsletter = form.querySelector('#pledge-newsletter').checked;
+
+      try {
+        const res = await fetch('/api/notion-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'pledge', fields }),
+        });
+        if (!res.ok) throw new Error('Request failed');
+        pledgeCount++;
+        document.getElementById('signer-name').textContent = fields.voornaam || window.t('betrokken.pledge.fallback_name');
+        document.getElementById('new-count').textContent = pledgeCount.toLocaleString('nl-BE');
+        document.getElementById('pledge-form-wrap').style.display = 'none';
+        document.getElementById('success-screen').classList.add('show');
+        window.scrollTo({ top: document.getElementById('success-screen').offsetTop - 100, behavior: 'smooth' });
+      } catch (err) {
+        console.error(err);
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+        alert(window.t('betrokken.form.error'));
+      }
+    }
+
+    // SHARE
+    const shareText = encodeURIComponent(window.t('betrokken.pledge_success.share_text'));
+    function shareFacebook() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank'); }
+    function shareWhatsApp() { window.open('https://wa.me/?text=' + shareText, '_blank'); }
+    function shareInstagram() { alert(window.t('betrokken.pledge_success.ig_copy_prompt') + ' ' + window.location.href); }
+
+    /* Deep-link from index.html / wie-zijn-wij.html: scroll to action-card AND focus first text input */
+    function focusActionCardFromHash() {
+      const hash = location.hash;
+      if (!hash) return;
+      const target = document.querySelector(hash);
+      if (!target || !target.classList.contains('action-card')) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        const firstInput = target.querySelector('input[name="voornaam"], input[type="text"], input[type="email"]');
+        if (firstInput) firstInput.focus({ preventScroll: true });
+      }, 700);
+    }
+    window.addEventListener('load', focusActionCardFromHash);
+    window.addEventListener('hashchange', focusActionCardFromHash);
+  </script>
+  <script src="js/capture.js"></script>
+  <script src="motion.js"></script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

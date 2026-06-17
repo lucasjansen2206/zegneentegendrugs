@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Download gratis 15 informatieboekjes, 18 preventiespotjes en het volledige onderwijspakket. Bestel fysiek voor je school, organisatie of thuis. Beschikbaar in NL, FR, EN.">
+  <link rel="canonical" href="resources.html">
+  <meta name="theme-color" content="#1B2A3D">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Zeg Neen Tegen Drugs">
+  <meta property="og:title" content="Downloads & Tools — Gratis informatieboekjes en lesmateriaal | Zeg Neen Tegen Drugs">
+  <meta property="og:description" content="Download gratis 15 informatieboekjes, 18 preventiespotjes en het volledige onderwijspakket. Bestel fysiek voor je school, organisatie of thuis. Beschikbaar in NL, FR, EN.">
+  <meta property="og:url" content="https://zegneentegendrugsv2.vercel.app/resources.html">
+  <meta property="og:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Downloads & Tools — Gratis informatieboekjes en lesmateriaal | Zeg Neen Tegen Drugs">
+  <meta name="twitter:description" content="Download gratis 15 informatieboekjes, 18 preventiespotjes en het volledige onderwijspakket. Bestel fysiek voor je school, organisatie of thuis. Beschikbaar in NL, FR, EN.">
+  <meta name="twitter:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <!-- /SEO meta -->
+  <link rel="icon" type="image/png" href="img/logo-sntd-white.png">
+  <link rel="apple-touch-icon" href="img/logo-sntd-white.png">
+  <title data-i18n="resources._title">Downloads &amp; Tools — Zeg Neen Tegen Drugs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --color-navy:       #1B2A3D;
+      --color-teal:       #65BDD3;
+      --color-teal-dark:  #4A9BB5;
+      --color-teal-light: #F0F8FA;
+      --color-yellow:     #EFFF8D;
+      --color-bg:         #FFFFFF;
+      --color-surface:    #F5F5F5;
+      --color-text:       #1A1A1A;
+      --color-muted:      #888888;
+      --color-border:     rgba(0,0,0,0.10);
+      --font-heading:     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:        'Open Sans', sans-serif;
+      --nav-height:       80px;
+      --space-xs:  8px;
+      --space-sm:  16px;
+      --space-md:  32px;
+      --space-lg:  64px;
+      --space-xl:  100px;
+      --space-xxl: 140px;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); overflow-x: hidden; }
+    body.modal-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .animate { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animate.visible { opacity: 1; transform: none; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000; background: #fff; border-bottom: 1px solid var(--color-border); }
+    .nav__inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-md); }
+    .nav__logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-navy); }
+    .nav__logo-img { width: 40px; height: 40px; object-fit: contain; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-md); flex: 1; justify-content: center;}
+    .nav__links a { font-family: var(--font-body); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text); position: relative; transition: opacity var(--transition); }
+    .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-teal); transition: width var(--transition); }
+    .nav__links a:hover::after { width: 100%; } .nav__links a.active::after { width: 100%; transition: none; }
+    .nav__cta { background: var(--color-teal) !important; color: #fff !important; padding: 10px 20px; }
+    .nav__cta::after { display: none !important; }
+    .nav__cta:hover { background: var(--color-teal-dark) !important; }
+    .nav__burger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--color-navy); }
+    .nav__right { display: flex; align-items: center; gap: 12px; }
+    @media (max-width: 900px) {
+      .nav__burger { display: block; }
+      .nav__right .nav__cta { padding: 8px 14px; font-size: 11px; }
+      .nav__links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; flex-direction: column; padding: var(--space-md); gap: var(--space-sm); border-bottom: 1px solid var(--color-border); }
+      .nav__links.open { display: flex; }
+    }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; font-family: var(--font-body); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border: none; transition: all var(--transition); }
+    .btn--primary { background: var(--color-teal); color: #fff; }
+    .btn--primary:hover { background: var(--color-teal-dark); }
+    .btn--navy { background: var(--color-navy); color: #fff; }
+    .btn--navy:hover { background: #253549; }
+    .btn--outline { background: transparent; color: var(--color-navy); border: 1.5px solid var(--color-navy); }
+    .btn--outline:hover { background: var(--color-navy); color: #fff; }
+    .btn--full { width: 100%; }
+    .btn--small { padding: 10px 20px; font-size: 12px; }
+
+    /* PAGE HERO */
+    .page-hero { position: relative; background: var(--color-navy); padding: calc(var(--nav-height) + var(--space-xxl)) var(--space-md) var(--space-xl); overflow: hidden; }
+    .page-hero__bg { position: absolute; inset: 0; background: url('img/actie-03.jpg') center/cover no-repeat; opacity: 0.85; z-index: 0; }
+    .page-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,61,0.20) 0%, rgba(27,42,61,0.55) 100%); }
+    .page-hero__inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; }
+    .page-hero__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 10px; }
+    .page-hero__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(40px, 5vw, 72px); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.05; letter-spacing: 0.02em; margin-bottom: var(--space-sm); }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 620px; }
+
+    /* SECTION */
+    .section { padding: var(--space-xl) var(--space-md); }
+    .section--surface { background: var(--color-surface); }
+    .section--navy { background: var(--color-navy); color: #fff; }
+    .section--navy-light { background: #2A3F5C; color: #fff; }
+    .section--navy-light .section__title, .section--navy-light h2, .section--navy-light h3 { color: #fff; }
+    .section--navy-light .section__overline { color: var(--color-teal); }
+    .section--navy-light .section__sub, .section--navy-light p { color: rgba(255,255,255,0.78); }
+    .section--navy-light .resource-card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); }
+    .section--navy-light .resource-card__title { color: #fff; }
+    .section--navy-light .resource-card__body { color: rgba(255,255,255,0.72); }
+    .section--navy .section__title, .section--navy h2, .section--navy h3 { color: #fff; }
+    .section--navy .section__overline { color: var(--color-teal); }
+    .section--navy .section__sub, .section--navy p { color: rgba(255,255,255,0.78); }
+    .section--navy .resource-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12); }
+    .section--navy .resource-card__title { color: #fff; }
+    .section--navy .resource-card__body { color: rgba(255,255,255,0.7); }
+    .section--teal-light { background: var(--color-navy); color: #fff; }
+    .section--teal-light .section__title, .section--teal-light h2 { color: #fff; }
+    .section--teal-light .section__overline { color: var(--color-teal); }
+    .section--teal-light p, .section--teal-light .speaking__desc { color: rgba(255,255,255,0.78); }
+    .section--teal-light .btn--navy { background: #fff; color: var(--color-navy); }
+    .section--teal-light .btn--navy:hover { background: var(--color-teal); color: #fff; }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-xs); display: flex; align-items: center; gap: 10px; }
+    .section__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .section__title { font-family: var(--font-heading); font-size: clamp(28px, 3vw, 44px); font-weight: 700; text-transform: uppercase; color: var(--color-navy); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: var(--space-sm); }
+    .section__title--white { color: #fff; }
+    .section__sub { font-size: 16px; color: var(--color-muted); max-width: 620px; line-height: 1.75; margin-bottom: var(--space-lg); }
+
+    /* RESOURCE CARDS */
+    .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+    .resource-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-md); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); display: flex; flex-direction: column; }
+    .resource-card:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.08); border-color: var(--color-teal); }
+    .resource-card__tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 3px 8px; margin-bottom: var(--space-sm); width: fit-content; }
+    .resource-card__tag--boekje { background: var(--color-teal-light); color: var(--color-teal-dark); }
+    .resource-card__tag--video { background: #FFDFE8; color: #4D1B27; }
+    .resource-card__tag--lespakket { background: #EFFF8D; color: #3D4D1B; }
+    .resource-card__tag--psa { background: #FFE4C4; color: #6B3F0F; }
+    .resource-card__tag--docu { background: #E0E0FF; color: #1B1D3D; }
+    .resource-card__title { font-family: var(--font-heading); font-size: 17px; font-weight: 600; color: var(--color-navy); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .resource-card__body { font-size: 13px; color: var(--color-muted); line-height: 1.65; flex: 1; margin-bottom: var(--space-md); }
+    .resource-card__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .resource-card__action { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-teal); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; background: none; border: none; font-family: var(--font-body); padding: 0; transition: opacity var(--transition); }
+    .resource-card__action:hover { opacity: 0.7; }
+    .resource-card__action svg { width: 14px; height: 14px; }
+    .resource-card__action--order { color: var(--color-navy); }
+
+    /* EDU FEATURE BLOCK — single onderwijspakket */
+    .edu-feature { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-lg); align-items: center; background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-md); max-width: 900px; margin: 0 auto; }
+    .edu-feature__media { aspect-ratio: 4/3; max-height: 300px; overflow: hidden; background: var(--color-surface); }
+    .edu-feature__media img { width: 100%; height: 100%; object-fit: cover; }
+    .edu-feature__tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 10px; background: #EFFF8D; color: #3D4D1B; margin-bottom: var(--space-sm); }
+    .edu-feature__title { font-family: var(--font-heading); font-size: 21px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--space-sm); line-height: 1.15; }
+    .edu-feature__lead { font-size: 15px; color: var(--color-muted); line-height: 1.75; margin-bottom: var(--space-sm); }
+    .edu-feature__notice { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: var(--color-teal-dark); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); }
+    .edu-feature__notice::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--color-teal); }
+    .edu-feature__list { list-style: none; margin: 0 0 var(--space-md); padding: 0; }
+    .edu-feature__list li { font-size: 13px; color: var(--color-text); line-height: 1.55; padding: 7px 0 7px 22px; position: relative; border-bottom: 1px solid var(--color-border); }
+    .edu-feature__list li:last-child { border-bottom: none; }
+    .edu-feature__list li::before { content: ''; position: absolute; left: 0; top: 15px; width: 12px; height: 2px; background: var(--color-teal); }
+    @media (max-width: 768px) { .edu-feature { grid-template-columns: 1fr; gap: var(--space-md); padding: var(--space-md); } }
+
+    /* SPEAKING CTA */
+    .speaking { text-align: center; }
+    .speaking .section__overline { justify-content: center; }
+    .speaking .section__title { margin-left: auto; margin-right: auto; }
+    .speaking__desc { font-size: 16px; color: var(--color-muted); max-width: 560px; margin: 0 auto var(--space-md); line-height: 1.75; }
+
+    /* MODAL */
+    .modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: var(--space-sm); }
+    .modal.open { display: flex; }
+    .modal__backdrop { position: absolute; inset: 0; background: rgba(27, 42, 61, 0.75); backdrop-filter: blur(4px); }
+    .modal__dialog { position: relative; background: #fff; max-width: 480px; width: 100%; padding: var(--space-lg) var(--space-md); max-height: 90vh; overflow-y: auto; }
+    .modal__close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--color-muted); line-height: 1; }
+    .modal__close:hover { color: var(--color-navy); }
+    .modal__overline { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-teal); margin-bottom: var(--space-xs); }
+    .modal__title { font-family: var(--font-heading); font-size: 26px; font-weight: 700; text-transform: uppercase; color: var(--color-navy); letter-spacing: 0.02em; line-height: 1.15; margin-bottom: var(--space-xs); }
+    .modal__sub { font-size: 14px; color: var(--color-muted); line-height: 1.65; margin-bottom: var(--space-md); }
+    .modal__field { margin-bottom: 12px; }
+    .modal__field input, .modal__field textarea { width: 100%; padding: 13px 16px; border: 1.5px solid var(--color-border); font-family: var(--font-body); font-size: 14px; outline: none; transition: border-color var(--transition); background: #fff; resize: vertical; }
+    .modal__field input:focus, .modal__field textarea:focus { border-color: var(--color-teal); }
+    .modal__check { display: flex; align-items: flex-start; gap: 10px; margin: var(--space-sm) 0 var(--space-md); }
+    .modal__check input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--color-teal); flex-shrink: 0; }
+    .modal__check label { font-size: 13px; color: var(--color-muted); line-height: 1.5; }
+    .modal__trust { font-size: 11px; color: var(--color-muted); margin-top: var(--space-sm); text-align: center; }
+    .modal__trust a { color: var(--color-teal); text-decoration: underline; }
+    .modal__success { text-align: center; padding: var(--space-md) 0; }
+    .modal__success-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--color-teal-light); color: var(--color-teal-dark); display: inline-flex; align-items: center; justify-content: center; margin-bottom: var(--space-sm); }
+
+    /* FOOTER -- Zypsy-style */
+    .footer { background: var(--color-navy); padding: 80px var(--space-md) 32px; color: #fff; position: relative; }
+    .footer__top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-xl); padding-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .footer__newsletter p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 24px; }
+    .footer__newsletter-form { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 8px; transition: border-color var(--transition); }
+    .footer__newsletter-form:focus-within { border-bottom-color: var(--color-teal); }
+    .footer__newsletter-form input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-family: var(--font-body); font-size: 14px; padding: 8px 0; }
+    .footer__newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer__newsletter-form button { background: transparent; border: 0; color: #fff; cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 6px; transition: color var(--transition); padding: 0; }
+    .footer__newsletter-form button:hover { color: var(--color-teal); }
+    .footer__col-heading { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+    .footer__nav { display: flex; flex-direction: column; gap: 12px; }
+    .footer__nav a, .footer__contact a { font-family: var(--font-body); font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.85); transition: color var(--transition); line-height: 1.4; }
+    .footer__nav a:hover, .footer__contact a:hover { color: var(--color-teal); }
+    .footer__contact { display: flex; flex-direction: column; gap: 12px; }
+    .footer__contact span { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .footer__brand { max-width: 1280px; margin: 40px auto 20px; }
+    .footer__brand-logo { font-family: var(--font-heading); font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; line-height: 1; letter-spacing: 0.02em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .footer__bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,0.4); transition: color var(--transition); }
+    .footer__bottom a:hover { color: rgba(255,255,255,0.85); }
+    .footer__legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer__lang { display: flex; gap: 12px; font-family: var(--font-body); font-weight: 500; }
+    .footer__lang a.active { color: rgba(255,255,255,0.85); }
+    @media (max-width: 1024px) {
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__newsletter { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .footer { padding: 60px var(--space-sm) 24px; }
+      .footer__top { grid-template-columns: 1fr; gap: var(--space-md); padding-bottom: 48px; }
+      .footer__brand { margin: 48px auto 24px; }
+      .footer__bottom { font-size: 12px; }
+    }
+
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .resource-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__inner { grid-template-columns: 1fr 1fr; }
+      .footer__inner > :first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .resource-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px var(--space-sm); }
+      .page-hero { padding: calc(var(--nav-height) + 60px) var(--space-sm) 60px; }
+      .footer__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .footer { padding: 60px var(--space-sm) var(--space-md); }
+      .nav__inner { padding: 0 var(--space-sm); }
+      .nav__links a { min-height: 44px; display: flex; align-items: center; }
+      .modal__dialog { padding: var(--space-md) var(--space-sm); }
+      .modal__title { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .section { padding: 48px var(--space-sm); }
+      .page-hero { padding: calc(var(--nav-height) + 40px) var(--space-sm) 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="img/logo-sntd.png" data-i18n-alt="nav.logo" alt="Zeg Neen Tegen Drugs"><span data-i18n="nav.logo">Zeg Neen Tegen Drugs</span></a>
+      <ul class="nav__links">
+        <li><a href="feiten.html" data-i18n="nav.facts">Ken de Feiten</a></li>
+        <li><a href="resources.html" class="active" data-i18n="nav.downloads">Downloads &amp; Tools</a></li>
+        <li><a href="betrokken.html" data-i18n="nav.join">Doe Mee</a></li>
+        <li><a href="wie-zijn-wij.html" data-i18n="nav.about">Over Ons</a></li>
+      </ul>
+      <div class="nav__right">
+        <a class="nav__cta" href="doneer.html" data-i18n="nav.donate">Doneer</a>
+        <button class="nav__burger" data-i18n-aria="nav.burger" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__inner">
+      <div class="page-hero__overline" data-i18n="resources.hero.overline">Downloads &amp; Tools</div>
+      <h1 data-i18n-html="resources.hero.title">Gratis tools<br>&amp; downloads</h1>
+      <p data-i18n="resources.hero.sub">Onze informatieboekjes, video's en het onderwijspakket zijn hier gratis verkrijgbaar. Download ze direct of bestel een fysiek exemplaar voor thuis, je school of je organisatie, en ga meteen aan de slag!</p>
+    </div>
+  </section>
+
+  <!-- ONDERWIJSPAKKET (ORDER-ONLY) -->
+  <section class="section" id="educatief-section">
+    <div class="container">
+      <div class="section__overline animate" data-i18n="resources.edu.overline">01 — Onderwijspakket</div>
+      <h2 class="section__title animate" data-i18n="resources.edu.title">Het onderwijspakket</h2>
+      <p class="section__sub animate" data-i18n-html="resources.edu.sub">Het <em>De Feiten over Drugs</em> onderwijspakket is gratis beschikbaar voor leerkrachten, opvoeders, begeleiders en iedereen die een groep jongeren (vanaf 11 jaar) wil informeren over drugs.</p>
+
+      <div class="edu-feature animate">
+        <div class="edu-feature__media"><img src="img/onderwijspakket.png" alt="Het onderwijspakket"></div>
+        <div class="edu-feature__content">
+          <span class="edu-feature__tag" data-i18n="resources.edu.tag">Onderwijspakket</span>
+          <h3 class="edu-feature__title" data-i18n="resources.edu.card.title">Het pakket bevat</h3>
+          <span class="edu-feature__notice" data-i18n="resources.edu.card.notice">Enkel fysiek beschikbaar</span>
+          <ul class="edu-feature__list">
+            <li data-i18n="resources.edu.card.item1">Het handboek met uitgebreide en gemakkelijk te begrijpen lesplannen.</li>
+            <li data-i18n="resources.edu.card.item2">Informatieboekjes over de meest gebruikte drugs. Deze boekjes kunnen gebruikt worden bij de lessen uit het handboek. De kit voorziet boekjes voor 24 leerlingen.</li>
+            <li data-i18n-html="resources.edu.card.item3">Een dvd met de documentaire <em>De Feiten over Drugs: Echte Mensen -- Echte Verhalen</em> en de 18 spotjes <em>Ze zeiden..., ze logen</em>.</li>
+            <li data-i18n="resources.edu.card.item4">11 posters voor gebruik tijdens de lessen.</li>
+          </ul>
+          <a href="betrokken.html#onderwijspakket" class="btn btn--primary" data-i18n="resources.edu.card.cta">Onderwijspakket aanvragen</a>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS over het onderwijspakket -->
+      <div class="edu-testimonials animate" style="margin-top:var(--space-xl);">
+        <p class="section__overline" style="margin-bottom:var(--space-md);"><span class="section__num">01a</span> Wat anderen zeggen</p>
+        <h3 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,32px);font-weight:700;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:var(--space-lg);">Getuigenissen</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-md);">
+          <div style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+            <p style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Het leerplan is het meest omvattende dat ik ooit heb gebruikt. Bedankt voor het gratis aanbieden van dit uitstekende materiaal."</p>
+            <div style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Leerkracht gezondheidszorg</div>
+          </div>
+          <div style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+            <p style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Ik heb al het materiaal gebruikt en het met andere leerkrachten gedeeld. De informatie die jullie verschaffen is uitstekend, omdat leerlingen de schade die drugs veroorzaken gemakkelijk kunnen begrijpen."</p>
+            <div style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Leerkracht</div>
+          </div>
+          <div style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+            <p style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Het was heel waardevol om het van mensen te horen die deze drugs echt hebben gebruikt."</p>
+            <div style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Leerling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOEKJES (DOWNLOAD + ORDER) -->
+  <section class="section section--navy" id="boekjes-section">
+    <div class="container">
+      <div class="section__overline animate" data-i18n="resources.booklets.overline">02 — Informatieboekjes</div>
+      <h2 class="section__title animate" data-i18n="resources.booklets.title">De Feiten over Drugs</h2>
+      <p class="section__sub animate" data-i18n="resources.booklets.sub">'De Feiten over Drugs' bestaat uit een reeks van 15 geïllustreerde boekjes die één voor één de meest gebruikte drugs en hun schadelijke effecten beschrijven. Ze werden speciaal geschreven voor jongeren, maar bevatten feiten die ook volwassenen best zouden kennen. Je kunt de boekjes hier gratis downloaden of bestellen.</p>
+
+      <div class="resource-grid" id="resource-grid">
+
+        <!-- BOEKJES -->
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.facts.title">De Feiten over Drugs</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.facts.body">Uitgebreid overzicht van de meest voorkomende drugs, hun effecten en risico's. De ideale inleiding.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.facts.title'),'booklets/drugs-nl.pdf')" data-i18n="resources.booklet.facts.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.facts.title'))" data-i18n="resources.booklet.facts.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.cannabis.title">Cannabis / Marihuana</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.cannabis.body">Feiten over cannabis — van korte-termijneffecten tot langdurige gevolgen voor gezondheid en brein.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.cannabis.title'),'booklets/marijuana-nl.pdf')" data-i18n="resources.booklet.cannabis.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.cannabis.title'))" data-i18n="resources.booklet.cannabis.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.alcohol.title">Alcohol</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.alcohol.body">Feiten over alcohol, de meest gebruikte drug ter wereld. Wat het doet met je lichaam, verstand en omgeving.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.alcohol.title'),'booklets/alcohol-nl.pdf')" data-i18n="resources.booklet.alcohol.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.alcohol.title'))" data-i18n="resources.booklet.alcohol.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.ecstasy.title">Ecstasy (XTC)</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.ecstasy.body">Hoe ecstasy werkt, waarom het gevaarlijk is en wat de echte risico's zijn — zonder overdrijving.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.ecstasy.title'),'booklets/ecstasy-nl.pdf')" data-i18n="resources.booklet.ecstasy.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.ecstasy.title'))" data-i18n="resources.booklet.ecstasy.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.cocaine.title">Coca&#239;ne</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.cocaine.body">Van poeder tot crack — de feiten over coca&#239;ne, de verslavende werking en de gevolgen.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.cocaine.title'),'booklets/cocaine-nl.pdf')" data-i18n="resources.booklet.cocaine.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.cocaine.title'))" data-i18n="resources.booklet.cocaine.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.meth.title">Crystal Meth</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.meth.body">Een van de meest verwoestende drugs ter wereld. De feiten over crystal meth en de snelle weg naar verslaving.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.meth.title'),'booklets/crystalmeth-nl.pdf')" data-i18n="resources.booklet.meth.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.meth.title'))" data-i18n="resources.booklet.meth.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.heroin.title">Hero&#239;ne</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.heroin.body">De feiten over hero&#239;ne — hoe het werkt, waarom het zo verslavend is en wat het doet met lichaam en geest.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.heroin.title'),'booklets/heroin-nl.pdf')" data-i18n="resources.booklet.heroin.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.heroin.title'))" data-i18n="resources.booklet.heroin.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.fentanyl.title">Fentanyl</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.fentanyl.body">50 tot 100 keer sterker dan morfine. Alles wat je moet weten over de dodelijkste opiaat op de markt.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.fentanyl.title'),'booklets/fentanyl-nl.pdf')" data-i18n="resources.booklet.fentanyl.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.fentanyl.title'))" data-i18n="resources.booklet.fentanyl.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.crack.title">Crack</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.crack.body">De rookbare vorm van coca&#239;ne. Extreem verslavend vanaf het eerste gebruik — leer de feiten.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.crack.title'),'booklets/crack-nl.pdf')" data-i18n="resources.booklet.crack.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.crack.title'))" data-i18n="resources.booklet.crack.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.lsd.title">LSD</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.lsd.body">De waarheid over LSD en hallucinogenen — onvoorspelbare effecten, flashbacks en psychische risico's.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.lsd.title'),'booklets/lsd-nl.pdf')" data-i18n="resources.booklet.lsd.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.lsd.title'))" data-i18n="resources.booklet.lsd.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.painkillers.title">Pijnstillers</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.painkillers.body">De feiten over voorgeschreven pijnstillers — verslavend, ook bij kort gebruik. Leer de risico's en gevolgen.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.painkillers.title'),'booklets/painkillers-nl.pdf')" data-i18n="resources.booklet.painkillers.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.painkillers.title'))" data-i18n="resources.booklet.painkillers.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.synthetic.title">Synthetische Drugs</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.synthetic.body">Onbekende chemische samenstellingen met onvoorspelbare effecten. De feiten over synthetische drugs.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.synthetic.title'),'booklets/synthetic-nl.pdf')" data-i18n="resources.booklet.synthetic.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.synthetic.title'))" data-i18n="resources.booklet.synthetic.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.inhalants.title">Inhaleermiddelen</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.inhalants.body">De gevaren van inhaleermiddelen — vooral populair bij jonge kinderen. Wat ouders, leerkrachten en jongeren moeten weten.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.inhalants.title'),'booklets/inhalants-nl.pdf')" data-i18n="resources.booklet.inhalants.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.inhalants.title'))" data-i18n="resources.booklet.inhalants.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.ritalin.title">Ritalin</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.ritalin.body">Ritalin als studiepil — wat een ADHD-medicijn doet met een gezond brein. De feiten over misbruik en risico's.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.ritalin.title'),'booklets/ritalin-nl.pdf')" data-i18n="resources.booklet.ritalin.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.ritalin.title'))" data-i18n="resources.booklet.ritalin.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+        <div class="resource-card animate" data-category="boekje">
+          <span class="resource-card__tag resource-card__tag--boekje" data-i18n="resources.booklet.tag">Boekje</span>
+          <h3 class="resource-card__title" data-i18n="resources.booklet.prescription.title">Voorgeschreven Medicijnen</h3>
+          <p class="resource-card__body" data-i18n="resources.booklet.prescription.body">Voorgeschreven medicijnen kunnen net zo verslavend zijn als straatdrugs. Leer de risico's van misbruik.</p>
+          <div class="resource-card__actions">
+            <button class="resource-card__action" onclick="openGate('download', window.t('resources.booklet.prescription.title'),'booklets/prescriptiondrugs-nl.pdf')" data-i18n="resources.booklet.prescription.download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </button>
+            <button class="resource-card__action resource-card__action--order" onclick="openGate('order', window.t('resources.booklet.prescription.title'))" data-i18n="resources.booklet.prescription.order">
+              Bestel
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PSA VIDEOS -->
+  <section class="section section--navy-light" id="psa-section">
+    <div class="container">
+      <div class="section__overline animate" data-i18n="resources.psa.overline">03 — Preventiespotjes</div>
+      <h2 class="section__title animate" data-i18n="resources.psa.title">Preventiespotjes</h2>
+      <p class="section__sub animate" data-i18n="resources.psa.sub">De 18 krachtige preventiespotjes zijn ideaal als opener voor drugspreventielessen en als introductie tot de reeks informatieve boekjes over drugs. Deze video's zijn gebaseerd op echte situaties en doorprikken veelvoorkomende mythes over drugs. Inzetbaar op scholen, infostanden, evenementen en binnen lokale sensibiliseringscampagnes.</p>
+
+      <div class="section-banner animate" style="width:100%;aspect-ratio:16/9;max-height:420px;overflow:hidden;border-radius:8px;margin:var(--space-md) 0 var(--space-lg);background:var(--color-navy);">
+        <img src="img/banner-psa.jpg" alt="Preventiespotje uit de reeks De Waarheid over Drugs" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+
+      <div class="resource-grid">
+
+        <div class="resource-card animate" data-category="psa">
+          <span class="resource-card__tag resource-card__tag--psa" data-i18n="resources.psa.tag">PSA</span>
+          <h3 class="resource-card__title" data-i18n="resources.psa.card.title">Alle preventiespotjes</h3>
+          <p class="resource-card__body" data-i18n="resources.psa.card.body">18 krachtige spotjes over de meest voorkomende drugs — van alcohol tot synthetische drugs.</p>
+          <div class="resource-card__actions">
+            <a class="resource-card__action" href="videos.html" data-i18n="resources.psa.card.btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Bekijk spotjes
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTAIRE -->
+  <section class="section" id="docu-section">
+    <div class="container">
+      <div class="section__overline animate" data-i18n="resources.doc.overline">04 — Documentaire</div>
+      <h2 class="section__title animate" data-i18n="resources.doc.title">De Feiten over Drugs: Echte Mensen — Echte Verhalen</h2>
+      <p class="section__sub animate" data-i18n="resources.doc.sub">Een krachtige documentaire van meer dan 100 minuten die toont wat drugs écht doen met je lichaam en geest. Je hoort de harde, echte verhalen van ex-verslaafden die zelf de gevolgen hebben meegemaakt. Geen clichés of overdreven waarschuwingen, maar pure realiteit. Hieronder vind je de documentaire, opgesplitst per hoofdstuk — elk hoofdstuk behandelt een specifieke drug.</p>
+
+      <div class="section-banner animate" style="width:100%;aspect-ratio:16/9;max-height:420px;overflow:hidden;border-radius:8px;margin:var(--space-md) 0 var(--space-lg);background:var(--color-navy);">
+        <img src="img/banner-docu.jpg" alt="Beeld uit de documentaire Echte Mensen, Echte Verhalen" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+
+      <div class="resource-grid">
+
+        <div class="resource-card animate" data-category="docu">
+          <span class="resource-card__tag resource-card__tag--docu" data-i18n="resources.doc.tag">Documentaire</span>
+          <h3 class="resource-card__title" data-i18n="resources.doc.card.title">De volledige documentaire</h3>
+          <p class="resource-card__body" data-i18n="resources.doc.card.body">Een aanrader voor iedereen. De volledige documentaire met alle hoofdstukken — echte verhalen, echte gevolgen.</p>
+          <div class="resource-card__actions">
+            <a class="resource-card__action" href="feiten.html#doc-chapters" data-i18n="resources.doc.card.btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Bekijk documentaire
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING REQUEST -->
+  <section class="section section--teal-light">
+    <div class="container speaking animate" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);align-items:center;">
+      <div>
+        <div class="section__overline" data-i18n="resources.speaking.overline">05 -- Workshop aanvragen</div>
+        <h2 class="section__title" data-i18n="resources.speaking.title">Graag een workshop in jouw organisatie?</h2>
+        <p class="speaking__desc" data-i18n="resources.speaking.body">Wij komen met plezier langs! We stemmen elke workshop af op het doelpubliek (leeftijd, jongeren, ouders, begeleiders...). Tijdens een sessie van ongeveer 1u30 legt een spreker op een heldere en feitelijke manier uit hoe drugs het lichaam en de geest beinvloeden en welke gevolgen dat kan hebben -- zonder moraliseren. Daarna deelt een ervaringsdeskundige een aangrijpende getuigenis uit het echte leven.</p>
+        <a href="betrokken.html#lezing" class="btn btn--navy" data-i18n="resources.speaking.btn">Workshop aanvragen</a>
+      </div>
+      <div class="speaking__media" style="aspect-ratio:4/3;overflow:hidden;background:var(--color-navy);">
+        <img src="img/foto-lezing.jpeg" alt="Spreker tijdens workshop" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+    </div>
+    <style>@media (max-width:768px){.speaking{grid-template-columns:1fr !important;}.speaking__media{order:-1;}}</style>
+  </section>
+
+  <!-- MODAL GATE -->
+  <div class="modal" id="gate-modal" role="dialog" aria-modal="true" aria-labelledby="gate-modal-title">
+    <div class="modal__backdrop" onclick="closeGate()"></div>
+    <div class="modal__dialog">
+      <button class="modal__close" onclick="closeGate()" data-i18n-aria="resources.modal.close" aria-label="Sluiten">&times;</button>
+      <div id="gate-form-wrap">
+        <div class="modal__overline" id="gate-modal-overline" data-i18n="resources.modal.overline_download">Download</div>
+        <h3 class="modal__title" id="gate-modal-title" data-i18n="resources.modal.title">Vul je gegevens in</h3>
+        <p class="modal__sub" id="gate-modal-sub" data-i18n="resources.modal.sub">Je gegevens worden enkel gebruikt om je het materiaal te sturen en eventueel een keer per maand updates over onze werking.</p>
+        <form id="gate-form" onsubmit="submitGate(event)">
+          <div class="modal__field">
+            <input type="text" name="voornaam" data-i18n-placeholder="resources.modal.ph_name" placeholder="Voornaam" required>
+          </div>
+          <div class="modal__field">
+            <input type="email" name="email" data-i18n-placeholder="resources.modal.ph_email" placeholder="E-mailadres" required>
+          </div>
+          <div class="modal__field">
+            <input type="text" name="functie" data-i18n-placeholder="resources.modal.ph_role" placeholder="Functie (bijv. Leraar, Ouder, Hulpverlener)" required>
+          </div>
+          <div class="modal__field" id="gate-address-field" style="display:none;">
+            <textarea name="adres" rows="2" data-i18n-placeholder="resources.modal.ph_address" placeholder="Leveradres (optioneel — laat leeg voor digitale bevestiging per e-mail)"></textarea>
+          </div>
+          <div class="modal__check">
+            <input type="checkbox" id="gate-newsletter" name="newsletter" checked>
+            <label for="gate-newsletter" data-i18n="resources.modal.newsletter_label">Ja, ik wil maandelijkse updates over Zeg Neen Tegen Drugs</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="gate-submit" data-i18n="resources.modal.submit">Bevestigen</button>
+        </form>
+        <p class="modal__trust" data-i18n="resources.modal.trust">Je gegevens worden nooit gedeeld met derden.</p>
+      </div>
+      <div id="gate-success" class="modal__success" style="display:none;">
+        <div class="modal__success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="modal__title" id="gate-success-title" data-i18n="resources.modal.success_title">Bedankt!</h3>
+        <p class="modal__sub" id="gate-success-sub" data-i18n="resources.modal.success_sub">Je download wordt geopend.</p>
+        <button type="button" class="btn btn--navy" onclick="closeGate()" data-i18n="resources.modal.success_close">Sluiten</button>
+      </div>
+    </div>
+  </div>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__newsletter">
+        <h3>Schrijf je in voor onze nieuwsbrief</h3>
+        <p>Updates over onze acties, activiteiten en het laatste nieuws rond drugspreventie.</p>
+        <form class="footer__newsletter-form" onsubmit="handleFooterSignup(event)">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
+          <button type="submit">Inschrijven <span aria-hidden="true">&rarr;</span></button>
+        </form>
+      </div>
+      <div>
+        <p class="footer__col-heading">Site</p>
+        <nav class="footer__nav">
+          <a href="index.html">Home</a>
+          <a href="feiten.html">Ken de Feiten</a>
+          <a href="resources.html">Downloads &amp; Tools</a>
+          <a href="betrokken.html">Doe Mee</a>
+          <a href="wie-zijn-wij.html">Over Ons</a>
+          <a href="doneer.html">Doneer</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Volg ons</p>
+        <nav class="footer__nav">
+          <a href="https://www.instagram.com/ditesnonaladrogue.be/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/drugfreeworldbelgium/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC2AlsxMEs65IKBbh7viOM4Q" target="_blank" rel="noopener">YouTube</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Contact</p>
+        <div class="footer__contact">
+          <a href="mailto:info@zegneentegendrugs.be">info@zegneentegendrugs.be</a>
+          <span>België</span>
+          <span style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;margin-top:8px;">Drugspreventie door educatie.<br>In samenwerking met Foundation for a Drug-Free World.</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__brand"><div class="footer__brand-logo">Zeg Neen Tegen Drugs</div></div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Zeg Neen Tegen Drugs VZW. Alle rechten voorbehouden. Het logo van de Stichting voor een Drugsvrije Wereld is eigendom van deze stichting en wordt met toestemming gebruikt.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacybeleid</a>
+        <a href="cookies.html">Cookiebeleid</a>
+      </div>
+      </div>
+  </footer>
+  <script>
+    async function handleFooterSignup(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const btn = form.querySelector('button');
+      if (!email) return;
+      btn.disabled = true;
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Versturen...';
+      try {
+        const r = await fetch('/api/notion-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'newsletter', fields: { email, source: 'footer' } }) });
+        if (!r.ok) throw new Error();
+        form.innerHTML = '<span style="color:var(--color-teal);font-size:14px;">Bedankt — je staat op de lijst.</span>';
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+        alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+    }
+  </script>
+
+
+  <script>
+    // NAV BURGER
+    (function(){
+      var burger = document.querySelector('.nav__burger');
+      var links = document.querySelector('.nav__links');
+      if (!burger || !links) return;
+      burger.addEventListener('click', function(e){ e.stopPropagation(); links.classList.toggle('open'); });
+      document.addEventListener('click', function(e){ if (links.classList.contains('open') && !links.contains(e.target) && !burger.contains(e.target)) links.classList.remove('open'); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') links.classList.remove('open'); });
+      links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ links.classList.remove('open'); }); });
+    })();
+
+    // SCROLL ANIMATIONS
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.animate').forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // POST-CLICK MODAL GATE
+    var gateContext = { action: null, title: null, url: null };
+
+    function openGate(action, title, url) {
+      gateContext = { action: action, title: title, url: url || null };
+
+      // Already captured on a previous visit/page? Skip modal, trigger action directly.
+      if (window.zntdCapture && window.zntdCapture.has()) {
+        if (action === 'download' && url) { window.location.href = url; return; }
+        if (action === 'video' && url) {
+          var w = window.open(url, '_blank');
+          if (!w || w.closed) window.location.href = url;
+          return;
+        }
+        if (action === 'order') { window.location.href = 'betrokken.html#onderwijspakket'; return; }
+      }
+
+      var overline = document.getElementById('gate-modal-overline');
+      var modalTitle = document.getElementById('gate-modal-title');
+      var modalSub = document.getElementById('gate-modal-sub');
+      var submitBtn = document.getElementById('gate-submit');
+      var addressField = document.getElementById('gate-address-field');
+      var addressInput = addressField.querySelector('textarea');
+
+      if (action === 'download') {
+        overline.textContent = window.t('resources.modal.overline_download');
+        modalTitle.textContent = title;
+        modalSub.textContent = window.t('resources.modal.sub_download');
+        submitBtn.textContent = window.t('resources.modal.submit_download');
+        addressField.style.display = 'none';
+        addressInput.required = false;
+      } else if (action === 'order') {
+        overline.textContent = window.t('resources.modal.overline_order');
+        modalTitle.textContent = title;
+        modalSub.textContent = window.t('resources.modal.sub_order');
+        submitBtn.textContent = window.t('resources.modal.submit_order');
+        addressField.style.display = 'block';
+        addressInput.required = false;
+      } else if (action === 'video') {
+        overline.textContent = window.t('resources.modal.overline_video');
+        modalTitle.textContent = title;
+        modalSub.textContent = window.t('resources.modal.sub_video');
+        submitBtn.textContent = window.t('resources.modal.submit_video');
+        addressField.style.display = 'none';
+        addressInput.required = false;
+      }
+
+      // Reset form state
+      document.getElementById('gate-form-wrap').style.display = 'block';
+      document.getElementById('gate-success').style.display = 'none';
+      document.getElementById('gate-form').reset();
+      document.getElementById('gate-newsletter').checked = true;
+
+      // Prefill email if we have one from a previous submission.
+      if (window.zntdCapture) {
+        var prevEmail = window.zntdCapture.getEmail();
+        if (prevEmail) {
+          var emailInput = document.querySelector('#gate-form input[type="email"]');
+          if (emailInput) emailInput.value = prevEmail;
+        }
+      }
+
+      var modal = document.getElementById('gate-modal');
+      modal.classList.add('open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeGate() {
+      document.getElementById('gate-modal').classList.remove('open');
+      document.body.classList.remove('modal-open');
+    }
+
+    async function submitGate(e) {
+      e.preventDefault();
+      var form = e.target;
+      var data = new FormData(form);
+      var fields = {
+        voornaam: data.get('voornaam') || '',
+        email: data.get('email') || '',
+        functie: data.get('functie') || '',
+        adres: data.get('adres') || '',
+        newsletter: data.get('newsletter') ? 'ja' : 'nee',
+        item: gateContext.title || '',
+        actie: gateContext.action || '',
+      };
+      // Persist capture so user is not asked again across pages.
+      if (window.zntdCapture) window.zntdCapture.set(fields.email);
+      var submitBtn = document.getElementById('gate-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = window.t('resources.modal.loading');
+
+      try {
+        var details = [
+          'Actie: ' + fields.actie,
+          'Item: ' + fields.item,
+          fields.adres && ('Adres: ' + fields.adres),
+          'Nieuwsbrief: ' + fields.newsletter,
+        ].filter(Boolean).join(' | ');
+
+        await fetch('/api/notion-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'newsletter',
+            fields: {
+              email: fields.email,
+              voornaam: fields.voornaam,
+              achternaam: '',
+              functie: fields.functie + ' — ' + details,
+              source: 'downloads-' + fields.actie,
+            },
+          }),
+        });
+      } catch (err) {
+        console.warn('Submit failed, continuing with action:', err);
+      }
+
+      // Show success + trigger action
+      document.getElementById('gate-form-wrap').style.display = 'none';
+      var successEl = document.getElementById('gate-success');
+      var successTitle = document.getElementById('gate-success-title');
+      var successSub = document.getElementById('gate-success-sub');
+
+      if (gateContext.action === 'download') {
+        successTitle.textContent = window.t('resources.modal.success_download_title');
+        successSub.textContent = window.t('resources.modal.success_download_sub');
+        if (gateContext.url) { var w = window.open(gateContext.url, '_blank'); if (!w || w.closed) { window.location.href = gateContext.url; } }
+        successEl.style.display = 'block';
+      } else if (gateContext.action === 'video') {
+        successTitle.textContent = window.t('resources.modal.success_video_title');
+        successSub.textContent = window.t('resources.modal.success_video_sub');
+        if (gateContext.url) { var w = window.open(gateContext.url, '_blank'); if (!w || w.closed) { window.location.href = gateContext.url; } }
+        successEl.style.display = 'block';
+      } else if (gateContext.action === 'order') {
+        successTitle.textContent = window.t('resources.modal.success_order_title');
+        successSub.textContent = window.t('resources.modal.success_order_sub');
+        successEl.style.display = 'block';
+      }
+
+      submitBtn.disabled = false;
+    }
+
+    // ESC to close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeGate();
+      }
+    });
+  </script>
+  <script src="js/capture.js"></script>
+  <script src="motion.js"></script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

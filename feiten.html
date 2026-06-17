@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Echte feiten over cannabis, alcohol, ecstasy, cocaïne, crystal meth en meer. Lees, bekijk video's en download gratis boekjes — duidelijk, eerlijk en zonder onzin.">
+  <link rel="canonical" href="feiten.html">
+  <meta name="theme-color" content="#1B2A3D">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Zeg Neen Tegen Drugs">
+  <meta property="og:title" content="Ken de Feiten — De waarheid over drugs | Zeg Neen Tegen Drugs">
+  <meta property="og:description" content="Echte feiten over cannabis, alcohol, ecstasy, cocaïne, crystal meth en meer. Lees, bekijk video's en download gratis boekjes — duidelijk, eerlijk en zonder onzin.">
+  <meta property="og:url" content="https://zegneentegendrugsv2.vercel.app/feiten.html">
+  <meta property="og:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ken de Feiten — De waarheid over drugs | Zeg Neen Tegen Drugs">
+  <meta name="twitter:description" content="Echte feiten over cannabis, alcohol, ecstasy, cocaïne, crystal meth en meer. Lees, bekijk video's en download gratis boekjes — duidelijk, eerlijk en zonder onzin.">
+  <meta name="twitter:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <!-- /SEO meta -->
+  <link rel="icon" type="image/png" href="img/logo-sntd-white.png">
+  <link rel="apple-touch-icon" href="img/logo-sntd-white.png">
+  <title data-i18n="feiten._title">Ken de Feiten — Zeg Neen Tegen Drugs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --color-navy:       #1B2A3D;
+      --color-teal:       #65BDD3;
+      --color-teal-dark:  #4A9BB5;
+      --color-teal-light: #F0F8FA;
+      --color-yellow:     #EFFF8D;
+      --color-bg:         #FFFFFF;
+      --color-surface:    #F5F5F5;
+      --color-text:       #1A1A1A;
+      --color-muted:      #888888;
+      --color-border:     rgba(0,0,0,0.10);
+      --font-heading:     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:        'Open Sans', sans-serif;
+      --nav-height:       80px;
+      --space-xs:  8px;
+      --space-sm:  16px;
+      --space-md:  32px;
+      --space-lg:  64px;
+      --space-xl:  100px;
+      --space-xxl: 140px;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .animate { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animate.visible { opacity: 1; transform: none; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000; background: #fff; border-bottom: 1px solid var(--color-border); }
+    .nav__inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-md); }
+    .nav__logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-navy); }
+    .nav__logo-img { width: 40px; height: 40px; object-fit: contain; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-md); flex: 1; justify-content: center;}
+    .nav__links a { font-family: var(--font-body); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text); position: relative; transition: opacity var(--transition); }
+    .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-teal); transition: width var(--transition); }
+    .nav__links a:hover::after { width: 100%; } .nav__links a.active::after { width: 100%; transition: none; }
+    .nav__cta { background: var(--color-teal) !important; color: #fff !important; padding: 10px 20px; }
+    .nav__cta::after { display: none !important; }
+    .nav__cta:hover { background: var(--color-teal-dark) !important; }
+    .nav__burger { display: none; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--color-navy); }
+    .nav__right { display: flex; align-items: center; gap: 12px; }
+    @media (max-width: 900px) {
+      .nav__burger { display: block; }
+      .nav__right .nav__cta { padding: 8px 14px; font-size: 11px; }
+      .nav__links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; flex-direction: column; padding: var(--space-md); gap: var(--space-sm); border-bottom: 1px solid var(--color-border); }
+      .nav__links.open { display: flex; }
+    }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; font-family: var(--font-body); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border: none; transition: all var(--transition); }
+    .btn--primary { background: var(--color-teal); color: #fff; }
+    .btn--primary:hover { background: var(--color-teal-dark); }
+    .btn--navy { background: var(--color-navy); color: #fff; }
+    .btn--navy:hover { background: #253549; }
+    .btn--outline { background: transparent; color: var(--color-navy); border: 1.5px solid var(--color-navy); }
+    .btn--outline:hover { background: var(--color-navy); color: #fff; }
+    .btn--full { width: 100%; }
+
+    /* PAGE HERO */
+    .page-hero { position: relative; background: var(--color-navy); padding: calc(var(--nav-height) + var(--space-xxl)) var(--space-md) var(--space-xl); overflow: hidden; }
+    .page-hero__bg { position: absolute; inset: 0; background: url('img/_UK16847.jpg') center/cover no-repeat; opacity: 0.85; z-index: 0; }
+    .page-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,61,0.20) 0%, rgba(27,42,61,0.55) 100%); }
+    .page-hero__inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-lg); }
+    .page-hero__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 10px; }
+    .page-hero__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(40px, 5vw, 72px); font-weight: 700; text-transform: uppercase; color: #fff; line-height: 1.05; letter-spacing: 0.02em; margin-bottom: var(--space-sm); }
+    .page-hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 520px; }
+    .page-hero__tabs { display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.2); align-self: flex-end; }
+    .page-hero__tab { padding: 12px 24px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); cursor: pointer; border: none; background: transparent; transition: all var(--transition); }
+    .page-hero__tab.active, .page-hero__tab:hover { background: var(--color-teal); color: #fff; }
+
+    /* SECTION */
+    .section { padding: var(--space-xl) var(--space-md); }
+    .section--surface { background: var(--color-surface); }
+    .section--navy { background: var(--color-navy); }
+    .section--yellow { background: var(--color-yellow); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section__overline { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-xs); display: flex; align-items: center; gap: 10px; }
+    .section__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .section__title { font-family: var(--font-heading); font-size: clamp(26px, 3vw, 40px); font-weight: 700; text-transform: uppercase; color: var(--color-navy); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: var(--space-sm); }
+    .section__title--white { color: #fff; }
+    .section__num { font-family: var(--font-heading); font-size: 10px; color: var(--color-teal); letter-spacing: 0.1em; vertical-align: super; margin-right: 4px; }
+
+    /* DRUG FULL GRID */
+    .drug-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); }
+    .drug-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-md); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); display: flex; flex-direction: column; cursor: pointer; }
+    .drug-card:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.08); border-color: var(--color-teal); }
+    .drug-card__cover { width: 100%; aspect-ratio: 3/2; margin-bottom: var(--space-sm); position: relative; overflow: hidden; }
+    .drug-card__cover img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.4s ease; display: block; }
+    .drug-card:hover .drug-card__cover img { transform: scale(1.04); }
+    .drug-card__tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 3px 8px; margin-bottom: 8px; }
+    .drug-card__tag--cannabis { background: #C3FFD7; color: #1B4D35; }
+    .drug-card__tag--alcohol  { background: #B4FFFB; color: #1B3D4D; }
+    .drug-card__tag--ecstasy  { background: #FFDFE8; color: #4D1B27; }
+    .drug-card__tag--cocaine  { background: #F5F5F5; color: #333; border: 1px solid #ddd; }
+    .drug-card__tag--meth     { background: #FFE8B4; color: #4D3A1B; }
+    .drug-card__tag--heroin   { background: #E8D5FF; color: #2E1B4D; }
+    .drug-card__tag--lsd      { background: #D5F0FF; color: #1B354D; }
+    .drug-card__tag--fentanyl { background: #FFD5D5; color: #4D1B1B; }
+    .drug-card__tag--synth    { background: #F0F0FF; color: #2B1B4D; }
+    .drug-card__tag--inhal    { background: #FFFFF0; color: #4D4D1B; border: 1px solid #e0e0a0; }
+    .drug-card__tag--pain     { background: #F0FFE8; color: #1B4D2B; }
+    .drug-card__tag--ritalin  { background: #FFF0E8; color: #4D2B1B; }
+    .drug-card__title { font-family: var(--font-heading); font-size: 17px; font-weight: 600; color: var(--color-navy); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .drug-card__body { font-size: 13px; color: var(--color-muted); line-height: 1.65; flex: 1; margin-bottom: var(--space-sm); }
+    .drug-card__actions { display: flex; gap: 10px; align-items: center; }
+    .drug-card__action { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-teal); cursor: pointer; }
+    .drug-card__dl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted); transition: color var(--transition); }
+    .drug-card__dl:hover { color: var(--color-navy); }
+
+    /* INDIVIDUAL DRUG SUBPAGE (overlay) */
+    .drug-panel { position: fixed; top: 0; right: -100%; width: min(960px, 100%); height: 100vh; background: #fff; z-index: 3000; overflow-y: auto; transition: right 0.4s cubic-bezier(0.4,0,0.2,1); box-shadow: -8px 0 60px rgba(0,0,0,0.18); }
+    .drug-panel.open { right: 0; }
+    .drug-panel__backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 2999; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+    .drug-panel__backdrop.open { opacity: 1; pointer-events: all; }
+    .drug-panel__header { background: var(--color-navy); padding: var(--space-lg) var(--space-md); position: relative; }
+    .drug-panel__close { position: absolute; top: var(--space-md); right: var(--space-md); background: rgba(255,255,255,0.1); border: none; color: #fff; width: 36px; height: 36px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: background var(--transition); }
+    .drug-panel__close:hover { background: rgba(255,255,255,0.2); }
+    .drug-panel__tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 3px 8px; margin-bottom: 10px; }
+    .drug-panel__title { font-family: var(--font-heading); font-size: 36px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .drug-panel__hook { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 500px; }
+    .drug-panel__nav { display: flex; gap: 0; margin-top: var(--space-md); border: 1px solid rgba(255,255,255,0.2); width: fit-content; }
+    .drug-panel__nav-btn { padding: 10px 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); background: transparent; border: none; cursor: pointer; transition: all var(--transition); }
+    .drug-panel__nav-btn.active, .drug-panel__nav-btn:hover { background: var(--color-teal); color: #fff; }
+    .drug-panel__body { padding: var(--space-md); }
+    .panel-section { display: none; }
+    .panel-section.active { display: block; }
+    .panel-section h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 600; color: var(--color-navy); text-transform: uppercase; margin-bottom: var(--space-sm); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-border); letter-spacing: 0.04em; }
+    .panel-section p { font-size: 15px; color: var(--color-text); line-height: 1.8; margin-bottom: var(--space-sm); }
+    .panel-section ul { margin: var(--space-sm) 0; padding-left: 0; }
+    .panel-section ul li { font-size: 15px; color: var(--color-text); line-height: 1.7; padding: 6px 0 6px 20px; position: relative; border-bottom: 1px solid var(--color-border); }
+    .panel-section ul li::before { content: ''; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; background: var(--color-teal); border-radius: 50%; }
+    .booklet-download-box { background: var(--color-teal-light); border: 1px solid rgba(101,189,211,0.3); padding: var(--space-md); margin: var(--space-md) 0; }
+    .booklet-download-box h4 { font-family: var(--font-heading); font-size: 16px; font-weight: 600; color: var(--color-navy); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.04em; }
+    .booklet-download-box p { font-size: 14px; color: var(--color-muted); margin-bottom: var(--space-sm); }
+    .download-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: var(--space-sm); }
+    .dl-btn { padding: 12px; border: 1.5px solid var(--color-teal); background: #fff; font-family: var(--font-body); font-size: 12px; font-weight: 700; color: var(--color-teal-dark); text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; transition: all var(--transition); }
+    .dl-btn:hover, .dl-btn.primary { background: var(--color-teal); color: #fff; border-color: var(--color-teal); }
+    .video-embed { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--color-navy); overflow: hidden; margin: var(--space-sm) 0; }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    /* YouTube branding masks — hide channel/title (top) + YouTube watermark (bottom-right) */
+    .yt-mask-top { position: absolute; top: 0; left: 0; right: 0; height: 62px; background: #000; z-index: 5; pointer-events: auto; }
+    .yt-mask-logo { position: absolute; bottom: 0; right: 0; width: 112px; height: 44px; background: #000; z-index: 5; pointer-events: auto; }
+    .video-play-cover { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--color-navy); cursor: pointer; }
+    .play-btn-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--color-teal); display: flex; align-items: center; justify-content: center; transition: transform var(--transition); }
+    .video-play-cover:hover .play-btn-circle { transform: scale(1.08); }
+    .play-btn-circle svg { width: 24px; height: 24px; fill: #fff; margin-left: 3px; }
+
+    /* REVIEWS / IMPACT */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+    .review-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-md); }
+    .review-stars { color: var(--color-teal); font-size: 14px; margin-bottom: 8px; letter-spacing: 2px; }
+    .review-text { font-size: 14px; color: var(--color-text); line-height: 1.7; margin-bottom: var(--space-sm); font-style: italic; }
+    .review-author { font-size: 12px; font-weight: 600; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.08em; }
+    .review-role { font-size: 12px; color: var(--color-muted); }
+
+    /* FREE MATERIALS */
+    .free-materials { background: var(--color-teal-light); border: 1px solid rgba(101,189,211,0.25); padding: var(--space-lg) var(--space-md); }
+    .free-materials__inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: var(--space-lg); align-items: center; }
+
+    /* BOOKLETS DOWNLOAD GRID */
+    .booklets-dl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); }
+    .booklet-dl-card { background: var(--color-bg); border: 1px solid var(--color-border); display: flex; flex-direction: column; cursor: pointer; position: relative; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, filter 0.4s ease, opacity 0.4s ease; }
+    .booklet-dl-card::before { content: ''; position: absolute; inset: -8px; background-size: cover; background-position: center; opacity: 0; filter: blur(3px); transition: opacity 0.5s ease, filter 0.5s ease; z-index: 0; pointer-events: none; }
+    .booklet-dl-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(27,42,61,0.88) 0%, rgba(27,42,61,0.55) 50%, rgba(27,42,61,0.25) 100%); opacity: 0; transition: opacity 0.5s ease; z-index: 1; pointer-events: none; }
+    .booklet-dl-card > * { position: relative; z-index: 2; }
+    .booklet-dl-card:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.15); border-color: var(--color-teal); }
+    .booklet-dl-card:hover::before { opacity: 1; }
+    .booklet-dl-card:hover::after { opacity: 1; }
+    .booklet-dl-card:hover .booklet-dl-card__name { color: #fff; }
+    .booklets-dl-grid:hover .booklet-dl-card:not(:hover) { filter: blur(1.5px) brightness(0.7); opacity: 0.7; transform: scale(0.98); }
+    /* Background images per drug */
+    .booklet-dl-card[data-drug="cannabis"]::before { background-image: url('booklets/marijuana_booklet.jpg'); }
+    .booklet-dl-card[data-drug="alcohol"]::before { background-image: url('booklets/alcohol_booklet.jpg'); }
+    .booklet-dl-card[data-drug="ecstasy"]::before { background-image: url('booklets/ecstasy_booklet.jpg'); }
+    .booklet-dl-card[data-drug="cocaine"]::before { background-image: url('booklets/cocaine_booklet.jpg'); }
+    .booklet-dl-card[data-drug="meth"]::before { background-image: url('booklets/crystalmeth_booklet.jpg'); }
+    .booklet-dl-card[data-drug="heroin"]::before { background-image: url('booklets/heroin_booklet.jpg'); }
+    .booklet-dl-card[data-drug="lsd"]::before { background-image: url('booklets/lsd_booklet.jpg'); }
+    .booklet-dl-card[data-drug="fentanyl"]::before { background-image: url('booklets/fentanyl_booklet.jpg'); }
+    .booklet-dl-card[data-drug="synthetic"]::before { background-image: url('booklets/synthetic_booklet.jpg'); }
+    .booklet-dl-card[data-drug="inhalants"]::before { background-image: url('booklets/inhalants_booklet.jpg'); }
+    .booklet-dl-card[data-drug="painkillers"]::before { background-image: url('booklets/painkillers_booklet.jpg'); }
+    .booklet-dl-card[data-drug="ritalin"]::before { background-image: url('booklets/ritalin_booklet.jpg'); }
+    .booklet-dl-card[data-drug="prescription"]::before { background-image: url('booklets/prescriptiondrugs_booklet.jpg'); }
+    .booklet-dl-card[data-drug="drugs"]::before { background-image: url('booklets/drugs_booklet.jpg'); }
+    .booklet-dl-card[data-drug="crack"]::before { background-image: url('booklets/crack_booklet.jpg'); }
+    .booklet-dl-card__cover { width: 100%; aspect-ratio: 3/2; overflow: hidden; position: relative; }
+    .booklet-dl-card__cover img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.4s ease; }
+    .booklet-dl-card:hover .booklet-dl-card__cover img { transform: scale(1.04); }
+    .booklet-dl-card__name { font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.04em; padding: 14px var(--space-sm) 6px; transition: color 0.4s ease; }
+    .booklet-dl-card__actions { display: flex; gap: 8px; padding: 0 var(--space-sm) var(--space-sm); opacity: 0; transform: translateY(8px); transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s; }
+    .booklet-dl-card:hover .booklet-dl-card__actions { opacity: 1; transform: translateY(0); }
+    .booklet-dl-card__action { flex: 1; padding: 10px 0; font-family: var(--font-body); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; text-decoration: none; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); transition: background 0.2s, border-color 0.2s; cursor: pointer; }
+    .booklet-dl-card__action:hover { background: var(--color-teal); border-color: var(--color-teal); }
+    @media (max-width: 1024px) { .booklets-dl-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .booklets-dl-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .booklets-dl-grid { grid-template-columns: 1fr; } }
+
+    /* ROOMS — sequential sections, one per topic */
+    /* DOC STAGE — Apple-style sticky TV + scroll-linked clip-path seam wipe */
+    .rooms-stage { position: relative; isolation: isolate; color: #fff; }
+    .rooms-stage__rail { position: relative; z-index: 1; }
+    .rooms-stage__room { min-height: 95vh; padding: 12vh 0; display: flex; align-items: center; position: relative; }
+    .rooms-stage__room-inner { max-width: 1440px; margin: 0 auto; padding: 0 var(--space-md); width: 100%; }
+    .rooms-stage__room-copy { max-width: 520px; }
+    .rooms-stage__room[data-room="marijuana"] { background: #1B2A3D; }
+    .rooms-stage__room[data-room="synthetic"] { background: #1B2A3D; }
+    .rooms-stage__overline { font: 600 11px/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 16px; display: inline-flex; align-items: center; gap: 10px; }
+    .rooms-stage__overline::before { content: ''; width: 24px; height: 1px; background: rgba(255,255,255,0.6); }
+    .rooms-stage__overline .section__num { color: rgba(255,255,255,0.85); }
+    .rooms-stage__title { font-family: var(--font-heading); font-weight: 700; font-size: clamp(40px, 4.6vw, 68px); line-height: 1.02; letter-spacing: -0.005em; text-transform: uppercase; color: #fff; margin-bottom: 28px; max-width: 14ch; }
+    .rooms-stage__lead { font: 400 18px/1.65 var(--font-body); color: rgba(255,255,255,0.92); max-width: 480px; margin-bottom: 28px; }
+    .rooms-stage__cta { display: inline-flex; align-items: center; gap: 8px; font: 600 13px/1 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: #fff; cursor: pointer; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.5); transition: gap 200ms ease, border-color 200ms ease; background: transparent; }
+    .rooms-stage__cta:hover { gap: 14px; border-color: #fff; }
+    .rooms-stage__pin { position: absolute; top: 0; right: 0; bottom: 0; width: 50%; pointer-events: none; z-index: 2; }
+    .rooms-stage__pin-inner { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: flex-start; padding: 0 var(--space-lg) 0 0; pointer-events: none; }
+    .rooms-stage__device-inner { position: relative; width: min(42vw, 720px); aspect-ratio: 1.6 / 1; pointer-events: auto; }
+    .tv-frame__svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; filter: drop-shadow(0 40px 80px rgba(0,0,0,0.55)); }
+    .tv-frame__screen-stack { position: absolute; top: 1.4%; left: 1.375%; right: 1.375%; bottom: 18.2%; z-index: 1; background: #000; overflow: hidden; border-radius: 6px; }
+    .tv-screen { position: absolute; inset: 0; pointer-events: none; cursor: pointer; display: block; overflow: hidden; will-change: clip-path; }
+    .tv-screen[data-layer="0"] { z-index: 1; clip-path: inset(0); }
+    .tv-screen[data-layer="1"] { z-index: 2; clip-path: inset(100% 0 0 0); }
+    .tv-screen.is-active { pointer-events: auto; }
+    .tv-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tv-screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; opacity: 0; transition: opacity 320ms ease; }
+    .tv-screen video.is-ready { opacity: 1; }
+    .rooms-stage.is-paused .tv-screen video { opacity: 0; }
+    .tv-frame__control { position: absolute; bottom: -3.5%; right: 4%; z-index: 3; width: clamp(32px, 2.4vw, 40px); aspect-ratio: 1; border-radius: 50%; border: 0; padding: 0; background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.88); backdrop-filter: blur(10px) saturate(1.2); -webkit-backdrop-filter: blur(10px) saturate(1.2); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 180ms ease, transform 180ms ease, opacity 180ms ease; opacity: 0.85; pointer-events: auto; }
+    .tv-frame__control:hover { background: rgba(255,255,255,0.28); opacity: 1; transform: scale(1.05); }
+    .tv-frame__control svg { width: 45%; height: 45%; fill: currentColor; }
+    .tv-frame__control[data-state="paused"] svg.icon-pause { display: none; }
+    .tv-frame__control[data-state="playing"] svg.icon-play { display: none; }
+
+    /* DOC CHAPTER GRID — 14 chapters listed below the featured stage */
+    .doc-grid { background: var(--color-navy); padding: var(--space-xl) var(--space-md); }
+    .doc-grid__inner { max-width: 1280px; margin: 0 auto; }
+    .doc-grid__heading { font-family: var(--font-heading); font-size: clamp(28px, 3.4vw, 44px); font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.1; margin: 0 0 var(--space-sm); }
+    .doc-grid__sub { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.65; max-width: 640px; margin: 0 0 var(--space-lg); }
+    .doc-grid__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    @media (max-width: 1024px) { .doc-grid__list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .doc-grid__list { grid-template-columns: 1fr; } }
+    .doc-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 200ms ease, border-color 200ms ease, background 200ms ease; display: flex; flex-direction: column; text-decoration: none; color: #fff; }
+    .doc-card:hover { transform: translateY(-3px); border-color: var(--color-teal); background: rgba(255,255,255,0.06); }
+    .doc-card__preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .doc-card__poster { position: relative; aspect-ratio: 16/9; background: #050507; overflow: hidden; }
+    .doc-card__poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .doc-card__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.92); color: var(--color-navy); display: flex; align-items: center; justify-content: center; padding-left: 3px; transition: background 180ms ease, transform 180ms ease; }
+    .doc-card:hover .doc-card__play { background: var(--color-teal); transform: translate(-50%, -50%) scale(1.06); }
+    .doc-card__body { padding: var(--space-sm) var(--space-md) var(--space-md); }
+    .doc-card__num { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-teal); margin: 0 0 6px; }
+    .doc-card__title { font-family: var(--font-heading); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: #fff; margin: 0; line-height: 1.2; }
+
+    .rooms-stage__mobile { display: none; }
+    @media (max-width: 900px) {
+      .rooms-stage__pin { width: 100%; left: 0; right: 0; }
+      .rooms-stage__pin-inner { padding: 0; height: 100vh; align-items: flex-start; justify-content: center; }
+      .rooms-stage__pin-inner > .rooms-stage__device-inner { width: min(82vw, 460px); margin-top: calc(var(--nav-height) + 2vh); }
+      /* Each room is 100vh — sticky pins for (rail.height - 100vh), which means the
+         TV releases right when the last room is fully in view. */
+      .rooms-stage__wrap { padding-bottom: 0; }
+      .rooms-stage__room { min-height: 85vh; padding: 0; align-items: flex-start; }
+      .rooms-stage__room-inner { padding: 0 var(--space-sm) 56px; display: block; max-width: none; }
+      .rooms-stage__room-copy { max-width: none; padding-top: calc(var(--nav-height) + 4vh + min(82vw, 460px) * 0.625 + 64px); }
+      .rooms-stage__title { font-size: clamp(28px, 8vw, 44px); margin-bottom: 16px; }
+      .rooms-stage__lead { max-width: none; font-size: 16px; margin-bottom: 20px; }
+      .tv-frame__control { width: 36px; bottom: -2.5%; right: 6%; }
+    }
+    @media (max-width: 480px) {
+      .rooms-stage__room { padding: 48px 0; }
+      .rooms-stage__title { font-size: clamp(24px, 8vw, 36px); }
+      .rooms-stage__lead { font-size: 15px; line-height: 1.6; }
+    }
+
+    .rooms-stack { background: var(--color-navy); }
+    .rooms-stack__intro { padding: var(--space-xxl) var(--space-md) var(--space-lg); color: #fff; text-align: center; }
+    .rooms-stack__intro > * { max-width: 1280px; margin-left: auto; margin-right: auto; }
+    .rooms-stack__overline { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); }
+    .rooms-stack__title { font-family: var(--font-heading); font-size: clamp(36px, 4.5vw, 64px); font-weight: 700; text-transform: uppercase; color: #fff; letter-spacing: 0.01em; line-height: 1.05; margin-bottom: var(--space-md); }
+    .rooms-stack__lead { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 640px; margin: 0 auto; }
+    .room { padding: 12vh 0; position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center; }
+    .room--alcohol    { background: #B92E32; }
+    .room--cannabis   { background: #2BA253; }
+    .room--ecstasy    { background: #8540B5; }
+    .room--documentary{ background: #122845; }
+    .room__inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 4fr 7fr; gap: var(--space-xxl); align-items: center; }
+    .room__copy { color: #fff; }
+    .room__overline { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-teal); margin-bottom: var(--space-sm); display: flex; align-items: center; gap: 10px; }
+    .room__overline::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--color-teal); }
+    .room__title { font-family: var(--font-heading); font-size: clamp(32px, 4vw, 56px); font-weight: 700; text-transform: uppercase; color: #fff; letter-spacing: 0.01em; line-height: 1.05; margin-bottom: var(--space-md); }
+    .room__lead { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.78); margin-bottom: var(--space-md); max-width: 460px; }
+    .room__cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--color-teal); text-transform: uppercase; letter-spacing: 0.08em; transition: gap var(--transition); cursor: pointer; }
+    .room__cta:hover { gap: 14px; }
+    .room__tv { position: relative; aspect-ratio: 16/9; background: #050507; padding: 4px; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 0 1px rgba(255,255,255,0.07), 0 60px 140px rgba(0,0,0,0.7), 0 18px 48px rgba(0,0,0,0.5); display: block; cursor: pointer; overflow: hidden; transition: transform 0.5s ease, box-shadow 0.5s ease; }
+    .room__tv:hover { transform: translateY(-4px); }
+    .room__tv img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; display: block; }
+    .room__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.95); color: var(--color-navy); display: flex; align-items: center; justify-content: center; padding-left: 5px; transition: background var(--transition), transform var(--transition); pointer-events: none; }
+    .room__tv:hover .room__play { background: var(--color-teal); transform: translate(-50%, -50%) scale(1.08); }
+    @media (max-width: 1024px) {
+      .rooms-stack__intro { padding: var(--space-xl) var(--space-md) var(--space-md); }
+      .room { padding: var(--space-xl) var(--space-md); }
+      .room__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .room__lead { max-width: none; }
+    }
+    @media (max-width: 600px) {
+      .rooms-stack__intro { padding: 60px var(--space-sm) 32px; }
+      .rooms-stack__title { font-size: clamp(28px, 7vw, 40px); }
+      .rooms-stack__lead { font-size: 15px; }
+      .room { padding: 60px var(--space-sm); }
+      .room__inner { gap: 24px; }
+      .room__title { font-size: clamp(26px, 7vw, 36px); }
+      .room__lead { font-size: 15px; }
+      .room__tv { padding: 3px; border-radius: 6px; }
+      .room__play { width: 56px; height: 56px; }
+    }
+
+    /* PSA SLIDER */
+    .psa-slider { position: relative; }
+    .psa-slider__track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(320px, 1fr); gap: var(--space-sm); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 2px; scrollbar-width: none; }
+    .psa-slider__track::-webkit-scrollbar { display: none; }
+    .psa-slide { position: relative; aspect-ratio: 16/9; background: var(--color-navy); overflow: hidden; scroll-snap-align: start; cursor: pointer; }
+    .psa-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease, filter var(--transition); }
+    .psa-slide:hover img { transform: scale(1.05); filter: brightness(0.82); }
+    .psa-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.55) 100%); z-index: 1; pointer-events: none; }
+    .psa-slide__label { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px; background: linear-gradient(180deg, transparent 0%, rgba(27,42,61,0.85) 100%); opacity: 0; transform: translateY(10px); transition: opacity var(--transition), transform var(--transition); z-index: 2; }
+    .psa-slide__label span { display: inline-block; font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 10px; background: var(--color-teal); }
+    .psa-slide:hover .psa-slide__label { opacity: 1; transform: translateY(0); }
+    .psa-slide:hover video { transform: scale(1.03); transition: transform 0.4s ease; }
+    .psa-slide__play { position: absolute; inset: 0; background: transparent; border: none; cursor: pointer; z-index: 3; }
+    .psa-slider__nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1.5px solid var(--color-border); color: var(--color-navy); cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: background var(--transition), color var(--transition); }
+    .psa-slider__nav:hover { background: var(--color-teal); color: #fff; border-color: var(--color-teal); }
+    .psa-slider__nav--prev { left: -22px; }
+    .psa-slider__nav--next { right: -22px; }
+    @media (max-width: 768px) {
+      .psa-slider__track { grid-auto-columns: 65%; }
+      .psa-slider__nav { display: none; }
+    }
+
+    /* NEWSLETTER FORM */
+    .newsletter-form { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+    /* ACTION POPUP */
+    .action-popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 5000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); padding: var(--space-sm); }
+    .action-popup-overlay.open { opacity: 1; pointer-events: all; }
+    .action-popup { background: #fff; width: 100%; max-width: 520px; position: relative; padding: var(--space-lg) var(--space-md); }
+    .action-popup__close { position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--color-muted); line-height: 1; }
+    .action-popup__overline { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-teal); margin-bottom: 6px; }
+    .action-popup__title { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .action-popup__sub { font-size: 14px; color: var(--color-muted); margin-bottom: var(--space-md); line-height: 1.6; }
+    .action-popup__buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .action-popup__btn { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 18px 16px; border: 1.5px solid var(--color-border); background: #fff; cursor: pointer; text-align: left; transition: border-color var(--transition), background var(--transition), color var(--transition); font-family: var(--font-body); color: var(--color-navy); }
+    .action-popup__btn:hover { border-color: var(--color-teal); background: var(--color-teal-light); }
+    .action-popup__btn-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .action-popup__btn-desc { font-size: 11px; color: var(--color-muted); text-transform: none; font-weight: 400; letter-spacing: 0; }
+    @media (max-width: 480px) {
+      .action-popup__buttons { grid-template-columns: 1fr; }
+    }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 4000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: #fff; padding: var(--space-lg); max-width: 480px; width: 90%; position: relative; }
+    .modal__close { position: absolute; top: var(--space-sm); right: var(--space-sm); background: none; border: none; font-size: 22px; cursor: pointer; color: var(--color-muted); }
+    .modal__overline { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-teal); margin-bottom: 8px; }
+    .modal__title { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .modal__sub { font-size: 14px; color: var(--color-muted); margin-bottom: var(--space-md); line-height: 1.6; }
+    .field { margin-bottom: 10px; }
+    .field input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--color-border); font-family: var(--font-body); font-size: 14px; outline: none; transition: border-color var(--transition); }
+    .field input:focus { border-color: var(--color-teal); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .modal__check { display: flex; align-items: flex-start; gap: 10px; margin: 10px 0; }
+    .modal__check input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--color-teal); flex-shrink: 0; }
+    .modal__check label { font-size: 13px; color: var(--color-muted); line-height: 1.5; }
+    .modal__trust { font-size: 11px; color: var(--color-muted); margin-top: 10px; text-align: center; }
+
+    /* FOOTER -- Zypsy-style */
+    .footer { background: var(--color-navy); padding: 80px var(--space-md) 32px; color: #fff; position: relative; }
+    .footer__top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-xl); padding-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .footer__newsletter p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 24px; }
+    .footer__newsletter-form { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 8px; transition: border-color var(--transition); }
+    .footer__newsletter-form:focus-within { border-bottom-color: var(--color-teal); }
+    .footer__newsletter-form input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-family: var(--font-body); font-size: 14px; padding: 8px 0; }
+    .footer__newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer__newsletter-form button { background: transparent; border: 0; color: #fff; cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 6px; transition: color var(--transition); padding: 0; }
+    .footer__newsletter-form button:hover { color: var(--color-teal); }
+    .footer__col-heading { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+    .footer__nav { display: flex; flex-direction: column; gap: 12px; }
+    .footer__nav a, .footer__contact a { font-family: var(--font-body); font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.85); transition: color var(--transition); line-height: 1.4; }
+    .footer__nav a:hover, .footer__contact a:hover { color: var(--color-teal); }
+    .footer__contact { display: flex; flex-direction: column; gap: 12px; }
+    .footer__contact span { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .footer__brand { max-width: 1280px; margin: 40px auto 20px; }
+    .footer__brand-logo { font-family: var(--font-heading); font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; line-height: 1; letter-spacing: 0.02em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .footer__bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,0.4); transition: color var(--transition); }
+    .footer__bottom a:hover { color: rgba(255,255,255,0.85); }
+    .footer__legal { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer__lang { display: flex; gap: 12px; font-family: var(--font-body); font-weight: 500; }
+    .footer__lang a.active { color: rgba(255,255,255,0.85); }
+    @media (max-width: 1024px) {
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__newsletter { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .footer { padding: 60px var(--space-sm) 24px; }
+      .footer__top { grid-template-columns: 1fr; gap: var(--space-md); padding-bottom: 48px; }
+      .footer__brand { margin: 48px auto 24px; }
+      .footer__bottom { font-size: 12px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="img/logo-sntd.png" data-i18n-alt="nav.logo_alt" alt="Zeg Neen Tegen Drugs"><span data-i18n="nav.logo">Zeg Neen Tegen Drugs</span></a>
+      <ul class="nav__links">
+        <li><a href="feiten.html" class="active" data-i18n="nav.facts">Ken de Feiten</a></li>
+        <li><a href="resources.html" data-i18n="nav.downloads">Downloads &amp; Tools</a></li>
+        <li><a href="betrokken.html" data-i18n="nav.join">Doe Mee</a></li>
+        <li><a href="wie-zijn-wij.html" data-i18n="nav.about">Over Ons</a></li>
+      </ul>
+      <div class="nav__right">
+        <a class="nav__cta" href="doneer.html" data-i18n="nav.donate">Doneer</a>
+        <button class="nav__burger" data-i18n-aria="nav.burger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__inner">
+      <div>
+        <p class="page-hero__overline" data-i18n="feiten.hero.overline">Educatie &amp; Preventie</p>
+        <h1 data-i18n="feiten.hero.title">Ken de Feiten</h1>
+        <p data-i18n="feiten.hero.sub">Ontdek de echte feiten over drugs — zonder angstverhalen, zonder mythen. Kies een drug, lees wat je moet weten, download het boekje of bekijk de documentaire.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--space-md);">
+          <button class="btn btn--primary" data-i18n="feiten.hero.btn_booklets" onclick="document.getElementById('booklets-section').scrollIntoView({behavior:'smooth'})">Boekjes &amp; info</button>
+          <button class="btn" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.3);" data-i18n="feiten.hero.btn_documentary" onclick="openActionPopup(null,'all')">Bekijk de documentaire</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKLETS & DRUG INFO (merged) -->
+  <section class="section" id="booklets-section">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-sm);" data-i18n-html="feiten.booklets.overline"><span class="section__num">01</span> Boekjes &amp; drug informatie</p>
+      <h2 class="section__title animate" data-i18n="feiten.booklets.title">Ken de feiten per drug</h2>
+      <p style="font-size:16px;color:var(--color-muted);line-height:1.75;max-width:620px;margin-bottom:var(--space-lg);" class="animate" data-i18n="feiten.booklets.sub">Elk boekje bevat de echte feiten. Lees online, download gratis, bestel een fysieke versie of bekijk de bijhorende documentaire.</p>
+      <div class="booklets-dl-grid">
+        <div class="booklet-dl-card animate" id="drugs" data-drug="drugs">
+          <div class="booklet-dl-card__cover"><img src="booklets/drugs_booklet.jpg" data-i18n-alt="feiten.drug.drugs.img_alt" alt="De Feiten over Drugs"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.drugs.card_name">De Feiten over Drugs</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/drugs-nl.pdf" data-pdf="drugs" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/drugs-nl.pdf" data-pdf="drugs" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="cannabis" data-drug="cannabis">
+          <div class="booklet-dl-card__cover"><img src="booklets/marijuana_booklet.jpg" data-i18n-alt="feiten.drug.cannabis.img_alt" alt="De Waarheid over Cannabis"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.cannabis.card_name">Cannabis</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/marijuana-nl.pdf" data-pdf="marijuana" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-cannabis" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/marijuana-nl.pdf" data-pdf="marijuana" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="fentanyl" data-drug="fentanyl">
+          <div class="booklet-dl-card__cover"><img src="booklets/fentanyl_booklet.jpg" data-i18n-alt="feiten.drug.fentanyl.img_alt" alt="De Gevaren van Fentanyl"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.fentanyl.card_name">Fentanyl</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/fentanyl-nl.pdf" data-pdf="fentanyl" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/fentanyl-nl.pdf" data-pdf="fentanyl" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="synthetic" data-drug="synthetic">
+          <div class="booklet-dl-card__cover"><img src="booklets/synthetic_booklet.jpg" data-i18n-alt="feiten.drug.synthetic.img_alt" alt="Synthetische Drugs"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.synthetic.card_name">Synthetische drugs</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/synthetic-nl.pdf" data-pdf="synthetic" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-synthetic" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/synthetic-nl.pdf" data-pdf="synthetic" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="alcohol" data-drug="alcohol">
+          <div class="booklet-dl-card__cover"><img src="booklets/alcohol_booklet.jpg" data-i18n-alt="feiten.drug.alcohol.img_alt" alt="De Feiten over Alcohol"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.alcohol.card_name">Alcohol</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/alcohol-nl.pdf" data-pdf="alcohol" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-alcohol" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/alcohol-nl.pdf" data-pdf="alcohol" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="ecstasy" data-drug="ecstasy">
+          <div class="booklet-dl-card__cover"><img src="booklets/ecstasy_booklet.jpg" data-i18n-alt="feiten.drug.ecstasy.img_alt" alt="Ecstasy"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.ecstasy.card_name">Ecstasy / MDMA</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/ecstasy-nl.pdf" data-pdf="ecstasy" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-ecstasy" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/ecstasy-nl.pdf" data-pdf="ecstasy" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="cocaine" data-drug="cocaine">
+          <div class="booklet-dl-card__cover"><img src="booklets/cocaine_booklet.jpg" data-i18n-alt="feiten.drug.cocaine.img_alt" alt="Cocaine"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.cocaine.card_name">Cocaïne</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/cocaine-nl.pdf" data-pdf="cocaine" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-cocaine" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/cocaine-nl.pdf" data-pdf="cocaine" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="crack" data-drug="crack">
+          <div class="booklet-dl-card__cover"><img src="booklets/crack_booklet.jpg" data-i18n-alt="feiten.drug.crack.img_alt" alt="Crack"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.crack.card_name">Crack</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/crack-nl.pdf" data-pdf="crack" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-crack" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/crack-nl.pdf" data-pdf="crack" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="meth" data-drug="meth">
+          <div class="booklet-dl-card__cover"><img src="booklets/crystalmeth_booklet.jpg" data-i18n-alt="feiten.drug.crystal_meth.img_alt" alt="Crystal Meth"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.crystal_meth.card_name">Crystal Meth</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/crystalmeth-nl.pdf" data-pdf="crystalmeth" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-meth" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/crystalmeth-nl.pdf" data-pdf="crystalmeth" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="inhalants" data-drug="inhalants">
+          <div class="booklet-dl-card__cover"><img src="booklets/inhalants_booklet.jpg" data-i18n-alt="feiten.drug.inhalants.img_alt" alt="Inhaleermiddelen"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.inhalants.card_name">Inhaleermiddelen</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/inhalants-nl.pdf" data-pdf="inhalants" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-inhalants" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/inhalants-nl.pdf" data-pdf="inhalants" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="heroin" data-drug="heroin">
+          <div class="booklet-dl-card__cover"><img src="booklets/heroin_booklet.jpg" data-i18n-alt="feiten.drug.heroin.img_alt" alt="Heroine"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.heroin.card_name">Heroïne</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/heroin-nl.pdf" data-pdf="heroin" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-heroin" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/heroin-nl.pdf" data-pdf="heroin" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="lsd" data-drug="lsd">
+          <div class="booklet-dl-card__cover"><img src="booklets/lsd_booklet.jpg" data-i18n-alt="feiten.drug.lsd.img_alt" alt="LSD"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.lsd.card_name">LSD</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/lsd-nl.pdf" data-pdf="lsd" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-lsd" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/lsd-nl.pdf" data-pdf="lsd" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="ritalin" data-drug="ritalin">
+          <div class="booklet-dl-card__cover"><img src="booklets/ritalin_booklet.jpg" data-i18n-alt="feiten.drug.ritalin.img_alt" alt="Ritalin"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.ritalin.card_name">Ritalin</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/ritalin-nl.pdf" data-pdf="ritalin" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-ritalin" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/ritalin-nl.pdf" data-pdf="ritalin" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="painkillers" data-drug="painkillers">
+          <div class="booklet-dl-card__cover"><img src="booklets/painkillers_booklet.jpg" data-i18n-alt="feiten.drug.painkillers.img_alt" alt="Pijnstillers"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.painkillers.card_name">Pijnstillers</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/painkillers-nl.pdf" data-pdf="painkillers" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html#video-painkillers" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/painkillers-nl.pdf" data-pdf="painkillers" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+        <div class="booklet-dl-card animate" id="prescription" data-drug="prescription">
+          <div class="booklet-dl-card__cover"><img src="booklets/prescriptiondrugs_booklet.jpg" data-i18n-alt="feiten.drug.prescription.img_alt" alt="Voorgeschreven Medicijnen"></div>
+          <h3 class="booklet-dl-card__name" data-i18n="feiten.drug.prescription.card_name">Voorgeschreven Medicijnen</h3>
+          <div class="booklet-dl-card__actions">
+            <a href="booklets/prescriptiondrugs-nl.pdf" data-pdf="prescription" target="_blank" class="booklet-dl-card__action" data-i18n="index.drugs.action.read">Lees</a>
+            <a href="videos.html" class="booklet-dl-card__action" data-i18n="index.drugs.action.watch">Bekijk</a>
+            <a href="booklets/prescriptiondrugs-nl.pdf" data-pdf="prescription" download class="booklet-dl-card__action" data-i18n="index.drugs.action.download">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT REVIEWS -->
+  <section class="section section--surface">
+    <div class="container">
+      <p class="section__overline" style="margin-bottom:var(--space-md);" data-i18n-html="feiten.reviews.overline"><span class="section__num">02</span> Getuigenissen</p>
+      <h2 class="section__title animate" data-i18n="feiten.reviews.title">Wat anderen zeggen</h2>
+      <div class="testimonials-grid" style="margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-md);">
+        <div class="testimonial-card animate" style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+          <p class="testimonial-card__quote" style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Dankzij de inzet en expertise van de vrijwilligers werd het een sterke en boeiende preventie-actie die meer dan 50 leerlingen wist te engageren. Ook de informatieve pakketten waren een waardevolle aanvulling. We kijken ernaar uit om dit binnen twee jaar opnieuw te organiseren."</p>
+          <div class="testimonial-card__author" style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Leerkracht</div>
+        </div>
+        <div class="testimonial-card animate" style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+          <p class="testimonial-card__quote" style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Ik heb dankzij de infosessie en de boekjes echt mijn ogen geopend voor de gevolgen van drugs en het leven van iemand met een verslaving. Die kennis heeft mij geholpen om nee te zeggen toen ik ermee in contact kwam. Dankjewel aan het hele team!"</p>
+          <div class="testimonial-card__author" style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Vrouw, 30 jaar</div>
+        </div>
+        <div class="testimonial-card animate" style="background:var(--color-bg);border:1px solid var(--color-border);border-top:3px solid var(--color-teal);padding:var(--space-md);">
+          <p class="testimonial-card__quote" style="font-size:15px;color:var(--color-text);line-height:1.75;margin-bottom:var(--space-sm);font-style:italic;">"Door de informatie die ik kreeg tijdens de sensibiliseringsactie heb ik beslist om geen drugs te gebruiken en mijn vrienden te helpen om ervan af te raken."</p>
+          <div class="testimonial-card__author" style="font-family:var(--font-heading);font-size:13px;font-weight:600;color:var(--color-navy);text-transform:uppercase;letter-spacing:0.06em;">Studente, 17 jaar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTAIRE — Apple-style featured stage (HLS) + 14-chapter grid -->
+  <section class="rooms-stage" id="doc-stage">
+    <div class="rooms-stack__intro" style="background:#1B2A3D;">
+      <p class="rooms-stack__overline">Documentaire</p>
+      <h2 class="rooms-stack__title">De feiten over drugs: Echte mensen — echte verhalen</h2>
+      <p class="rooms-stack__lead">12 hoofdstukken. Bekijk hieronder de verschillende hoofdstukken.</p>
+    </div>
+    <div class="rooms-stage__wrap" style="position:relative;">
+    <div class="rooms-stage__rail">
+      <article class="rooms-stage__room" data-room="marijuana" style="--room-mobile-poster:url('videos/posters/truth-about-drugs-documentary-02-marijuana_1280_nl.jpg')">
+        <div class="rooms-stage__room-inner">
+          <div class="rooms-stage__room-copy">
+            <p class="rooms-stage__overline"><span class="section__num">01</span> <span>Hoofdstuk</span></p>
+            <h2 class="rooms-stage__title">Marihuana</h2>
+            <p class="rooms-stage__lead">De meest gebruikte illegale drug ter wereld. Wat de documentaire toont over wat cannabis aanricht in het zich ontwikkelende brein.</p>
+            <a href="feiten.html#doc-chapters" class="rooms-stage__cta">Bekijk alle hoofdstukken →</a>
+          </div>
+        </div>
+      </article>
+      <article class="rooms-stage__room" data-room="synthetic" style="--room-mobile-poster:url('videos/posters/truth-about-drugs-documentary-04-synthetic-drugs_1280_nl.jpg')">
+        <div class="rooms-stage__room-inner">
+          <div class="rooms-stage__room-copy">
+            <p class="rooms-stage__overline"><span class="section__num">06</span> <span>Hoofdstuk</span></p>
+            <h2 class="rooms-stage__title">Synthetische drugs</h2>
+            <p class="rooms-stage__lead">Designer drugs uit het lab — onvoorspelbaar, vaak dodelijk. Een hoofdstuk uit de documentaire dat laat zien waarom synthetische drugs zo gevaarlijk zijn.</p>
+            <a href="feiten.html#doc-chapters" class="rooms-stage__cta">Bekijk alle hoofdstukken →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <aside class="rooms-stage__pin" aria-hidden="true">
+      <div class="rooms-stage__pin-inner">
+        <div class="rooms-stage__device-inner">
+          <div class="tv-frame__screen-stack">
+            <a class="tv-screen is-active" data-layer="0" data-room="marijuana" data-mp4="videos/docu_nl/truth-about-drugs-documentary-02-marijuana_1280_nl.mp4" href="feiten.html#doc-chapters">
+              <img src="videos/posters/truth-about-drugs-documentary-02-marijuana_1280_nl.jpg" alt="Marihuana hoofdstuk" loading="lazy">
+            </a>
+            <a class="tv-screen" data-layer="1" data-room="synthetic" data-mp4="videos/docu_nl/truth-about-drugs-documentary-04-synthetic-drugs_1280_nl.mp4" href="feiten.html#doc-chapters">
+              <img src="videos/posters/truth-about-drugs-documentary-04-synthetic-drugs_1280_nl.jpg" alt="Synthetische drugs hoofdstuk" loading="lazy">
+            </a>
+          </div>
+          <svg class="tv-frame__svg" viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="docTvBezelGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1a1d"/><stop offset="100%" stop-color="#0a0a0c"/></linearGradient><linearGradient id="docTvStandGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#15151a"/><stop offset="100%" stop-color="#070708"/></linearGradient><mask id="docTvScreenCutout"><rect width="1600" height="1000" fill="white"/><rect x="22" y="14" width="1556" height="804" rx="6" ry="6" fill="black"/></mask><filter id="docTvShadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="40" stdDeviation="40" flood-color="#000" flood-opacity="0.55"/></filter></defs><g filter="url(#docTvShadow)"><rect x="0" y="0" width="1600" height="832" rx="14" ry="14" fill="url(#docTvBezelGrad)" mask="url(#docTvScreenCutout)"/><path d="M 720 832 L 880 832 L 920 928 L 680 928 Z" fill="url(#docTvStandGrad)"/><rect x="560" y="924" width="480" height="14" rx="7" ry="7" fill="url(#docTvStandGrad)"/><rect x="22" y="14" width="1556" height="1" fill="rgba(255,255,255,0.08)" mask="url(#docTvScreenCutout)"/></g></svg>
+          <button class="tv-frame__control" id="doc-stage-toggle" type="button" data-state="playing" aria-label="Pauzeer video" aria-pressed="false">
+            <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+            <svg class="icon-play"  viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+    </div>
+  </section>
+
+  <!-- DOC CHAPTER GRID — all 14 chapters as cards (YouTube modal) -->
+  <section class="doc-grid" id="doc-chapters">
+    <div class="doc-grid__inner">
+      <h2 class="doc-grid__heading">12 hoofdstukken</h2>
+      <p class="doc-grid__sub">Klik op een hoofdstuk om het in het Nederlands te bekijken.</p>
+      <div class="doc-grid__list">
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-02-marijuana_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-02-marijuana_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-02-marijuana_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 01</p><h3 class="doc-card__title">Marihuana</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-03-alcohol_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-03-alcohol_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-03-alcohol_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 02</p><h3 class="doc-card__title">Alcohol</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-04-synthetic-drugs_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-04-synthetic-drugs_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-04-synthetic-drugs_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 03</p><h3 class="doc-card__title">Synthetische drugs</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-04-ecstasy_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-04-ecstasy_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-04-ecstasy_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 04</p><h3 class="doc-card__title">Ecstasy</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-05-cocaine_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-05-cocaine_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-05-cocaine_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 05</p><h3 class="doc-card__title">Cocaïne</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-06-crack_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-06-crack_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-06-crack_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 06</p><h3 class="doc-card__title">Crack</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-07-crystal-meth_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-07-crystal-meth_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-07-crystal-meth_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 07</p><h3 class="doc-card__title">Crystal Meth</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-08-inhalants_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-08-inhalants_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-08-inhalants_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 08</p><h3 class="doc-card__title">Inhaleermiddelen</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-09-heroin_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-09-heroin_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-09-heroin_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 09</p><h3 class="doc-card__title">Heroïne</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-10-lsd_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-10-lsd_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-10-lsd_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 10</p><h3 class="doc-card__title">LSD</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-11-prescription-drugs_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-11-prescription-drugs_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-11-prescription-drugs_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 11</p><h3 class="doc-card__title">Voorschriftsmedicijnen</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-12-pain-killers_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-12-pain-killers_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-12-pain-killers_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 12</p><h3 class="doc-card__title">Pijnstillers</h3></div></a>
+        <a class="doc-card" data-mp4="videos/docu_nl/truth-about-drugs-documentary-13-final-word_1280_nl.mp4" href="feiten.html#"><div class="doc-card__poster"><video class="doc-card__preview" muted loop playsinline preload="metadata" poster="videos/posters/truth-about-drugs-documentary-13-final-word_1280_nl.jpg" data-src="videos/docu_nl/truth-about-drugs-documentary-13-final-word_1280_nl.mp4" aria-hidden="true"></video><span class="doc-card__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="doc-card__body"><p class="doc-card__num">Hoofdstuk 13</p><h3 class="doc-card__title">Slotwoord</h3></div></a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      function openLocalVideo(mp4){
+        let m = document.getElementById('doc-yt-modal');
+        if (!m) {
+          m = document.createElement('div');
+          m.id = 'doc-yt-modal';
+          m.style.cssText = 'position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,0.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:32px;';
+          m.innerHTML = '<button id="doc-yt-close" aria-label="Sluiten" style="position:absolute;top:24px;right:32px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer;">\u00d7</button><div style="position:relative;width:100%;max-width:1080px;aspect-ratio:16/9;background:#000;box-shadow:0 30px 80px rgba(0,0,0,0.6);"><video id="doc-yt-frame" controls autoplay playsinline style="width:100%;height:100%;background:#000;"></video></div>';
+          document.body.appendChild(m);
+          m.addEventListener('click', e => { if (e.target === m) closeLocalVideo(); });
+          document.getElementById('doc-yt-close').addEventListener('click', closeLocalVideo);
+          document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLocalVideo(); });
+        }
+        const v = document.getElementById('doc-yt-frame');
+        v.src = mp4;
+        try { v.play(); } catch(e){}
+        m.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLocalVideo(){
+        const m = document.getElementById('doc-yt-modal');
+        if (!m) return;
+        const v = document.getElementById('doc-yt-frame');
+        try { v.pause(); } catch(e){}
+        v.removeAttribute('src');
+        v.load();
+        m.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      // doc-card previews: poster only, no autoplay
+      document.querySelectorAll('.doc-card__preview').forEach(v => {
+        v.removeAttribute('autoplay');
+        try { v.pause(); } catch(e){}
+        v.removeAttribute('src');
+        v.removeAttribute('data-src');
+      });
+
+            document.querySelectorAll('#documentaire [data-mp4], #doc-chapters [data-mp4]').forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          openLocalVideo(el.dataset.mp4);
+        });
+      });
+
+      // ===== DOC STAGE — sticky-TV scroll-linked clip-path wipe (HLS playback) =====
+      const stage = document.getElementById('doc-stage');
+      if (stage) {
+        const rooms = Array.from(stage.querySelectorAll('.rooms-stage__rail .rooms-stage__room'));
+        const layers = Array.from(stage.querySelectorAll('.tv-frame__screen-stack .tv-screen'));
+        const stack  = stage.querySelector('.tv-frame__screen-stack');
+        const mqDesktop = window.matchMedia('(min-width: 901px)');
+
+        // Local mp4 playback per layer
+        const blockedVideos = new Set();
+        function tryPlay(vid){
+          const p = vid.play();
+          if (p && typeof p.then === 'function') {
+            p.then(() => { blockedVideos.delete(vid); vid.classList.add('is-ready'); })
+             .catch(() => { blockedVideos.add(vid); });
+          } else {
+            vid.classList.add('is-ready');
+          }
+        }
+        function attachVideo(layer){
+          if (!layer.dataset.mp4 || layer.querySelector('video')) return;
+          const url = layer.dataset.mp4;
+          const vid = document.createElement('video');
+          vid.muted = true; vid.defaultMuted = true; vid.loop = true; vid.playsInline = true; vid.autoplay = true; vid.preload = 'metadata';
+          vid.setAttribute('muted', ''); vid.setAttribute('autoplay', ''); vid.setAttribute('playsinline', ''); vid.setAttribute('webkit-playsinline', '');
+          vid.setAttribute('aria-hidden', 'true'); vid.setAttribute('disablepictureinpicture', ''); vid.setAttribute('disableremoteplayback', '');
+          vid.src = url;
+          layer.insertBefore(vid, layer.firstChild);
+          vid.addEventListener('loadedmetadata', () => tryPlay(vid));
+          vid.addEventListener('playing', () => vid.classList.add('is-ready'));
+        }
+        layers.forEach(attachVideo);
+
+        // Mobile uses the same sticky TV as desktop — no per-room video needed.
+
+        // First-gesture unblock for autoplay-rejected browsers
+        function unblockOnGesture(){ blockedVideos.forEach(v => tryPlay(v)); }
+        ['click','touchstart','keydown','scroll','pointerdown','mousemove'].forEach(ev =>
+          window.addEventListener(ev, unblockOnGesture, { passive: true }));
+
+        // Seam-linked clip-path wipe — same model as homepage section
+        let ticking = false;
+        function update(){
+          ticking = false;
+          const sr = stack.getBoundingClientRect();
+          if (sr.height <= 0) return;
+          let topVisibleIdx = 0;
+          for (let i = 1; i < layers.length; i++) {
+            const seamY = rooms[i - 1].getBoundingClientRect().bottom;
+            let ratio = (seamY - sr.top) / sr.height;
+            if (ratio < 0) ratio = 0; else if (ratio > 1) ratio = 1;
+            layers[i].style.clipPath = 'inset(' + (ratio * 100).toFixed(3) + '% 0 0 0)';
+            if (ratio < 0.5) topVisibleIdx = i;
+          }
+          layers.forEach((l, i) => l.classList.toggle('is-active', i === topVisibleIdx));
+        }
+        function onScroll(){ if (!ticking) { requestAnimationFrame(update); ticking = true; } }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        if (window.ResizeObserver) {
+          const ro = new ResizeObserver(onScroll);
+          rooms.forEach(r => ro.observe(r)); ro.observe(stack); ro.observe(stage);
+        }
+        update();
+
+        // Mini play/pause
+        const toggle = document.getElementById('doc-stage-toggle');
+        if (toggle) {
+          toggle.addEventListener('click', () => {
+            const playing = toggle.dataset.state === 'playing';
+            toggle.dataset.state = playing ? 'paused' : 'playing';
+            toggle.setAttribute('aria-pressed', String(playing));
+            toggle.setAttribute('aria-label', playing ? 'Speel video af' : 'Pauzeer video');
+            stage.classList.toggle('is-paused', playing);
+            stage.querySelectorAll('.tv-frame__screen-stack video').forEach(v => {
+              if (playing) v.pause(); else v.play().catch(() => {});
+            });
+          });
+        }
+      }
+    })();
+  </script>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="section section--surface" id="newsletter-section">
+    <div class="container" style="max-width:720px;text-align:center;">
+      <p class="section__overline" style="justify-content:center;margin-bottom:var(--space-sm);" data-i18n-html="feiten.newsletter.overline"><span class="section__num">04</span> Blijf op de hoogte</p>
+      <h2 class="section__title animate" data-i18n="feiten.newsletter.title">Nieuwsbrief voor professionals</h2>
+      <p style="font-size:16px;color:var(--color-muted);line-height:1.75;margin-bottom:var(--space-lg);" class="animate" data-i18n="feiten.newsletter.sub">Schrijf je in en ontvang nieuwe materialen, educatieve updates en gratis boekjes rechtstreeks per e-mail.</p>
+      <form class="newsletter-form animate" onsubmit="handleFeitenNewsletter(event)">
+        <div class="field-row">
+          <div class="field"><input type="text" name="voornaam" data-i18n-placeholder="feiten.newsletter.ph_first" placeholder="Voornaam" required></div>
+          <div class="field"><input type="text" name="achternaam" data-i18n-placeholder="feiten.newsletter.ph_last" placeholder="Achternaam" required></div>
+        </div>
+        <div class="field"><input type="email" name="email" data-i18n-placeholder="feiten.newsletter.ph_email" placeholder="E-mailadres" required></div>
+        <div class="field"><input type="text" name="functie" data-i18n-placeholder="feiten.newsletter.ph_role" placeholder="Functie (leerkracht, ouder, professional...)"></div>
+        <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--color-muted);line-height:1.5;text-align:left;margin:8px 0;">
+          <input type="checkbox" name="newsletter_optin" checked style="margin-top:3px;flex-shrink:0;">
+          <span data-i18n="form.newsletter_optin">Ja, ik wil me inschrijven op de nieuwsbrief !</span>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--color-muted);line-height:1.5;text-align:left;margin-bottom:var(--space-sm);">
+          <input type="checkbox" name="privacy_consent" required style="margin-top:3px;flex-shrink:0;">
+          <span data-i18n-html="form.privacy_consent">Ik geef de toestemming om mijn gegevens te bewaren en verwerken zoals aangegeven in onze <a href="privacy.html" style="color:var(--color-teal);">privacy statement</a>.</span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--full" data-i18n="feiten.newsletter.btn">Inschrijven</button>
+      </form>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__newsletter">
+        <h3>Schrijf je in voor onze nieuwsbrief</h3>
+        <p>Updates over onze acties, activiteiten en het laatste nieuws rond drugspreventie.</p>
+        <form class="footer__newsletter-form" onsubmit="handleFooterSignup(event)">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
+          <button type="submit">Inschrijven <span aria-hidden="true">&rarr;</span></button>
+        </form>
+      </div>
+      <div>
+        <p class="footer__col-heading">Site</p>
+        <nav class="footer__nav">
+          <a href="index.html">Home</a>
+          <a href="feiten.html">Ken de Feiten</a>
+          <a href="resources.html">Downloads &amp; Tools</a>
+          <a href="betrokken.html">Doe Mee</a>
+          <a href="wie-zijn-wij.html">Over Ons</a>
+          <a href="doneer.html">Doneer</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Volg ons</p>
+        <nav class="footer__nav">
+          <a href="https://www.instagram.com/ditesnonaladrogue.be/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/drugfreeworldbelgium/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC2AlsxMEs65IKBbh7viOM4Q" target="_blank" rel="noopener">YouTube</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Contact</p>
+        <div class="footer__contact">
+          <a href="mailto:info@zegneentegendrugs.be">info@zegneentegendrugs.be</a>
+          <span>België</span>
+          <span style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;margin-top:8px;">Drugspreventie door educatie.<br>In samenwerking met Foundation for a Drug-Free World.</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__brand"><div class="footer__brand-logo">Zeg Neen Tegen Drugs</div></div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Zeg Neen Tegen Drugs VZW. Alle rechten voorbehouden. Het logo van de Stichting voor een Drugsvrije Wereld is eigendom van deze stichting en wordt met toestemming gebruikt.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacybeleid</a>
+        <a href="cookies.html">Cookiebeleid</a>
+      </div>
+      </div>
+  </footer>
+  <script>
+    async function handleFooterSignup(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const btn = form.querySelector('button');
+      if (!email) return;
+      btn.disabled = true;
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Versturen...';
+      try {
+        const r = await fetch('/api/notion-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'newsletter', fields: { email, source: 'footer' } }) });
+        if (!r.ok) throw new Error();
+        form.innerHTML = '<span style="color:var(--color-teal);font-size:14px;">Bedankt — je staat op de lijst.</span>';
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+        alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+    }
+  </script>
+
+
+  <!-- DRUG PANEL (slide-in subpage) -->
+  <div class="drug-panel__backdrop" id="panel-backdrop" onclick="closeDrugPanel()"></div>
+  <aside class="drug-panel" id="drug-panel" role="dialog" aria-modal="true">
+    <div class="drug-panel__header" id="panel-header">
+      <button class="drug-panel__close" onclick="closeDrugPanel()">×</button>
+      <span class="drug-panel__tag" id="panel-tag"></span>
+      <h2 class="drug-panel__title" id="panel-title"></h2>
+      <p class="drug-panel__hook" id="panel-hook"></p>
+      <div class="drug-panel__nav">
+        <button class="drug-panel__nav-btn active" data-i18n="feiten.panel.tab_facts" onclick="showPanelSection('facts', this)">Feiten</button>
+        <button class="drug-panel__nav-btn" data-i18n="feiten.panel.tab_booklet" onclick="showPanelSection('booklet', this)">Boekje</button>
+        <button class="drug-panel__nav-btn" data-i18n="feiten.panel.tab_doc" onclick="showPanelSection('documentary', this)">Documentaire</button>
+      </div>
+    </div>
+    <div class="drug-panel__body">
+      <!-- FACTS -->
+      <div class="panel-section active" id="panel-facts">
+        <h3 data-i18n="feiten.panel.facts_heading">Feiten &amp; Effecten</h3>
+        <div id="panel-facts-content"></div>
+      </div>
+      <!-- BOOKLET -->
+      <div class="panel-section" id="panel-booklet">
+        <h3 data-i18n="feiten.panel.booklet_heading">Download het boekje</h3>
+        <div class="booklet-download-box">
+          <h4 id="panel-booklet-title" data-i18n="feiten.panel.booklet_title">Boekje: Titel</h4>
+          <p data-i18n="feiten.panel.booklet_desc">Kies hoe je wilt downloaden — alleen dit boekje, of alle beschikbare boekjes in een keer.</p>
+          <div class="download-choice">
+            <button class="dl-btn primary" data-i18n="feiten.panel.dl_all" onclick="openModal('Alle boekjes','booklets/alle-boekjes-nl.pdf')">Alle boekjes downloaden</button>
+            <button class="dl-btn" id="dl-one-btn" data-i18n="feiten.panel.dl_one" onclick="openModalForCurrent()">Alleen dit boekje</button>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--color-muted);line-height:1.6;" data-i18n="feiten.panel.dl_note">Je download start na het invullen van je gegevens. Geen spam — je ontvangt alleen wat je vraagt.</p>
+      </div>
+      <!-- DOCUMENTARY -->
+      <div class="panel-section" id="panel-documentary">
+        <h3 data-i18n="feiten.panel.doc_heading">Bekijk de documentaire</h3>
+        <p style="font-size:14px;color:var(--color-muted);margin-bottom:var(--space-sm);line-height:1.7;" data-i18n="feiten.panel.doc_desc">Elke drug is een apart hoofdstuk van de internationale Drug Free World documentaire. Klik op afspelen om te bekijken, of download de volledige versie.</p>
+        <div class="video-embed" style="margin-bottom:var(--space-sm);">
+          <div class="video-play-cover" id="panel-video-placeholder" onclick="loadPanelVideo()">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1B2A3D,#2A3F58);"></div>
+            <div style="position:relative;z-index:1;text-align:center;">
+              <div class="play-btn-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <p style="color:rgba(255,255,255,0.5);font-size:12px;margin-top:8px;text-transform:uppercase;letter-spacing:0.1em;" data-i18n="feiten.panel.play_label">Afspelen</p>
+            </div>
+          </div>
+          <div id="panel-video-frame" style="display:none;position:absolute;inset:0;"></div>
+        </div>
+        <button class="btn btn--outline btn--full" data-i18n="feiten.panel.dl_doc_btn" onclick="openModal('Documentaire downloaden')">Download de documentaire</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ACTION POPUP (4 buttons) -->
+  <div class="action-popup-overlay" id="action-popup" onclick="if(event.target===this)closeActionPopup()">
+    <div class="action-popup">
+      <button class="action-popup__close" onclick="closeActionPopup()">&times;</button>
+      <p class="action-popup__overline" data-i18n="feiten.popup.overline">Kies een actie</p>
+      <h2 class="action-popup__title" id="action-popup-title" data-i18n="feiten.popup.title">Wat wil je doen?</h2>
+      <p class="action-popup__sub" id="action-popup-sub" data-i18n="feiten.popup.sub">Lees online, download gratis, bestel fysieke boekjes of bekijk de documentaire.</p>
+      <div class="action-popup__buttons">
+        <button class="action-popup__btn" onclick="popupAction('read')">
+          <span class="action-popup__btn-label" data-i18n="feiten.popup.btn_read">Lees</span>
+          <span class="action-popup__btn-desc" data-i18n="feiten.popup.btn_read_desc">Online de feiten lezen</span>
+        </button>
+        <button class="action-popup__btn" onclick="popupAction('download')">
+          <span class="action-popup__btn-label" data-i18n="feiten.popup.btn_download">Download</span>
+          <span class="action-popup__btn-desc" data-i18n="feiten.popup.btn_download_desc">Gratis PDF boekje</span>
+        </button>
+        <button class="action-popup__btn" onclick="popupAction('order')">
+          <span class="action-popup__btn-label" data-i18n="feiten.popup.btn_order">Bestel</span>
+          <span class="action-popup__btn-desc" data-i18n="feiten.popup.btn_order_desc">Fysieke boekjes laten opsturen</span>
+        </button>
+        <button class="action-popup__btn" onclick="popupAction('documentary')">
+          <span class="action-popup__btn-label" data-i18n="feiten.popup.btn_watch">Bekijk</span>
+          <span class="action-popup__btn-desc" data-i18n="feiten.popup.btn_watch_desc">De documentaire afspelen</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL GATE MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <button class="modal__close" onclick="closeModal()">×</button>
+      <p class="modal__overline" data-i18n="feiten.modal.overline">Gratis download</p>
+      <h2 class="modal__title" id="modal-title" data-i18n="feiten.modal.title">Download je boekje</h2>
+      <p class="modal__sub" data-i18n="feiten.modal.sub">Vul je gegevens in om direct toegang te krijgen.</p>
+      <form id="gate-form" onsubmit="handleGateSubmit(event)">
+        <div class="field-row">
+          <div class="field"><input type="text" name="voornaam" data-i18n-placeholder="feiten.modal.ph_first" placeholder="Voornaam" required></div>
+          <div class="field"><input type="text" name="achternaam" data-i18n-placeholder="feiten.modal.ph_last" placeholder="Achternaam" required></div>
+        </div>
+        <div class="field"><input type="email" name="email" data-i18n-placeholder="feiten.modal.ph_email" placeholder="E-mailadres" required></div>
+        <div class="modal__check">
+          <input type="checkbox" id="newsletter-check" checked>
+          <label for="newsletter-check" data-i18n="feiten.modal.check_label">Ja, stuur me tips en updates over drugspreventie.</label>
+        </div>
+        <input type="hidden" id="modal-item" value="">
+        <input type="hidden" id="modal-choice-val" value="">
+        <input type="hidden" id="modal-booklet" value="">
+        <button type="submit" class="btn btn--primary btn--full" style="margin-top:8px;" data-i18n="feiten.modal.btn">Download nu gratis</button>
+      </form>
+      <p class="modal__trust" data-i18n-html="feiten.modal.trust">Je gegevens worden nooit gedeeld. <a href="privacy.html" style="color:var(--color-teal);">Privacybeleid</a></p>
+    </div>
+  </div>
+
+  <!-- VIDEO PLAYER OVERLAY (for documentary/PSA playback) -->
+  <div class="action-popup-overlay" id="video-overlay" onclick="if(event.target===this)closeVideoOverlay()">
+    <div class="action-popup" style="max-width:900px;padding:0;background:#000;">
+      <button class="action-popup__close" onclick="closeVideoOverlay()" style="color:#fff;z-index:10;">&times;</button>
+      <div id="video-overlay-content" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Shorthand for translation function
+    const t = (key) => window.t ? window.t(key) : key;
+
+    // NAV
+    (function(){
+      const burger = document.querySelector('.nav__burger');
+      const links = document.querySelector('.nav__links');
+      if (!burger || !links) return;
+      burger.addEventListener('click', (e) => { e.stopPropagation(); links.classList.toggle('open'); });
+      document.addEventListener('click', (e) => {
+        if (links.classList.contains('open') && !links.contains(e.target) && !burger.contains(e.target)) links.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') links.classList.remove('open'); });
+      links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    })();
+
+    // SCROLL ANIMATIONS
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+    // DRUG DATA
+    const drugData = {
+      cannabis: {
+        title: t('feiten.drug.cannabis.title'),
+        tag: t('feiten.drug.cannabis.tag'),
+        tagClass: 'drug-card__tag--cannabis',
+        hook: t('feiten.drug.cannabis.hook'),
+        facts: '<p>' + t('feiten.drug.cannabis.facts_p1') + '</p><ul><li>' + t('feiten.drug.cannabis.bullet1') + '</li><li>' + t('feiten.drug.cannabis.bullet2') + '</li><li>' + t('feiten.drug.cannabis.bullet3') + '</li><li>' + t('feiten.drug.cannabis.bullet4') + '</li><li>' + t('feiten.drug.cannabis.bullet5') + '</li><li>' + t('feiten.drug.cannabis.bullet6') + '</li></ul>',
+        booklet: t('feiten.drug.cannabis.booklet')
+      },
+      alcohol: {
+        title: t('feiten.drug.alcohol.title'),
+        tag: t('feiten.drug.alcohol.tag'),
+        tagClass: 'drug-card__tag--alcohol',
+        hook: t('feiten.drug.alcohol.hook'),
+        facts: '<p>' + t('feiten.drug.alcohol.facts_p1') + '</p><ul><li>' + t('feiten.drug.alcohol.bullet1') + '</li><li>' + t('feiten.drug.alcohol.bullet2') + '</li><li>' + t('feiten.drug.alcohol.bullet3') + '</li><li>' + t('feiten.drug.alcohol.bullet4') + '</li><li>' + t('feiten.drug.alcohol.bullet5') + '</li><li>' + t('feiten.drug.alcohol.bullet6') + '</li></ul>',
+        booklet: t('feiten.drug.alcohol.booklet')
+      },
+      ecstasy: {
+        title: t('feiten.drug.ecstasy.title'),
+        tag: t('feiten.drug.ecstasy.tag'),
+        tagClass: 'drug-card__tag--ecstasy',
+        hook: t('feiten.drug.ecstasy.hook'),
+        facts: '<p>' + t('feiten.drug.ecstasy.facts_p1') + '</p><ul><li>' + t('feiten.drug.ecstasy.bullet1') + '</li><li>' + t('feiten.drug.ecstasy.bullet2') + '</li><li>' + t('feiten.drug.ecstasy.bullet3') + '</li><li>' + t('feiten.drug.ecstasy.bullet4') + '</li><li>' + t('feiten.drug.ecstasy.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.ecstasy.booklet')
+      },
+      cocaine: {
+        title: t('feiten.drug.cocaine.title'),
+        tag: t('feiten.drug.cocaine.tag'),
+        tagClass: 'drug-card__tag--cocaine',
+        hook: t('feiten.drug.cocaine.hook'),
+        facts: '<p>' + t('feiten.drug.cocaine.facts_p1') + '</p><ul><li>' + t('feiten.drug.cocaine.bullet1') + '</li><li>' + t('feiten.drug.cocaine.bullet2') + '</li><li>' + t('feiten.drug.cocaine.bullet3') + '</li><li>' + t('feiten.drug.cocaine.bullet4') + '</li><li>' + t('feiten.drug.cocaine.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.cocaine.booklet')
+      },
+      meth: {
+        title: t('feiten.drug.crystal_meth.title'),
+        tag: t('feiten.drug.crystal_meth.tag'),
+        tagClass: 'drug-card__tag--meth',
+        hook: t('feiten.drug.crystal_meth.hook'),
+        facts: '<p>' + t('feiten.drug.crystal_meth.facts_p1') + '</p><ul><li>' + t('feiten.drug.crystal_meth.bullet1') + '</li><li>' + t('feiten.drug.crystal_meth.bullet2') + '</li><li>' + t('feiten.drug.crystal_meth.bullet3') + '</li><li>' + t('feiten.drug.crystal_meth.bullet4') + '</li><li>' + t('feiten.drug.crystal_meth.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.crystal_meth.booklet')
+      },
+      heroin: {
+        title: t('feiten.drug.heroin.title'),
+        tag: t('feiten.drug.heroin.tag'),
+        tagClass: 'drug-card__tag--heroin',
+        hook: t('feiten.drug.heroin.hook'),
+        facts: '<p>' + t('feiten.drug.heroin.facts_p1') + '</p><ul><li>' + t('feiten.drug.heroin.bullet1') + '</li><li>' + t('feiten.drug.heroin.bullet2') + '</li><li>' + t('feiten.drug.heroin.bullet3') + '</li><li>' + t('feiten.drug.heroin.bullet4') + '</li><li>' + t('feiten.drug.heroin.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.heroin.booklet')
+      },
+      lsd: {
+        title: t('feiten.drug.lsd.title'),
+        tag: t('feiten.drug.lsd.tag'),
+        tagClass: 'drug-card__tag--lsd',
+        hook: t('feiten.drug.lsd.hook'),
+        facts: '<p>' + t('feiten.drug.lsd.facts_p1') + '</p><ul><li>' + t('feiten.drug.lsd.bullet1') + '</li><li>' + t('feiten.drug.lsd.bullet2') + '</li><li>' + t('feiten.drug.lsd.bullet3') + '</li><li>' + t('feiten.drug.lsd.bullet4') + '</li><li>' + t('feiten.drug.lsd.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.lsd.booklet')
+      },
+      fentanyl: {
+        title: t('feiten.drug.fentanyl.title'),
+        tag: t('feiten.drug.fentanyl.tag'),
+        tagClass: 'drug-card__tag--fentanyl',
+        hook: t('feiten.drug.fentanyl.hook'),
+        facts: '<p>' + t('feiten.drug.fentanyl.facts_p1') + '</p><ul><li>' + t('feiten.drug.fentanyl.bullet1') + '</li><li>' + t('feiten.drug.fentanyl.bullet2') + '</li><li>' + t('feiten.drug.fentanyl.bullet3') + '</li><li>' + t('feiten.drug.fentanyl.bullet4') + '</li><li>' + t('feiten.drug.fentanyl.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.fentanyl.booklet')
+      },
+      synthetic: {
+        title: t('feiten.drug.synthetic.title'),
+        tag: t('feiten.drug.synthetic.tag'),
+        tagClass: 'drug-card__tag--synth',
+        hook: t('feiten.drug.synthetic.hook'),
+        facts: '<p>' + t('feiten.drug.synthetic.facts_p1') + '</p><ul><li>' + t('feiten.drug.synthetic.bullet1') + '</li><li>' + t('feiten.drug.synthetic.bullet2') + '</li><li>' + t('feiten.drug.synthetic.bullet3') + '</li><li>' + t('feiten.drug.synthetic.bullet4') + '</li><li>' + t('feiten.drug.synthetic.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.synthetic.booklet')
+      },
+      inhalants: {
+        title: t('feiten.drug.inhalants.title'),
+        tag: t('feiten.drug.inhalants.tag'),
+        tagClass: 'drug-card__tag--inhal',
+        hook: t('feiten.drug.inhalants.hook'),
+        facts: '<p>' + t('feiten.drug.inhalants.facts_p1') + '</p><ul><li>' + t('feiten.drug.inhalants.bullet1') + '</li><li>' + t('feiten.drug.inhalants.bullet2') + '</li><li>' + t('feiten.drug.inhalants.bullet3') + '</li><li>' + t('feiten.drug.inhalants.bullet4') + '</li><li>' + t('feiten.drug.inhalants.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.inhalants.booklet')
+      },
+      painkillers: {
+        title: t('feiten.drug.painkillers.title'),
+        tag: t('feiten.drug.painkillers.tag'),
+        tagClass: 'drug-card__tag--pain',
+        hook: t('feiten.drug.painkillers.hook'),
+        facts: '<p>' + t('feiten.drug.painkillers.facts_p1') + '</p><ul><li>' + t('feiten.drug.painkillers.bullet1') + '</li><li>' + t('feiten.drug.painkillers.bullet2') + '</li><li>' + t('feiten.drug.painkillers.bullet3') + '</li><li>' + t('feiten.drug.painkillers.bullet4') + '</li><li>' + t('feiten.drug.painkillers.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.painkillers.booklet')
+      },
+      ritalin: {
+        title: t('feiten.drug.ritalin.title'),
+        tag: t('feiten.drug.ritalin.tag'),
+        tagClass: 'drug-card__tag--ritalin',
+        hook: t('feiten.drug.ritalin.hook'),
+        facts: '<p>' + t('feiten.drug.ritalin.facts_p1') + '</p><ul><li>' + t('feiten.drug.ritalin.bullet1') + '</li><li>' + t('feiten.drug.ritalin.bullet2') + '</li><li>' + t('feiten.drug.ritalin.bullet3') + '</li><li>' + t('feiten.drug.ritalin.bullet4') + '</li><li>' + t('feiten.drug.ritalin.bullet5') + '</li></ul>',
+        booklet: t('feiten.drug.ritalin.booklet')
+      }
+    };
+
+    // DRUG PANEL
+    let currentDrug = '';
+    let currentBooklet = '';
+    function openDrugPanel(drugKey) {
+      const drug = drugData[drugKey];
+      if (!drug) return;
+      currentDrug = drugKey;
+      document.getElementById('panel-tag').textContent = drug.tag;
+      document.getElementById('panel-tag').className = 'drug-panel__tag ' + drug.tagClass;
+      document.getElementById('panel-title').textContent = drug.title;
+      document.getElementById('panel-hook').textContent = drug.hook;
+      document.getElementById('panel-facts-content').innerHTML = drug.facts;
+      document.getElementById('panel-booklet-title').textContent = t('feiten.panel.booklet_prefix') + drug.booklet;
+      document.getElementById('dl-one-btn').textContent = '"' + drug.booklet + '" ' + t('feiten.panel.dl_one_suffix');
+      // Reset to facts tab
+      showPanelSection('facts', document.querySelector('.drug-panel__nav-btn'));
+      // Check URL hash for deep linking
+      document.getElementById('drug-panel').classList.add('open');
+      document.getElementById('panel-backdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrugPanel() {
+      document.getElementById('drug-panel').classList.remove('open');
+      document.getElementById('panel-backdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showPanelSection(section, btn) {
+      document.querySelectorAll('.panel-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.drug-panel__nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + section).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    // Handle hash-based deep links (e.g. feiten.html#cannabis)
+    function checkHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && drugData[hash]) openDrugPanel(hash);
+    }
+    window.addEventListener('load', checkHash);
+    window.addEventListener('hashchange', checkHash);
+
+    // PSA SLIDER
+    function psaScroll(dir) {
+      const track = document.getElementById('psa-track');
+      if (!track) return;
+      const slide = track.querySelector('.psa-slide');
+      const w = slide ? slide.offsetWidth + 16 : 280;
+      track.scrollBy({ left: dir * w * 2, behavior: 'smooth' });
+    }
+    // Autoplay PSAs on hover
+    document.querySelectorAll('.psa-slide').forEach(slide => {
+      const v = slide.querySelector('video');
+      slide.addEventListener('mouseenter', () => { if (v) v.play().catch(()=>{}); });
+      slide.addEventListener('mouseleave', () => { if (v) { v.pause(); v.currentTime = 0; } });
+    });
+
+    // ACTION POPUP (4 buttons)
+    let currentPopupDrug = null;
+    let currentPopupScope = 'one';
+    const drugToPdf = {
+      cannabis: 'booklets/marijuana-nl.pdf',
+      alcohol: 'booklets/alcohol-nl.pdf',
+      ecstasy: 'booklets/ecstasy-nl.pdf',
+      cocaine: 'booklets/cocaine-nl.pdf',
+      meth: 'booklets/crystalmeth-nl.pdf',
+      heroin: 'booklets/heroin-nl.pdf',
+      lsd: 'booklets/lsd-nl.pdf',
+      fentanyl: 'booklets/fentanyl-nl.pdf',
+      synthetic: 'booklets/synthetic-nl.pdf',
+      inhalants: 'booklets/inhalants-nl.pdf',
+      painkillers: 'booklets/painkillers-nl.pdf',
+      ritalin: 'booklets/ritalin-nl.pdf',
+    };
+    const drugToPsa = {
+      cannabis: 'videos/SMPS284315H_tad-psa-05-marijuana-hd60i_nl.mp4',
+      alcohol: 'videos/SMPS283415H_tad-psa-02-alcohol-hd60i_nl.mp4',
+      ecstasy: 'videos/SMPS285215H_tad-psa-08-ecstasy-hd60i_nl.mp4',
+      cocaine: 'videos/SMPS285815H_tad-psa-10-popular-hd60i_nl.mp4',
+      meth: 'videos/SMPS287015H_tad-psa-14-meth-hd60i_nl.mp4',
+      heroin: 'videos/SMPS285515H_tad-psa-09-heroin-hd60i_nl.mp4',
+      lsd: 'videos/SMPS287615H_tad-psa-16-lsd-hd60i_nl.mp4',
+      synthetic: 'videos/SMPS286415H_tad-psa-12-synthetic-drugs-hd60i_nl.mp4',
+      inhalants: 'videos/SMPS287315H_tad-psa-15-inhalants-hd60i_nl.mp4',
+      painkillers: 'videos/SMPS284615H_tad-psa-06-painkillers-hd60i_nl.mp4',
+      ritalin: 'videos/SMPS287815H_tad-psa-17-ritalin-hd60i_nl.mp4',
+      fentanyl: 'videos/SMPS283715H_tad-psa-03-truth-about-drugs-hd60i_nl.mp4',
+    };
+
+    // YouTube IDs for each drug's PSA (hosted on the official Drug Free World / Scientology channel)
+    // Self-hosted Dutch commercials per drug (no third-party hosts)
+    const drugToVideo = {
+      cannabis: 'videos/commercials_nl/antidrug-commercial-marijuana-gateway_1280_nl.mp4',
+      alcohol: 'videos/commercials_nl/antidrug-commercial-alcohol-one-of-the-guys_1280_nl.mp4',
+      ecstasy: 'videos/commercials_nl/antidrug-commercial-ecstacy_1280_nl.mp4',
+      cocaine: 'videos/commercials_nl/antidrug-commercial-cocaine-party-all-night_1280_nl.mp4',
+      meth: 'videos/commercials_nl/antidrug-commercial-crystal-meth-stay-up-and-study_1280_nl.mp4',
+      heroin: 'videos/commercials_nl/antidrug-commercial-heroin-best-high_1280_nl.mp4',
+      lsd: 'videos/commercials_nl/antidrug-commercial-lsd-tripping_1280_nl.mp4',
+      synthetic: 'videos/commercials_nl/antidrug-commercial-synthetic-drugs_1280_nl.mp4',
+      inhalants: 'videos/commercials_nl/antidrug-commercial-inhalents-sniffing_1280_nl.mp4',
+      painkillers: 'videos/commercials_nl/antidrug-commercial-painkillers-medicine-chest_1280_nl.mp4',
+      ritalin: 'videos/commercials_nl/antidrug-commercial-ritalin-focus_1280_nl.mp4',
+      fentanyl: 'videos/commercials_nl/antidrug-commercial-they-said-they-lied_1280_nl.mp4',
+    };
+    const defaultVideo = 'videos/commercials_nl/antidrug-commercial-they-said-they-lied_1280_nl.mp4';
+
+    function openActionPopup(drugKey, scope) {
+      currentPopupDrug = drugKey;
+      currentPopupScope = scope || 'one';
+      const title = document.getElementById('action-popup-title');
+      const sub = document.getElementById('action-popup-sub');
+      if (drugKey && drugData[drugKey]) {
+        title.textContent = drugData[drugKey].title;
+        sub.textContent = currentPopupScope === 'all'
+          ? t('feiten.popup.sub_all')
+          : t('feiten.popup.sub_one');
+      } else {
+        title.textContent = t('feiten.popup.title_all');
+        sub.textContent = t('feiten.popup.sub_default');
+      }
+      document.getElementById('action-popup').classList.add('open');
+    }
+    function closeActionPopup() {
+      document.getElementById('action-popup').classList.remove('open');
+    }
+    function popupAction(action) {
+      closeActionPopup();
+      if (action === 'read') {
+        if (currentPopupDrug) {
+          openDrugPanel(currentPopupDrug);
+        } else {
+          document.getElementById('booklets-section').scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (action === 'download') {
+        const bookletTitle = currentPopupDrug && drugData[currentPopupDrug] ? drugData[currentPopupDrug].booklet : t('feiten.popup.all_booklets');
+        const pdf = currentPopupScope === 'all' || !currentPopupDrug
+          ? 'booklets/alle-boekjes-nl.pdf'
+          : (drugToPdf[currentPopupDrug] || 'booklets/alle-boekjes-nl.pdf');
+        openModal(bookletTitle, pdf);
+      } else if (action === 'order') {
+        window.location.href = 'betrokken.html#onderwijspakket';
+      } else if (action === 'documentary') {
+        const id = currentPopupDrug && drugToVideo[currentPopupDrug] ? drugToVideo[currentPopupDrug] : defaultVideo;
+        openVideoOverlay(id);
+      }
+    }
+
+    // VIDEO OVERLAY (self-hosted Dutch commercial)
+    function buildLocalEmbed(mp4) {
+      return '<video controls autoplay playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;background:#000;"><source src="https://zegneentegendrugsv2.vercel.app/'&#32;+&#32;mp4&#32;+&#32;'" type="video/mp4">Je browser kan deze video niet afspelen.</video>';
+    }
+    function openVideoOverlay(mp4) {
+      const wrap = document.getElementById('video-overlay-content');
+      wrap.innerHTML = buildLocalEmbed(mp4);
+      document.getElementById('video-overlay').classList.add('open');
+    }
+    function closeVideoOverlay() {
+      document.getElementById('video-overlay').classList.remove('open');
+      const wrap = document.getElementById('video-overlay-content');
+      const v = wrap.querySelector('video');
+      if (v) { try { v.pause(); } catch(e){} }
+      wrap.innerHTML = '';
+    }
+    function loadPanelVideo() {
+      const mp4 = drugToVideo[currentDrug] || defaultVideo;
+      const placeholder = document.getElementById('panel-video-placeholder');
+      const frame = document.getElementById('panel-video-frame');
+      placeholder.style.display = 'none';
+      frame.style.display = 'block';
+      frame.innerHTML = buildLocalEmbed(mp4);
+    }
+
+    // FEITEN NEWSLETTER
+    async function handleFeitenNewsletter(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = t('feiten.newsletter.btn_loading');
+      try {
+        const r = await fetch('/api/notion-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'newsletter',
+            fields: {
+              email: data.get('email'),
+              voornaam: data.get('voornaam'),
+              achternaam: data.get('achternaam'),
+              functie: data.get('functie'),
+              source: 'ken-de-feiten',
+            },
+          }),
+        });
+        if (!r.ok) throw new Error('Submission failed');
+        form.innerHTML = '<p style="font-weight:600;color:var(--color-navy);font-size:15px;text-align:center;">' + t('feiten.newsletter.success') + '</p>';
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = t('feiten.newsletter.btn');
+        alert(t('feiten.newsletter.error'));
+      }
+    }
+
+    // EMAIL GATE -- unified across all pages via js/capture.js
+    function hasCaptured() { return window.zntdCapture && window.zntdCapture.has(); }
+    function checkLongCookie() { return hasCaptured(); }
+    function setCaptured(email) { if (window.zntdCapture) window.zntdCapture.set(email); }
+
+    function openModal(bookletTitle, specificPdf) {
+      if (hasCaptured() || checkLongCookie()) {
+        const pdfUrl = specificPdf || 'booklets/alle-boekjes-nl.pdf';
+        window.location.href = pdfUrl;
+        return;
+      }
+      currentBooklet = bookletTitle;
+      document.getElementById('modal-title').textContent = bookletTitle ? t('feiten.modal.dl_prefix') + bookletTitle : t('feiten.modal.title');
+      document.getElementById('modal-booklet').value = bookletTitle;
+      document.getElementById('modal-choice-val').value = specificPdf || '';
+      document.getElementById('modal-item').value = bookletTitle;
+      // Prefill email if previously captured
+      if (window.zntdCapture) {
+        var prev = window.zntdCapture.getEmail();
+        if (prev) {
+          var ei = document.querySelector('#modal input[type="email"]');
+          if (ei) ei.value = prev;
+        }
+      }
+      document.getElementById('modal').classList.add('open');
+    }
+    function openModalForCurrent() {
+      const drug = drugData[currentDrug];
+      if (drug) openModal(drug.booklet);
+    }
+    function closeModal() { document.getElementById('modal').classList.remove('open'); }
+    document.getElementById('modal').addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeDrugPanel(); closeActionPopup(); closeVideoOverlay(); } });
+
+    function handleGateSubmit(e) {
+      e.preventDefault();
+      var emailField = e.target.querySelector('input[type="email"]');
+      setCaptured(emailField ? emailField.value.trim() : '');
+      closeModal();
+      const choiceVal = document.getElementById('modal-choice-val').value;
+      const bookletVal = document.getElementById('modal-booklet').value;
+      const bookletMap = {
+        'De Waarheid over Cannabis': 'booklets/marijuana-nl.pdf',
+        'De Feiten over Cocaïne': 'booklets/cocaine-nl.pdf',
+        'Crystal Meth: De Feiten': 'booklets/alle-boekjes-nl.pdf',
+        'De Feiten over Alcohol': 'booklets/alcohol-nl.pdf',
+        'De Waarheid over Heroïne': 'booklets/heroin-nl.pdf',
+        'Ecstasy: Wat je Moet Weten': 'booklets/ecstasy-nl.pdf',
+        'De Gevaren van Fentanyl': 'booklets/alle-boekjes-nl.pdf',
+        'Inhaleermiddelen: Het Verborgen Gevaar': 'booklets/inhalants-nl.pdf',
+      };
+      const pdfUrl = choiceVal ? choiceVal : (bookletMap[bookletVal] || 'booklets/alle-boekjes-nl.pdf');
+      window.location.href = pdfUrl;
+    }
+  </script>
+  <script src="js/capture.js"></script>
+  <script src="motion.js"></script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

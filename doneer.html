@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO meta -->
+  <meta name="description" content="Elke euro gaat rechtstreeks naar drugspreventie voor Belgische jongeren. Help ons gratis workshops en preventie-activiteiten aanbieden aan scholen en organisaties.">
+  <link rel="canonical" href="doneer.html">
+  <meta name="theme-color" content="#1B2A3D">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="Zeg Neen Tegen Drugs">
+  <meta property="og:title" content="Doneer — Steun drugspreventie in België | Zeg Neen Tegen Drugs">
+  <meta property="og:description" content="Elke euro gaat rechtstreeks naar drugspreventie voor Belgische jongeren. Help ons gratis workshops en preventie-activiteiten aanbieden aan scholen en organisaties.">
+  <meta property="og:url" content="https://zegneentegendrugsv2.vercel.app/doneer.html">
+  <meta property="og:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Doneer — Steun drugspreventie in België | Zeg Neen Tegen Drugs">
+  <meta name="twitter:description" content="Elke euro gaat rechtstreeks naar drugspreventie voor Belgische jongeren. Help ons gratis workshops en preventie-activiteiten aanbieden aan scholen en organisaties.">
+  <meta name="twitter:image" content="https://zegneentegendrugsv2.vercel.app/img/logo-sntd.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Is mijn donatie belastingaftrekbaar?","acceptedAnswer":{"@type":"Answer","text":"Ja, donaties aan Drug Free World Belgium zijn belastingaftrekbaar in België voor giften vanaf €40 per jaar. Je ontvangt een fiscaal attest per e-mail na je donatie."}},
+      {"@type":"Question","name":"Hoe wordt mijn donatie gebruikt?","acceptedAnswer":{"@type":"Answer","text":"90% van elke donatie gaat rechtstreeks naar ons educatieprogramma: drukken en verspreiden van boekjes, organiseren van schoolbezoeken en ondersteunen van vrijwilligers."}},
+      {"@type":"Question","name":"Kan ik een maandelijkse donatie opzetten?","acceptedAnswer":{"@type":"Answer","text":"Ja, kies Maandelijks in het doneerformulier. Je kunt op elk moment annuleren via info@zegneentegendrugs.be."}}
+    ]
+  }
+  </script>
+  <!-- /SEO meta -->
+  <link rel="icon" type="image/png" href="img/logo-sntd-white.png">
+  <link rel="apple-touch-icon" href="img/logo-sntd-white.png">
+  <title data-i18n="doneer._title">Doneer — Drug Free World Belgium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --color-navy:       #1B2A3D;
+      --color-navy-mid:   #1A3A6B;
+      --color-gold:       #C8A96E;
+      --color-bg:         #FFFFFF;
+      --color-surface:    #F5F5F5;
+      --color-text:       #1A1A1A;
+      --color-text-light: #5A5A5A;
+      --color-muted:      #888888;
+      --color-border:     rgba(0,0,0,0.10);
+      --color-accent:     #65BDD3;
+      --color-teal:       #65BDD3;
+      --color-teal-dark:  #4A9BB5;
+      --color-teal-light: #F0F8FA;
+      --color-yellow:     #EFFF8D;
+      --font-display:     'Barlow Condensed', sans-serif;
+      --font-heading:     'Barlow Condensed', sans-serif;
+      --font-body:        'Inter', sans-serif;
+      --nav-height:       80px;
+      --space-xs:  8px;
+      --space-sm:  16px;
+      --space-md:  32px;
+      --space-lg:  64px;
+      --space-xl:  100px;
+      --space-xxl: 140px;
+      --radius: 0px;
+      --transition: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .animate { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .animate.visible { opacity: 1; transform: none; }
+    .animate:nth-child(2) { transition-delay: 0.1s; }
+    .animate:nth-child(3) { transition-delay: 0.2s; }
+    .animate:nth-child(4) { transition-delay: 0.3s; }
+    .animate:nth-child(5) { transition-delay: 0.4s; }
+    .animate:nth-child(6) { transition-delay: 0.5s; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000; transition: background var(--transition), box-shadow var(--transition); }
+    .nav__inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-md); }
+    .nav__logo { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: #fff; transition: color var(--transition); }
+    .nav__logo-img { width: 40px; height: 40px; object-fit: contain; filter: brightness(0) invert(1); transition: filter var(--transition); }
+    .nav--light .nav__logo-img, .nav.scrolled .nav__logo-img { filter: none; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-md); flex: 1; justify-content: center;}
+    .nav__links a { font-family: var(--font-body); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.85); position: relative; transition: color var(--transition); }
+    .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-gold); transition: width var(--transition); }
+    .nav__links a:hover::after { width: 100%; } .nav__links a.active::after { width: 100%; transition: none; }
+    .nav__cta { background: var(--color-accent) !important; color: #fff !important; padding: 10px 24px; }
+    .nav__cta::after { display: none !important; }
+    .nav__cta:hover { background: #4da8c0 !important; }
+    .nav--light { background: #fff; border-bottom: 1px solid var(--color-border); }
+    .nav--light .nav__logo { color: var(--color-navy); }
+    .nav--light .nav__links a { color: var(--color-text); }
+    .nav.scrolled { background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav.scrolled .nav__logo { color: var(--color-navy); }
+    .nav.scrolled .nav__links a { color: var(--color-text); }
+    .nav__burger { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--color-navy); }
+    .nav__right { display: flex; align-items: center; gap: 12px; }
+    @media (max-width: 768px) {
+      .nav__burger { display: block; }
+      .nav__right .nav__cta { padding: 8px 14px; font-size: 11px; }
+      .nav__links { display: none; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; flex-direction: column; padding: var(--space-md); gap: var(--space-sm); border-bottom: 1px solid var(--color-border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+      .nav__links.open { display: flex; }
+      .nav__links a { color: var(--color-text) !important; }
+    }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; border: none; transition: background var(--transition), color var(--transition), border-color var(--transition); }
+    .btn--accent { background: var(--color-accent); color: #fff; }
+    .btn--accent:hover { background: #4da8c0; }
+    .btn--navy { background: var(--color-navy); color: #fff; }
+    .btn--navy:hover { background: var(--color-accent); }
+    .btn--full { width: 100%; }
+
+    .section { padding: var(--space-xl) var(--space-md); }
+    .section--surface { background: var(--color-surface); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section__eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gold); margin-bottom: var(--space-xs); }
+    .section__title { font-family: var(--font-display); font-size: 40px; font-weight: 800; text-transform: uppercase; color: var(--color-navy); line-height: 1; margin-bottom: var(--space-lg); }
+
+    /* HERO */
+    .donate-hero { position: relative; background: var(--color-navy); min-height: 50vh; display: flex; align-items: center; padding: calc(var(--nav-height) + var(--space-xl)) var(--space-md) var(--space-xl); overflow: hidden; }
+    .donate-hero__bg { position: absolute; inset: 0; background: url('img/actie-08.jpg') center/cover no-repeat; opacity: 0.85; z-index: 0; }
+    .donate-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,61,0.20) 0%, rgba(27,42,61,0.55) 100%); }
+    .donate-hero__inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; width: 100%; }
+    .donate-hero h1 { font-family: var(--font-display); font-size: 64px; font-weight: 800; text-transform: uppercase; color: #fff; line-height: 0.95; margin-bottom: var(--space-md); }
+    .donate-hero p { font-size: 20px; color: rgba(255,255,255,0.75); max-width: 560px; line-height: 1.7; }
+
+    /* DONATION WIDGET */
+    .donate-widget-wrap { padding: var(--space-xl) var(--space-md); }
+    .donate-widget { max-width: 640px; margin: 0 auto; background: var(--color-bg); box-shadow: 0 4px 40px rgba(0,0,0,0.08); padding: var(--space-lg); }
+    .donate-widget h2 { font-family: var(--font-display); font-size: 36px; font-weight: 800; text-transform: uppercase; color: var(--color-navy); margin-bottom: var(--space-lg); }
+
+    .amount-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm); margin-bottom: var(--space-sm); }
+    .amount-btn { background: var(--color-surface); border: 2px solid var(--color-border); padding: var(--space-sm) var(--space-md); font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--color-navy); cursor: pointer; transition: border-color var(--transition), background var(--transition); }
+    .amount-btn:hover, .amount-btn.active { border-color: var(--color-navy); background: var(--color-navy); color: #fff; }
+
+    .custom-amount { margin-bottom: var(--space-lg); }
+    .custom-amount input { width: 100%; padding: 14px var(--space-sm); border: 1px solid var(--color-border); font-family: var(--font-body); font-size: 16px; outline: none; transition: border-color var(--transition); }
+    .custom-amount input:focus { border-color: var(--color-navy); }
+
+    .frequency-toggle { display: flex; margin-bottom: var(--space-lg); border: 1px solid var(--color-border); }
+    .freq-btn { flex: 1; padding: var(--space-sm); background: none; border: none; font-family: var(--font-body); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; color: var(--color-text-light); transition: background var(--transition), color var(--transition); }
+    .freq-btn.active { background: var(--color-navy); color: #fff; }
+
+    .donate-submit { width: 100%; padding: 18px; background: var(--color-navy); color: #fff; border: none; font-family: var(--font-display); font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; transition: background var(--transition); margin-bottom: var(--space-md); }
+    .donate-submit:hover { background: var(--color-accent); }
+
+    .trust-bar { display: flex; justify-content: space-around; padding-top: var(--space-md); border-top: 1px solid var(--color-border); }
+    .trust-item { text-align: center; }
+    .trust-item__icon { font-size: 24px; margin-bottom: 6px; }
+    .trust-item__label { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); }
+
+    /* IMPACT CARDS */
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+    .impact-card { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--space-lg) var(--space-md); text-align: center; transition: transform var(--transition); }
+    .impact-card:hover { transform: translateY(-4px); }
+    .impact-card__amount { font-family: var(--font-display); font-size: 56px; font-weight: 800; color: var(--color-navy); line-height: 1; margin-bottom: var(--space-sm); }
+    .impact-card__desc { font-size: 15px; color: var(--color-text-light); line-height: 1.6; }
+
+    /* TRANSPARENCY */
+    .transparency { max-width: 640px; margin: 0 auto; }
+    .transparency h2 { font-family: var(--font-display); font-size: 40px; font-weight: 800; text-transform: uppercase; color: var(--color-navy); margin-bottom: var(--space-lg); }
+    .bar-item { margin-bottom: var(--space-md); }
+    .bar-item__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xs); }
+    .bar-item__label { font-size: 15px; font-weight: 500; color: var(--color-text); }
+    .bar-item__pct { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--color-navy); }
+    .bar-track { height: 8px; background: var(--color-surface); }
+    .bar-fill { height: 100%; background: var(--color-navy); transition: width 1s ease; }
+    .bar-fill--gold { background: var(--color-gold); }
+    .bar-fill--accent { background: var(--color-accent); }
+
+    /* FAQ */
+    .faq-list { max-width: 760px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-question { width: 100%; background: none; border: none; padding: var(--space-md) 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--color-navy); text-transform: uppercase; cursor: pointer; text-align: left; gap: var(--space-sm); }
+    .faq-question__icon { font-size: 24px; transition: transform var(--transition); flex-shrink: 0; color: var(--color-gold); }
+    .faq-item.open .faq-question__icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p { padding-bottom: var(--space-md); font-size: 16px; color: var(--color-text-light); line-height: 1.7; }
+
+    /* FOOTER -- unified with feiten.html / resources.html */
+    .footer { background: var(--color-navy); padding: 80px var(--space-md) 32px; color: #fff; position: relative; }
+    .footer__top { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-xl); padding-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer__newsletter { max-width: 380px; }
+    .footer__newsletter h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 16px; letter-spacing: -0.01em; }
+    .footer__newsletter p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 24px; }
+    .footer__newsletter-form { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 8px; transition: border-color var(--transition); }
+    .footer__newsletter-form:focus-within { border-bottom-color: var(--color-teal); }
+    .footer__newsletter-form input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-family: var(--font-body); font-size: 14px; padding: 8px 0; }
+    .footer__newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .footer__newsletter-form button { background: transparent; border: 0; color: #fff; cursor: pointer; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 6px; transition: color var(--transition); padding: 0; }
+    .footer__newsletter-form button:hover { color: var(--color-teal); }
+    .footer__col-heading { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+    .footer__nav { display: flex; flex-direction: column; gap: 12px; }
+    .footer__nav a, .footer__contact a { font-family: var(--font-body); font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.85); transition: color var(--transition); line-height: 1.4; }
+    .footer__nav a:hover, .footer__contact a:hover { color: var(--color-teal); }
+    .footer__contact { display: flex; flex-direction: column; gap: 12px; }
+    .footer__contact span { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .footer__brand { max-width: 1280px; margin: 40px auto 20px; }
+    .footer__brand-logo { font-family: var(--font-heading); font-size: clamp(18px, 2.4vw, 30px); font-weight: 700; line-height: 1; letter-spacing: 0.02em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+    .footer__bottom { max-width: 1280px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 12px; }
+    .footer__bottom a { color: rgba(255,255,255,0.4); transition: color var(--transition); }
+    .footer__bottom a:hover { color: var(--color-teal); }
+    .footer__legal { display: flex; gap: 24px; }
+
+    @media (max-width: 1024px) {
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .footer__top > :first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .donate-hero h1 { font-size: 48px; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr; gap: var(--space-lg); padding-bottom: 48px; }
+      .trust-bar { flex-direction: column; gap: var(--space-md); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav nav--light" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="img/logo-sntd.png" data-i18n-alt="nav.logo" alt="Zeg Neen Tegen Drugs"><span data-i18n="nav.logo">Zeg Neen Tegen Drugs</span></a>
+      <ul class="nav__links">
+        <li><a href="feiten.html" data-i18n="nav.facts">Ken de Feiten</a></li>
+        <li><a href="resources.html" data-i18n="nav.downloads">Downloads &amp; Tools</a></li>
+        <li><a href="betrokken.html" data-i18n="nav.join">Doe Mee</a></li>
+        <li><a href="wie-zijn-wij.html" data-i18n="nav.about">Over Ons</a></li>
+      </ul>
+      <div class="nav__right">
+        <a class="nav__cta" href="doneer.html" data-i18n="nav.donate">Doneer</a>
+        <button class="nav__burger" data-i18n-aria="nav.burger" aria-label="Menu">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="donate-hero">
+    <div class="donate-hero__bg"></div>
+    <div class="donate-hero__inner">
+      <h1 data-i18n="doneer.hero.title">Red levens met effectieve drugspreventie</h1>
+      <p data-i18n="doneer.hero.sub">Elke euro gaat rechtstreeks naar drugspreventie voor Belgische jongeren.</p>
+    </div>
+  </section>
+
+  <div class="donate-widget-wrap">
+    <div class="donate-widget animate">
+      <h2 data-i18n="doneer.widget.title">Kies je bedrag</h2>
+      <div class="amount-grid">
+        <button class="amount-btn" onclick="selectAmount(this, 10)">&euro;10</button>
+        <button class="amount-btn active" onclick="selectAmount(this, 25)">&euro;25</button>
+        <button class="amount-btn" onclick="selectAmount(this, 50)">&euro;50</button>
+        <button class="amount-btn" onclick="selectAmount(this, 100)">&euro;100</button>
+      </div>
+      <div class="custom-amount">
+        <input type="number" id="custom-amount" data-i18n-placeholder="doneer.widget.ph_amount" placeholder="Ander bedrag (&euro;)" min="1" oninput="clearAmountBtns()">
+      </div>
+      <div class="frequency-toggle">
+        <button class="freq-btn active" onclick="selectFreq(this)" data-i18n="doneer.widget.once">Eenmalig</button>
+        <button class="freq-btn" onclick="selectFreq(this)" data-i18n="doneer.widget.monthly">Maandelijks</button>
+      </div>
+      <form id="donate-form" onsubmit="handleDonate(event)">
+        <input type="hidden" id="stripe-key" value="YOUR_STRIPE_KEY">
+        <input type="hidden" id="selected-amount" value="25">
+        <input type="hidden" id="selected-freq" value="eenmalig">
+        <button type="submit" class="donate-submit" data-i18n="doneer.widget.submit">Doneer nu</button>
+      </form>
+      <div class="trust-bar">
+        <div class="trust-item">
+          <div class="trust-item__icon">&#128274;</div>
+          <div class="trust-item__label" data-i18n="doneer.widget.trust1">Veilige betaling</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">&#128153;</div>
+          <div class="trust-item__label" data-i18n="doneer.widget.trust2">Transparant</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">&#11088;</div>
+          <div class="trust-item__label" data-i18n="doneer.widget.trust3">Belastingaftrekbaar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;text-align:center;">
+      <p class="animate" style="font-size:17px;color:var(--color-text);line-height:1.8;margin-bottom:var(--space-md);" data-i18n="doneer.intro.p1">Omdat alcohol- en druggebruik steeds meer en steeds jongere levens treft, zet de vereniging Zeg Neen Tegen Drugs zich in om jongeren te beschermen tegen de schadelijke gevolgen van drugs.</p>
+      <p class="animate" style="font-size:16px;color:var(--color-muted);line-height:1.8;margin-bottom:var(--space-md);" data-i18n="doneer.intro.p2">Zeg Neen Tegen Drugs is een vereniging zonder winstoogmerk die werkt voor maatschappelijke en preventieve doeleinden.</p>
+      <p class="animate" style="font-size:16px;color:var(--color-muted);line-height:1.8;" data-i18n="doneer.intro.p3">Dankzij uw steun kunnen wij onze workshops en preventieactiviteiten gratis aanbieden aan scholen, verenigingen en andere organisaties die jongeren begeleiden.</p>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="container">
+      <p class="section__eyebrow animate" data-i18n="doneer.impact.eyebrow">Jouw impact</p>
+      <h2 class="section__title animate" data-i18n="doneer.impact.title">Wat doet jouw donatie?</h2>
+      <div class="impact-grid">
+        <div class="impact-card animate">
+          <div class="impact-card__amount" data-i18n="doneer.impact.card1.amount">&euro;10</div>
+          <p class="impact-card__desc" data-i18n="doneer.impact.card1.body">Financiert 10 gratis boekjes voor jongeren in Belgische scholen.</p>
+        </div>
+        <div class="impact-card animate">
+          <div class="impact-card__amount" data-i18n="doneer.impact.card2.amount">&euro;25</div>
+          <p class="impact-card__desc" data-i18n="doneer.impact.card2.body">Bekostigt een volledige lesdag over drugspreventie op een school.</p>
+        </div>
+        <div class="impact-card animate">
+          <div class="impact-card__amount" data-i18n="doneer.impact.card3.amount">&euro;50</div>
+          <p class="impact-card__desc" data-i18n="doneer.impact.card3.body">Ondersteunt een vrijwilliger voor een volledige maand actief werk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section--surface">
+    <div class="container">
+      <p class="section__eyebrow animate" data-i18n="doneer.faq.eyebrow">Vragen</p>
+      <h2 style="font-family:var(--font-display);font-size:40px;font-weight:800;text-transform:uppercase;color:var(--color-navy);margin-bottom:var(--space-lg);" class="animate" data-i18n="doneer.faq.title">Veelgestelde vragen</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="doneer.faq.q1">Is mijn donatie belastingaftrekbaar?</span>
+            <span class="faq-question__icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="doneer.faq.a1">Ja, donaties aan Drug Free World Belgium zijn belastingaftrekbaar in Belgi&#235; voor giften vanaf &euro;40 per jaar. Je ontvangt een fiscaal attest per e-mail na je donatie.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="doneer.faq.q2">Hoe wordt mijn donatie gebruikt?</span>
+            <span class="faq-question__icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="doneer.faq.a2">90% van elke donatie gaat rechtstreeks naar ons educatieprogramma: drukken en verspreiden van boekjes, organiseren van schoolbezoeken en ondersteunen van vrijwilligers.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="doneer.faq.q3">Kan ik een maandelijkse donatie opzetten?</span>
+            <span class="faq-question__icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n-html="doneer.faq.a3">Ja! Kies "Maandelijks" in het doneerformulier hierboven. Je kunt je maandelijkse donatie op elk moment annuleren via een e-mail aan info@zegneentegendrugs.be.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="doneer.faq.q4">Hoe neem ik contact op over mijn donatie?</span>
+            <span class="faq-question__icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="doneer.faq.a4">Voor vragen over je donatie kun je ons bereiken via info@zegneentegendrugs.be. We reageren binnen 2 werkdagen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__newsletter">
+        <h3>Schrijf je in voor onze nieuwsbrief</h3>
+        <p>Updates over onze acties, activiteiten en het laatste nieuws rond drugspreventie.</p>
+        <form class="footer__newsletter-form" onsubmit="handleFooterSignup(event)">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
+          <button type="submit">Inschrijven <span aria-hidden="true">&rarr;</span></button>
+        </form>
+      </div>
+      <div>
+        <p class="footer__col-heading">Site</p>
+        <nav class="footer__nav">
+          <a href="index.html">Home</a>
+          <a href="feiten.html">Ken de Feiten</a>
+          <a href="resources.html">Downloads &amp; Tools</a>
+          <a href="betrokken.html">Doe Mee</a>
+          <a href="wie-zijn-wij.html">Over Ons</a>
+          <a href="doneer.html">Doneer</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Volg ons</p>
+        <nav class="footer__nav">
+          <a href="https://www.instagram.com/ditesnonaladrogue.be/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/drugfreeworldbelgium/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.youtube.com/channel/UC2AlsxMEs65IKBbh7viOM4Q" target="_blank" rel="noopener">YouTube</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-heading">Contact</p>
+        <div class="footer__contact">
+          <a href="mailto:info@zegneentegendrugs.be">info@zegneentegendrugs.be</a>
+          <span>België</span>
+          <span style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.7;margin-top:8px;">Drugspreventie door educatie.<br>In samenwerking met Foundation for a Drug-Free World.</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__brand"><div class="footer__brand-logo">Zeg Neen Tegen Drugs</div></div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Zeg Neen Tegen Drugs VZW. Alle rechten voorbehouden. Het logo van de Stichting voor een Drugsvrije Wereld is eigendom van deze stichting en wordt met toestemming gebruikt.</span>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacybeleid</a>
+        <a href="cookies.html">Cookiebeleid</a>
+      </div>
+      </div>
+  </footer>
+  <script>
+    async function handleFooterSignup(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const btn = form.querySelector('button');
+      if (!email) return;
+      btn.disabled = true;
+      const orig = btn.innerHTML;
+      btn.innerHTML = 'Versturen...';
+      try {
+        const r = await fetch('/api/notion-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'newsletter', fields: { email, source: 'footer' } }) });
+        if (!r.ok) throw new Error();
+        form.innerHTML = '<span style="color:var(--color-teal);font-size:14px;">Bedankt — je staat op de lijst.</span>';
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+        alert('Er ging iets mis. Probeer het opnieuw.');
+      }
+    }
+  </script>
+
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+    (function(){
+      const burger = document.querySelector('.nav__burger');
+      const links = document.querySelector('.nav__links');
+      if (!burger || !links) return;
+      burger.addEventListener('click', (e) => { e.stopPropagation(); links.classList.toggle('open'); });
+      document.addEventListener('click', (e) => {
+        if (links.classList.contains('open') && !links.contains(e.target) && !burger.contains(e.target)) links.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') links.classList.remove('open'); });
+      links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    })();
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav__links a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) link.classList.add('active');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelector('.transparency') && barObserver.observe(document.querySelector('.transparency'));
+
+    function selectAmount(btn, amount) {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('selected-amount').value = amount;
+      document.getElementById('custom-amount').value = '';
+    }
+    function clearAmountBtns() {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    }
+    function selectFreq(btn) {
+      document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('selected-freq').value = btn.textContent.trim().toLowerCase();
+    }
+    function handleDonate(e) {
+      e.preventDefault();
+      const amount = document.getElementById('custom-amount').value || document.getElementById('selected-amount').value;
+      const freq = document.getElementById('selected-freq').value;
+      alert(window.t('doneer.alert.thanks').replace('{amount}', amount).replace('{freq}', freq));
+    }
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+  <script src="js/capture.js"></script>
+  <script src="motion.js"></script>
+  <script src="motion.js"></script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>
