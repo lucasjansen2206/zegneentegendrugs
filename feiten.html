@@ -1335,7 +1335,7 @@
 
     // VIDEO OVERLAY (self-hosted Dutch commercial)
     function buildLocalEmbed(mp4) {
-      return '<video controls autoplay playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;background:#000;"><source src="https://zegneentegendrugsv2.vercel.app/'&#32;+&#32;mp4&#32;+&#32;'" type="video/mp4">Je browser kan deze video niet afspelen.</video>';
+      return '<video controls autoplay playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;background:#000;"><source src="' + mp4 + '" type="video/mp4">Je browser kan deze video niet afspelen.</video>';
     }
     function openVideoOverlay(mp4) {
       const wrap = document.getElementById('video-overlay-content');
