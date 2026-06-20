@@ -713,7 +713,7 @@
       const orig = btn.innerHTML;
       btn.innerHTML = 'Versturen...';
       try {
-        const r = await fetch('/api/notion-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'newsletter', fields: { email, source: 'footer' } }) });
+        const r = await fetch('https://formsubmit.co/ajax/info@zegneentegendrugs.be', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ _subject: 'Nieuwe nieuwsbrief aanmelding', email, source: 'footer' }) });
         if (!r.ok) throw new Error();
         form.innerHTML = '<span style="color:var(--color-teal);font-size:14px;">Bedankt — je staat op de lijst.</span>';
       } catch {
@@ -779,10 +779,10 @@
       fields.newsletter = form.querySelector('input[name="newsletter"]')?.checked || false;
 
       try {
-        const res = await fetch('/api/notion-submit', {
+        const res = await fetch('https://formsubmit.co/ajax/info@zegneentegendrugs.be', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ type, fields }),
+          body: JSON.stringify({ _subject: 'Nieuw formulier: ' + type, ...fields }),
         });
         if (!res.ok) throw new Error('Request failed');
         form.style.display = 'none';
@@ -853,10 +853,10 @@
       fields.newsletter = form.querySelector('#pledge-newsletter').checked;
 
       try {
-        const res = await fetch('/api/notion-submit', {
+        const res = await fetch('https://formsubmit.co/ajax/info@zegneentegendrugs.be', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ type: 'pledge', fields }),
+          body: JSON.stringify({ _subject: 'Nieuwe belofte ondertekend', ...fields }),
         });
         if (!res.ok) throw new Error('Request failed');
         pledgeCount++;
