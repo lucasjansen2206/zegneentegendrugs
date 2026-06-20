@@ -585,10 +585,10 @@
     function openVideo(stem, title) {
       const modal = document.getElementById('videoModal');
       const frame = document.getElementById('videoModalFrame');
-      const mp4 = 'videos/' + stem + '.mp4';
+      const mp4 = 'dl/videos/' + stem + '.mp4';
       const poster = 'videos/posters/' + stem + '.jpg';
       const safeTitle = title || '';
-      frame.innerHTML = '<video controls autoplay playsinline preload="metadata" poster="' + poster + '" title="' + safeTitle + '" style="position:absolute;inset:0;width:100%;height:100%;background:#000;"><source src="' + mp4 + '" type="video/mp4">Je browser kan deze video niet afspelen. <a href="dl/' + mp4 + '" download>Download de video</a>.</video>';
+      frame.innerHTML = '<video controls autoplay playsinline preload="metadata" poster="' + poster + '" title="' + safeTitle + '" style="position:absolute;inset:0;width:100%;height:100%;background:#000;"><source src="' + mp4 + '" type="video/mp4">Je browser kan deze video niet afspelen. <a href="' + mp4 + '" download>Download de video</a>.</video>';
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
